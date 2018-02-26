@@ -188,6 +188,15 @@ public class Country {
 	}
 
 	/****************************************************************************
+	 * Used to iterate through neighbors to give options after 
+	 * selecting a country
+	 * @return the neighbors
+	 ***************************************************************************/
+	public Country[] getNeighbors() {
+		return neighbors;
+	}
+	
+	/****************************************************************************
 	 * @return name: the name of the country
 	 ***************************************************************************/
 	public String getName() {
