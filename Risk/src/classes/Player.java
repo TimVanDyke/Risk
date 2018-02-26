@@ -34,7 +34,7 @@ public class Player {
 	public Player () {
 		this.kingdom = new ArrayList<Country>();
 		this.inGame = true;
-		this.name = "nameless";
+		this.name = "blank";
 	}
 	
 	/****************************************************************************
