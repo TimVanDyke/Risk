@@ -27,119 +27,13 @@ public class Country {
 	 * @param name: the name of the country
 	 * @param c1: the neighbor
 	 ***************************************************************************/
-	public Country(String name, Country c1) {
+	public Country(String name, int size) {
 		Owner = null;
 		numUnits = 0;
 		this.name = name;
-		neighbors = new Country[1];
-		neighbors[0] = c1;
+		neighbors = new Country[size];
 	}
 	
-	/****************************************************************************
-	 * the constructor for Country. This sets Owner to null, numUnits to 0, and 
-	 * name to what they are instantiated as. This is the constructor for 
-	 * countries with two neighbors
-	 * @param name: the name of the country
-	 * @param c1: the first neighbor
-	 * @param c2: the second neighbor
-	 ***************************************************************************/
-	public Country(String name, Country c1, Country c2) {
-		Owner = null;
-		numUnits = 0;
-		this.name = name;
-		neighbors = new Country[2];
-		neighbors[0] = c1;
-		neighbors[1] = c2;
-	}
-	
-	/****************************************************************************
-	 * the constructor for Country. This sets Owner to null, numUnits to 0, and 
-	 * name to what they are instantiated as. This is the constructor for 
-	 * countries with three neighbors
-	 * @param name: the name of the country
-	 * @param c1: the first neighbor
-	 * @param c2: the second neighbor
-	 * @param c3: the third neighbor
-	 ***************************************************************************/
-	public Country(String name, Country c1, Country c2, Country c3) {
-		Owner = null;
-		numUnits = 0;
-		this.name = name;
-		neighbors = new Country[3];
-		neighbors[0] = c1;
-		neighbors[1] = c2;
-		neighbors[2] = c3;
-	}
-	
-	/****************************************************************************
-	 * the constructor for Country. This sets Owner to null, numUnits to 0, and 
-	 * name to what they are instantiated as. This is the constructor for 
-	 * countries with four neighbors
-	 * @param name: the name of the country
-	 * @param c1: the first neighbor
-	 * @param c2: the second neighbor
-	 * @param c3: the third neighbor
-	 * @param c4: the fourth neighbor
-	 ***************************************************************************/
-	public Country(String name, Country c1, Country c2, Country c3, Country c4) {
-		Owner = null;
-		numUnits = 0;
-		this.name = name;
-		neighbors = new Country[4];
-		neighbors[0] = c1;
-		neighbors[1] = c2;
-		neighbors[2] = c3;
-		neighbors[3] = c4;
-	}
-	
-	/****************************************************************************
-	 * the constructor for Country. This sets Owner to null, numUnits to 0, and 
-	 * name to what they are instantiated as. This is the constructor for 
-	 * countries with five neighbors
-	 * @param name: the name of the country
-	 * @param c1: the first neighbor
-	 * @param c2: the second neighbor
-	 * @param c3: the third neighbor
-	 * @param c4: the fourth neighbor
-	 * @param c5: the fifth neighbor
-	 ***************************************************************************/
-	public Country(String name, Country c1, Country c2, Country c3, Country c4, Country c5) {
-		Owner = null;
-		numUnits = 0;
-		this.name = name;
-		neighbors = new Country[5];
-		neighbors[0] = c1;
-		neighbors[1] = c2;
-		neighbors[2] = c3;
-		neighbors[3] = c4;
-		neighbors[4] = c5;
-	}
-
-	/****************************************************************************
-	 * the constructor for Country. This sets Owner to null, numUnits to 0, and 
-	 * name to what they are instantiated as. This is the constructor for 
-	 * countries with six neighbors
-	 * @param name: the name of the country
-	 * @param c1: the first neighbor
-	 * @param c2: the second neighbor
-	 * @param c3: the third neighbor
-	 * @param c4: the fourth neighbor
-	 * @param c5: the fifth neighbor
-	 * @param c6: the sixth neighbor
-	 ***************************************************************************/
-	public Country(String name, Country c1, Country c2, Country c3, Country c4, Country c5, Country c6) {
-		Owner = null;
-		numUnits = 0;
-		this.name = name;
-		neighbors = new Country[6];
-		neighbors[0] = c1;
-		neighbors[1] = c2;
-		neighbors[2] = c3;
-		neighbors[3] = c4;
-		neighbors[4] = c5;
-		neighbors[5] = c6;
-	}
-
 	/****************************************************************************
 	 * used by the board to check who owns a country
 	 * @return the owner
