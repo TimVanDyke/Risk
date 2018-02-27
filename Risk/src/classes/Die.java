@@ -25,7 +25,7 @@ public class Die {
 	 ***************************************************************************/
 	public Die(int minRoll, int maxRoll) {
 		this.minRoll = minRoll;
-		this.maxRoll = maxRoll;
+		this.maxRoll = maxRoll + 1;
 		rand = new Random();
 	}
 	
