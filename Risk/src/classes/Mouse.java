@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 /****************************************************************************
- * A class to control mouse movement and mouse button presses
+ * A class to control mouse movement and mouse button presses 
  ***************************************************************************/
 public class Mouse implements MouseListener, MouseMotionListener{
 	
