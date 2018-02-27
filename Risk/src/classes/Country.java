@@ -91,6 +91,81 @@ public class Country {
 	}
 	
 	/****************************************************************************
+	 * Adds two neighbors to the selected country
+	 * @param Country n1: a neighbor
+	 * @param Country n2: a neighbor
+	 ***************************************************************************/
+	public void addTwoNeighbors(Country n1, Country n2) {
+		neighbors[0] = n1;
+		neighbors[1] = n2;
+		return;
+	}
+	
+	/****************************************************************************
+	 * Adds two neighbors to the selected country
+	 * @param Country n1: a neighbor
+	 * @param Country n2: a neighbor
+	 * @param Country n3: a neighbor
+	 ***************************************************************************/
+	public void addThreeNeighbors(Country n1, Country n2, Country n3) {
+		neighbors[0] = n1;
+		neighbors[1] = n2;
+		neighbors[2] = n3;
+		return;
+	}
+	
+	/****************************************************************************
+	 * Adds two neighbors to the selected country
+	 * @param Country n1: a neighbor
+	 * @param Country n2: a neighbor
+	 * @param Country n3: a neighbor
+	 * @param Country n4: a neighbor
+	 ***************************************************************************/
+	public void addFourNeighbors(Country n1, Country n2, Country n3, Country n4) {
+		neighbors[0] = n1;
+		neighbors[1] = n2;
+		neighbors[2] = n3;
+		neighbors[3] = n4;
+		return;
+	}
+	
+	/****************************************************************************
+	 * Adds two neighbors to the selected country
+	 * @param Country n1: a neighbor
+	 * @param Country n2: a neighbor
+	 * @param Country n3: a neighbor
+	 * @param Country n4: a neighbor
+	 * @param Country n5: a neighbor
+	 ***************************************************************************/
+	public void addFiveNeighbors(Country n1, Country n2, Country n3, Country n4, Country n5) {
+		neighbors[0] = n1;
+		neighbors[1] = n2;
+		neighbors[2] = n3;
+		neighbors[3] = n4;
+		neighbors[4] = n5;
+		return;
+	}
+	
+	/****************************************************************************
+	 * Adds two neighbors to the selected country
+	 * @param Country n1: a neighbor
+	 * @param Country n2: a neighbor
+	 * @param Country n3: a neighbor
+	 * @param Country n4: a neighbor
+	 * @param Country n5: a neighbor
+	 * @param Country n6: a neighbor
+	 ***************************************************************************/
+	public void addSixNeighbors(Country n1, Country n2, Country n3, Country n4, Country n5, Country n6) {
+		neighbors[0] = n1;
+		neighbors[1] = n2;
+		neighbors[2] = n3;
+		neighbors[3] = n4;
+		neighbors[4] = n5;
+		neighbors[5] = n6;
+		return;
+	}
+	
+	/****************************************************************************
 	 * @return name: the name of the country
 	 ***************************************************************************/
 	public String getName() {
