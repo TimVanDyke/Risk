@@ -42,4 +42,12 @@ public class Board {
 		Player winner = att;
 		return winner;
 	}
+	
+	/****************************************************************************
+	 * Initializes all countries
+	 ***************************************************************************/
+	private void intializeCountries(){
+		Country Alaska = new Country("Alaska", 3);
+		Country NorthwestTerritory = new Country("Northwest Territory", 4);
+	}
 }
