@@ -44,7 +44,7 @@ public class Board {
 	}
 	
 	/****************************************************************************
-	 * Initializes all countries
+	 * Initializes all countries, and adds neighbors for each country
 	 ***************************************************************************/
 	private void intializeCountries(){
 		//North America
@@ -84,7 +84,7 @@ public class Board {
 		//Asia
 		Country MiddleEast = new Country("Middle East", 6);
 		Country Afghanistan = new Country("Afghanistan", 5);
-		Country Ural = new Country("Ural", 3);
+		Country Ural = new Country("Ural", 4);
 		Country Siberia = new Country("Siberia", 5);
 		Country Yakutsk = new Country("Yakutsk", 3);
 		Country Irkutsk = new Country("Irkutsk", 4);
@@ -128,10 +128,33 @@ public class Board {
 		Ukraine.addSixNeighbors(SouthernEurope, MiddleEast, NorthernEurope, Scandinavia, Ural, Afghanistan);
 		
 		//Add neighbors for Africa
+		NorthAfrica.addSixNeighbors(Brazil, WesternEurope, SouthernEurope, Egypt, EastAfrica, Congo);
+		Egypt.addFourNeighbors(NorthAfrica, SouthernEurope, MiddleEast, EastAfrica);
+		EastAfrica.addSixNeighbors(Egypt, MiddleEast, Madagascar, SouthAfrica, Congo, NorthAfrica);
+		Congo.addThreeNeighbors(NorthAfrica, EastAfrica, SouthAfrica);
+		SouthAfrica.addThreeNeighbors(Congo, EastAfrica, Madagascar);
+		Madagascar.addTwoNeighbors(EastAfrica, SouthAfrica);
 		
 		//Add neighbors for Asia
+		MiddleEast.addSixNeighbors(Ukraine, Afghanistan, India, EastAfrica, Egypt, SouthernEurope);
+		Afghanistan.addFiveNeighbors(Ural, China, India, MiddleEast, Ukraine);
+		Ural.addFourNeighbors(Siberia, China, Afghanistan, Ukraine);
+		Siberia.addFiveNeighbors(Yakutsk, Irkutsk, Mongolia, China, Ural);
+		Yakutsk.addThreeNeighbors(Ural, Irkutsk, Kamchatka);
+		Irkutsk.addFourNeighbors(Yakutsk, Kamchatka, Mongolia, Siberia);
+		Japan.addTwoNeighbors(Kamchatka, Mongolia);
+		Mongolia.addFiveNeighbors(Irkutsk, Kamchatka, Japan, China, Siberia);
+		China.addSixNeighbors(Mongolia, Siam, India, Afghanistan, Ural, Siberia);
+		India.addFourNeighbors(China, Siam, MiddleEast, Afghanistan);
+		Kamchatka.addFiveNeighbors(Yakutsk, Alaska, Japan, Mongolia, Irkutsk);
+		Siam.addThreeNeighbors(China, Indonesia, India);
 		
 		//Add neighbors for Australia
+		Indonesia.addThreeNeighbors(Siam, NewGuinea, WesternAustralia);
+		NewGuinea.addThreeNeighbors(Indonesia, WesternAustralia, EasternAustralia);
+		WesternAustralia.addThreeNeighbors(Indonesia, NewGuinea, EasternAustralia);
+		EasternAustralia.addTwoNeighbors(WesternAustralia, NewGuinea);
+		
 		return;
 	}
 }
