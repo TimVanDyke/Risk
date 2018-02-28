@@ -157,4 +157,17 @@ public class Board {
 		
 		return;
 	}
+	
+	//Test method, probably delete later
+	private void testNeighbors(){
+		Country c1 = new Country("c1", 3);
+		Country c2 = new Country("c2", 3);
+		Country c3 = new Country("c3", 3);
+		Country c4 = new Country("c4", 3);
+		
+		c1.addThreeNeighbors(c2, c3, c4);
+		c2.addThreeNeighbors(c1, c3, c4);
+		c3.addThreeNeighbors(c1, c2, c4);
+		c4.addThreeNeighbors(c1, c2, c3);
+	}
 }
