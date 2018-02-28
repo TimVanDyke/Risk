@@ -95,13 +95,43 @@ public class Board {
 		Country Kamchatka = new Country("Kamchatka", 5);
 		Country Siam = new Country("Siam", 3);
 		
-		
 		//Australia
 		Country Indonesia = new Country("Indonesia", 3);
 		Country NewGuinea = new Country("New Guinea", 3);
 		Country WesternAustralia = new Country("Western Australia", 3);
 		Country EasternAustralia = new Country("Eastern Australia", 2);
 		
+		//Add neighbors for North America
+		Alaska.addThreeNeighbors(NorthwestTerritory, Alberta, Kamchatka);
+		NorthwestTerritory.addFourNeighbors(Alaska, Greenland, Alberta, Ontario);
+		Greenland.addFourNeighbors(Iceland, Quebec, Ontario, NorthwestTerritory);
+		Alberta.addFourNeighbors(Alaska, NorthwestTerritory, Ontario, WesternUS);
+		Ontario.addSixNeighbors(NorthwestTerritory, Greenland, Quebec, EasternUS, WesternUS, Alberta);
+		Quebec.addThreeNeighbors(Greenland, Ontario, EasternUS);
+		EasternUS.addFourNeighbors(CentralAmerica, Quebec, Ontario, WesternUS);
+		WesternUS.addFourNeighbors(CentralAmerica, Alberta, EasternUS, Ontario);
+		CentralAmerica.addThreeNeighbors(Venezuela, WesternUS, EasternUS);
+		
+		//Add neighbors for South America
+		Venezuela.addThreeNeighbors(CentralAmerica, Peru, Brazil);
+		Peru.addThreeNeighbors(Venezuela, Brazil, Argentina);
+		Brazil.addFourNeighbors(Venezuela, Peru, Argentina, NorthAfrica);
+		Argentina.addTwoNeighbors(Peru, Brazil);
+		
+		//Add neighbors for Europe 
+		Iceland.addThreeNeighbors(Greenland, GreatBritain, Scandinavia);
+		GreatBritain.addFourNeighbors(Iceland, Scandinavia, WesternEurope, NorthernEurope);
+		WesternEurope.addFourNeighbors(NorthAfrica, GreatBritain, NorthernEurope, SouthernEurope);
+		NorthernEurope.addFiveNeighbors(GreatBritain, Scandinavia, SouthernEurope, WesternEurope, Ukraine);
+		Scandinavia.addFourNeighbors(Iceland, GreatBritain, NorthernEurope, Ukraine);
+		SouthernEurope.addSixNeighbors(WesternEurope, NorthernEurope, Egypt, MiddleEast, Ukraine, NorthAfrica);
+		Ukraine.addSixNeighbors(SouthernEurope, MiddleEast, NorthernEurope, Scandinavia, Ural, Afghanistan);
+		
+		//Add neighbors for Africa
+		
+		//Add neighbors for Asia
+		
+		//Add neighbors for Australia
 		return;
 	}
 }
