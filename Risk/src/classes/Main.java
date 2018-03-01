@@ -17,6 +17,7 @@ public class Main {
 			}
 			numRoll++;
 		}
+		
 	}
 }
 //hi tim
