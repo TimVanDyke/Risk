@@ -36,7 +36,11 @@ public class Board {
 		//adding all the countries to the world
 		World = new Country[42];
 		
-		sprite = Sprite.board;
+		//sets sprite
+		sprite = Sprite.testBoard;
+		
+		//after testing sets sprite
+		//sprite = Sprite.board;
 	}
 	
 	/****************************************************************************
