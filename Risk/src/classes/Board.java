@@ -18,6 +18,9 @@ public class Board {
 	/** the dice for the defender */
 	private Die[] def;
 	
+	/** the sprite for the board */
+	private Sprite sprite;
+	
 	/****************************************************************************
 	 * The constructor for the board class
 	 ***************************************************************************/
@@ -30,19 +33,32 @@ public class Board {
 		att = new Die[3];
 		def = new Die[2];
 		
-		
 		//adding all the countries to the world
 		World = new Country[42];
+		
+		sprite = Sprite.board;
 	}
 	
+	/**
+	 * @return the sprite for the board
+	 */
+	public Sprite getSprite() {
+		return sprite;
+	}
+
+	
 	/****************************************************************************
-	 * The constructor for the board class
+	 * The attack method
+	 * @param FIXME
+	 * @param FIXME
+	 * @param FIXME
 	 ***************************************************************************/
 	public Player attack(Player att, Player def, Country co) {
 		Player winner = att;
 		return winner;
 	}
 	
+		
 	/****************************************************************************
 	 * Initializes all countries, and adds neighbors for each country
 	 ***************************************************************************/
