@@ -1,10 +1,23 @@
 package classes;
 
+/****************************************************************************
+ * A class to initialize everything, then had it all off to the GUI
+ ***************************************************************************/
 public class Main {
 	
-//	private Main() {
-//		
-//	}
+	/** the width of the screen */
+	private int width;
+	
+	/** the height of the screen */
+	private int height;
+	
+	private Board board;
+	
+	private screen 
+	
+	public Main() {
+		height = 1;
+	}
 	public static void main(String[] args) {
 		Die die1 = new Die();
 		int roll = 1;
@@ -19,4 +32,3 @@ public class Main {
 		}
 	}
 }
-//hi tim
