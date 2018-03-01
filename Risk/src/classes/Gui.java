@@ -1,9 +1,16 @@
 package classes;
 
-public class Gui {
+import java.awt.*;
+
+import javax.swing.JFrame;
+
+public class Gui extends JFrame{
 	
 	
 	public Gui() {
 		
 	}
+	
+	
+	
 }
