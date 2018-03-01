@@ -39,9 +39,9 @@ public class Board {
 		sprite = Sprite.board;
 	}
 	
-	/**
+	/****************************************************************************
 	 * @return the sprite for the board
-	 */
+	 ***************************************************************************/
 	public Sprite getSprite() {
 		return sprite;
 	}
