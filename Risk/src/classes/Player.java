@@ -45,13 +45,27 @@ public class Player {
 	}
 
 	/****************************************************************************
-	 * This sends the entire kingdom of the player back to whoever called it
-	 * FIXME I think I should add public methods to modify this as needed, not 
-	 * give the whole array
-	 * @return the kingdom
+	 * Adds a country to the player's kingdom
+	 * @param Country country: the country to add
 	 ***************************************************************************/
-	public ArrayList<Country> getKingdom() {
-		return kingdom;
+	public void addCountry(Country country) {
+		kingdom.add(country);
+	}
+
+	/****************************************************************************
+	 * Adds a country to the player's kingdom
+	 * @param Country country: the country to add
+	 ***************************************************************************/
+	public void removeCountry(Country country) {
+		int rem = -1;
+		for (int i = 0; i < kingdom.size(); i++) {
+			if (kingdom.get(i).getName() == country.getName()) {
+				rem = i;
+			}
+		}
+		if (rem == -1)
+			System.out.println(country.getName() + "isn't in this player's kingdom");
+		kingdom.remove(rem);
 	}
 
 	/****************************************************************************
