@@ -20,6 +20,9 @@ public class Country {
 	/** This country's neighbors */
 	private Country[] neighbors;
 	
+	/** this country's sprite */
+	Sprite sprite;
+	
 	/****************************************************************************
 	 * the constructor for Country. This sets Owner to null, numUnits to 0, and 
 	 * name to what they are instantiated as. This is the constructor for 
@@ -27,11 +30,12 @@ public class Country {
 	 * @param name: the name of the country
 	 * @param c1: the neighbor
 	 ***************************************************************************/
-	public Country(String name, int size) {
+	public Country(String name, int size, String path) {
 		Owner = null;
 		numUnits = 0;
 		this.name = name;
 		neighbors = new Country[size];
+		sprite = new Sprite(path);
 	}
 	
 	/****************************************************************************
@@ -172,4 +176,10 @@ public class Country {
 		return name;
 	}
 	
+	/****************************************************************************
+	 * @return sprite: this country's sprite
+	 ***************************************************************************/
+	public Sprite getSprite() {
+		return sprite;
+	}
 }
