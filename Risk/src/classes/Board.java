@@ -107,8 +107,16 @@ public class Board {
 			break;
 		case 1:
 			if (temp - 1 <= 0){
+				//Checks to see if defender is about to lose
+				if(defender.getOwner().getKingdomSize() == 1){
+					defender.getOwner().lose();
+				}
 				defender.getOwner().removeCountry(defender);
 				attacker.getOwner().addCountry(defender);
+				//Checks to see if attacker won
+				if(attacker.getOwner().getKingdomSize() == 42){
+					attacker.getOwner().winner();
+				}
 				//Also need to add some units to new country. Player's choice.
 			}
 			else{
@@ -117,8 +125,16 @@ public class Board {
 			break;
 		case 2:
 			if (temp - 2 <= 0){
+				//Checks to see if defender is about to lose
+				if(defender.getOwner().getKingdomSize() == 1){
+					defender.getOwner().lose();
+				}
 				defender.getOwner().removeCountry(defender);
 				attacker.getOwner().addCountry(defender);
+				//Checks to see if attacker won
+				if(attacker.getOwner().getKingdomSize() == 42){
+					attacker.getOwner().winner();
+				}
 				//Also need to add some units to new country. Player's choice.
 			}
 			else{

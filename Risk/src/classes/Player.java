@@ -18,6 +18,9 @@ public class Player {
 	/** This is true until the player has no countries in their kingdom */
 	private boolean inGame;
 	
+	/** This is false until the player's kingdom is the entire world*/
+	private boolean winner;
+	
 	/****************************************************************************
 	 * A constructor for Player. 
 	 * @param String Name: this sets the player's name
@@ -26,6 +29,7 @@ public class Player {
 		this.kingdom = new ArrayList<Country>();
 		this.inGame = true;
 		this.name = name;
+		this.winner = false;
 	}
 	
 	/****************************************************************************
@@ -35,6 +39,7 @@ public class Player {
 		this.kingdom = new ArrayList<Country>();
 		this.inGame = true;
 		this.name = "blank";
+		this.winner = false;
 	}
 	
 	/****************************************************************************
@@ -42,6 +47,13 @@ public class Player {
 	 ***************************************************************************/
 	public void lose() {
 		this.inGame = false;
+	}
+	
+	/****************************************************************************
+	 * this is called when a player wins the game.  
+	 ***************************************************************************/
+	public void winner() {
+		this.winner = true;
 	}
 
 	/****************************************************************************
@@ -83,4 +95,14 @@ public class Player {
 	public boolean isInGame() {
 		return inGame;
 	}
+
+	/****************************************************************************
+	 * returns size of the kingdom
+	 * @return int: size of kingdom
+	 ***************************************************************************/
+	public int getKingdomSize() {
+		return kingdom.size();
+	}
+
+	
 }

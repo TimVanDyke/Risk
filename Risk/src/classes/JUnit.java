@@ -8,7 +8,10 @@ public class JUnit {
 
 	@Test
 	public void testDice() {
-		fail("Not yet implemented");
+		Die a = new Die();
+		Die b = new Die(10, 20);
+		assertTrue(a.Roll() > 0 && a.Roll() < 7);
+		assertTrue(b.Roll() > 9 && b.Roll() < 21);
 	}
 
 }
