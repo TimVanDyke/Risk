@@ -98,8 +98,8 @@ public class Board {
 			break;
 		case 0:
 			if (temp - 1 <= 0){
-				def.removeCountry(defender);
-				att.addCountry(defender);
+				defender.getOwner().removeCountry(defender);
+				attacker.getOwner().addCountry(defender);
 				//Also need to add some units to new country. Player's choice.
 			}
 			else{
@@ -109,8 +109,8 @@ public class Board {
 			break;
 		case 1:
 			if (temp - 1 <= 0){
-				def.removeCountry(defender);
-				att.addCountry(defender);
+				defender.getOwner().removeCountry(defender);
+				attacker.getOwner().addCountry(defender);
 				//Also need to add some units to new country. Player's choice.
 			}
 			else{
@@ -119,8 +119,8 @@ public class Board {
 			break;
 		case 2:
 			if (temp - 2 <= 0){
-				def.removeCountry(defender);
-				att.addCountry(defender);
+				defender.getOwner().removeCountry(defender);
+				attacker.getOwner().addCountry(defender);
 				//Also need to add some units to new country. Player's choice.
 			}
 			else{
