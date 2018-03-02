@@ -29,7 +29,7 @@ public class Sprite {
 	public static Sprite highlight_att = new Sprite("res/highlight_att.png");
 	
 	/****************************************************************************
-	 * the constructor for sprite this calls the load function
+	 * the constructor for sprite this calls the load function.
 	 * @param String filename: the path for the sprite.
 	 ***************************************************************************/
 	public Sprite (String filename) {
@@ -59,21 +59,21 @@ public class Sprite {
 	}
 
 	/****************************************************************************
-	 * @return the pixels
+	 * @return the pixels.
 	 ***************************************************************************/
 	public int[] getPixels() {
 		return pixels;
 	}
 
 	/****************************************************************************
-	 * @return the width
+	 * @return the width.
 	 ***************************************************************************/
 	public int getWidth() {
 		return width;
 	}
 
 	/****************************************************************************
-	 * @return the height
+	 * @return the height.
 	 ***************************************************************************/
 	public int getHeight() {
 		return height;

@@ -4,7 +4,7 @@ import java.util.Random;
 
 /****************************************************************************
  * A class to roll create dice for the game to use. This an instance of this
- * class will be used in the main method so players can roll dice
+ * class will be used in the main method so players can roll dice.
  ***************************************************************************/
 public class Die {
 	
@@ -20,8 +20,8 @@ public class Die {
 	/****************************************************************************
 	 * A constructor for our dice class. One object of this class's type are going 
 	 * to be created in the main method to roll the dice. 
-	 * @param int minRoll: the minimum roll possible on the dice
-	 * @param int maxRoll: the maximum roll possible on the dice
+	 * @param int minRoll: the minimum roll possible on the dice.
+	 * @param int maxRoll: the maximum roll possible on the dice.
 	 ***************************************************************************/
 	public Die(int minRoll, int maxRoll) {
 		this.minRoll = minRoll;
@@ -32,7 +32,7 @@ public class Die {
 	/****************************************************************************
 	 * A constructor for our dice class. One object of this class's type are going 
 	 * to be created in the main method to roll the dice. 
-	 * This is the default constructor so there are no parameters
+	 * This is the default constructor so there are no parameters.
 	 ***************************************************************************/
 	public Die() {
 		this.minRoll = 1;
@@ -43,7 +43,7 @@ public class Die {
 	/****************************************************************************
 	 * This method "rolls the dice" and gives an integer that is from minRoll
 	 * to maxRoll inclusive on both sides.
-	 * @return int: a number from minRoll to maxRoll inclusive
+	 * @return int: a number from minRoll to maxRoll inclusive.
 	 ***************************************************************************/
 	public int Roll() {
 		return (rand.nextInt(maxRoll - minRoll) + minRoll);

@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 /****************************************************************************
- * A class to control mouse movement and mouse button presses 
+ * A class to control mouse movement and mouse button presses.
  ***************************************************************************/
 public class Mouse implements MouseListener, MouseMotionListener{
 	
@@ -29,31 +29,31 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	}
 	
 	/****************************************************************************
-	 * the getter for the x coordinate
-	 * @return x
+	 * the getter for the x coordinate.
+	 * @return x.
 	 ***************************************************************************/
 	public static int getX() {
 		return x;
 	}
 	
 	/****************************************************************************
-	 * the getter for the y coordinate
-	 * @return y
+	 * the getter for the y coordinate.
+	 * @return y.
 	 ***************************************************************************/
 	public static int getY() { 
 		return y;
 	}
 	
 	/****************************************************************************
-	 * the getter for the b coordinate
-	 * @return b
+	 * the getter for the b coordinate.
+	 * @return b.
 	 ***************************************************************************/
 	public static int getB() {
 		return b;
 	}
 
 	/****************************************************************************
-	 * This changes the x and y position of the mouse when the mouse moves
+	 * This changes the x and y position of the mouse when the mouse moves.
 	 ***************************************************************************/
 	@Override
 	public void mouseMoved(MouseEvent e) {
@@ -67,7 +67,7 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	}
 
 	/****************************************************************************
-	 * updates all variables when the mouse is pressed
+	 * updates all variables when the mouse is pressed.
 	 ***************************************************************************/
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -77,7 +77,7 @@ public class Mouse implements MouseListener, MouseMotionListener{
 	}
 
 	/****************************************************************************
-	 * updates b when the mouse is released
+	 * updates b when the mouse is released,
 	 ***************************************************************************/
 	@Override
 	public void mouseReleased(MouseEvent e) {

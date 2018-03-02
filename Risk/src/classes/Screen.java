@@ -17,9 +17,9 @@ public class Screen {
 	private int[] pixels;
 	
 	/****************************************************************************
-	 * the constructor for Screen
-	 * @param int width: the width of the screen
-	 * @param int height: the height of the screen
+	 * the constructor for Screen.
+	 * @param int width: the width of the screen.
+	 * @param int height: the height of the screen.
 	 ***************************************************************************/
 	public Screen(int width, int height) {
 		this.width = width;
@@ -29,8 +29,8 @@ public class Screen {
 	}
 	
 	/****************************************************************************
-	 * this renders the board on GUI,
-	 * @param Board board: the board, and this is used to get the board's sprite
+	 * this renders the board on GUI.
+	 * @param Board board: the board, and this is used to get the board's sprite.
 	 ***************************************************************************/
 	public void renderBoard(Board board) {
 		Sprite sp = board.getSprite();
@@ -45,8 +45,8 @@ public class Screen {
 	/****************************************************************************
 	 * This method renders the board and all the countries to the screen. This 
 	 * method has hard-coded values to put the 4 test countries on the screen 
-	 * right now
-	 * @param Country[] country all the countries to draw
+	 * right now.
+	 * @param Country[] country all the countries to draw.
 	 ***************************************************************************/
 	public void renderCountries(Country[] country) {
 		//renders a string to the screen
@@ -104,7 +104,7 @@ public class Screen {
 	}
 	
 	/****************************************************************************
-	 * a method to clear the screen by rendering grey over the whole screen
+	 * a method to clear the screen by rendering grey over the whole screen.
 	 ***************************************************************************/
 	public void clear() {
 		//goes through every pixel setting them to Grey
@@ -114,8 +114,8 @@ public class Screen {
 	}
 	
 	/****************************************************************************
-	 * returns every pixel on the screen
-	 * @return pixels: the array of pixels
+	 * returns every pixel on the screen.
+	 * @return pixels: the array of pixels.
 	 ***************************************************************************/
 	public int[] getPixels() {
 		return pixels;

@@ -84,8 +84,8 @@ public class Main {
 	}
 	
 	/****************************************************************************
-	 * Initializes all countries, and adds neighbors for each country
-	 * FIXME: For release 2
+	 * Initializes all countries, and adds neighbors for each country.
+	 * FIXME: This code is for release 2.
 	 ***************************************************************************/
 //	private void intializeCountries(){
 //		//North America
@@ -201,8 +201,8 @@ public class Main {
 //	}
 	
 	/****************************************************************************
-	 * Initializes test countries, and adds neighbors for each country
-	 * This method will be deleted later
+	 * Initializes test countries, and adds neighbors for each country.
+	 * This method will be deleted later.
 	 ***************************************************************************/
 	private void testNeighbors() {
 		green = new Country("green", 3, "res/testCountryGreen.png");
@@ -217,14 +217,14 @@ public class Main {
 	}
 
 	/****************************************************************************
-	 * @return the current turn as a player
+	 * @return the current turn as a player.
 	 ***************************************************************************/
 	public Player getTurn() {
 		return turn;
 	}
 	
 	/****************************************************************************
-	 * Switches the turn from one player to the other
+	 * Switches the turn from one player to the other.
 	 ***************************************************************************/
 	public void switchTurn() {
 		if(turn == p1)
@@ -234,63 +234,63 @@ public class Main {
 	}
 
 	/****************************************************************************
-	 * @return the world Country[]
+	 * @return the world Country[].
 	 ***************************************************************************/
 	public Country[] getWorld() {
 		return world;
 	}
 
 	/****************************************************************************
-	 * @return the screen object
+	 * @return the screen object.
 	 ***************************************************************************/
 	public Screen getScreen() {
 		return screen;
 	}
 
 	/****************************************************************************
-	 * @return the attackers die array
+	 * @return the attackers die array.
 	 ***************************************************************************/
 	public void setScreen(Screen screen) {
 		this.screen = screen;
 	}
 
 	/****************************************************************************
-	 * @return the current selected country
+	 * @return the current selected country.
 	 ***************************************************************************/
 	public Country getSelected() {
 		return selected;
 	}
 
 	/****************************************************************************
-	 * @param what to set the currently selected country to
+	 * @param what to set the currently selected country to.
 	 ***************************************************************************/
 	public void setSelected(Country selected) {
 		this.selected = selected;
 	}
 
 	/****************************************************************************
-	 * @return lets main/Gui know whether a menu is open currently
+	 * @return lets main/Gui know whether a menu is open currently.
 	 ***************************************************************************/
 	public boolean isShowMenu() {
 		return showMenu;
 	}
 
 	/****************************************************************************
-	 * how Gui tells main whether or not it has a menu open
+	 * how Gui tells main whether or not it has a menu open.
 	 ***************************************************************************/
 	public void setShowMenu(boolean showMenu) {
 		this.showMenu = showMenu;
 	}
 
 	/****************************************************************************
-	 * @return the instance of board in main
+	 * @return the instance of board in main.
 	 ***************************************************************************/
 	public Board getBoard() {
 		return board;
 	}
 
 	/****************************************************************************
-	 * @return what the player chose (0 for attack, 1 for add units)
+	 * @return what the player chose (0 for attack, 1 for add units).
 	 ***************************************************************************/
 	public int getChoice() {
 		return choice;
@@ -298,7 +298,7 @@ public class Main {
 
 	/****************************************************************************
 	 * 0 for attack, 1 for add units
-	 * @param the current player's choice is set to choice 
+	 * @param the current player's choice is set to choice.
 	 ***************************************************************************/
 	public void setChoice(int choice) {
 		this.choice = choice;
@@ -306,24 +306,25 @@ public class Main {
 
 
 	/****************************************************************************
-	 * The way that Gui has access to attack
-	 * @param Country c, this is the defending country that attacker chose
+	 * The way that Gui has access to attack.
+	 * @param Country c, this is the defending country that attacker chose.
+	 * FIXME This is for release 2
 	 ***************************************************************************/
 	public void Attack(Country c) {
 		board.attack(selected, c, board.getAtt(), board.getDef());
 	}
 
 	/****************************************************************************
-	 * A method to add units to a country
-	 * FIXME currently it adds 5 units, later it will depend on a number
-	 * specified by the user
+	 * A method to add units to a country.
+	 * FIXME currently it adds 5 units, later it will depend on a number.
+	 * specified by the user.
 	 ***************************************************************************/
 	public void addUnits() {
 		selected.setNumUnits("add", 5);
 	}
 	
 	/****************************************************************************
-	 * @return selected's numUnits
+	 * @return selected's numUnits.
 	 ***************************************************************************/
 	public int getUnits() {
 		return selected.getNumUnits();

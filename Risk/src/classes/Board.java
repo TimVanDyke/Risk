@@ -4,7 +4,7 @@ import java.util.*;
 
 /****************************************************************************
  * A class to hold the countries and dice. This also has 
- * the logic to move and attack from one country to another
+ * the logic to move and attack from one country to another.
  ***************************************************************************/
 public class Board {
 	
@@ -21,7 +21,7 @@ public class Board {
 	private Sprite sprite;
 	
 	/****************************************************************************
-	 * The constructor for the board class
+	 * The constructor for the board class.
 	 ***************************************************************************/
 	public Board() {
 		
@@ -46,7 +46,7 @@ public class Board {
 	}
 	
 	/****************************************************************************
-	 * @return the sprite for the board
+	 * @return the sprite for the board.
 	 ***************************************************************************/
 	public Sprite getSprite() {
 		return sprite;
@@ -54,11 +54,11 @@ public class Board {
 
 	
 	/****************************************************************************
-	 * The attack method
-	 * @param Country attacker: the attacking country
-	 * @param Country defender: the defending country
-	 * @param attackerDice: number of dice the attacker is using
-	 * @param defenderDice: number of dice the defender is using
+	 * The attack method.
+	 * @param Country attacker: the attacking country.
+	 * @param Country defender: the defending country.
+	 * @param attackerDice: number of dice the attacker is using.
+	 * @param defenderDice: number of dice the defender is using.
 	 ***************************************************************************/
 	public void attack(Country attacker, 
 			Country defender, Die[] attackerDice, Die[] defenderDice) {
@@ -151,8 +151,8 @@ public class Board {
 	}
 	
 	/****************************************************************************
-	 * Reverse array method
-	 * @param an array arr to be reversed
+	 * Reverse array method.
+	 * @param an array arr to be reversed.
 	 ***************************************************************************/
 	private void reverse(int[] arr){
 		int i = 0;
@@ -167,28 +167,28 @@ public class Board {
 
 	
 	/****************************************************************************
-	 * @return the attackers die array
+	 * @return the attackers die array.
 	 ***************************************************************************/
 	public Die[] getAtt() {
 		return att;
 	}
 
 	/****************************************************************************
-	 * @param the attackers die array
+	 * @param the attackers die array.
 	 ***************************************************************************/
 	public void setAtt(Die[] att) {
 		this.att = att;
 	}
 
 	/****************************************************************************
-	 * @return the defenders die array
+	 * @return the defenders die array.
 	 ***************************************************************************/
 	public Die[] getDef() {
 		return def;
 	}
 
 	/****************************************************************************
-	 * @param the defenders die array
+	 * @param the defenders die array.
 	 ***************************************************************************/
 	public void setDef(Die[] def) {
 		this.def = def;

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 /****************************************************************************
  * A class to hold all the logic for rendering the game as well as player-
- * Input. I hope to combine Main and Gui
+ * Input. I hope to combine Main and Gui.
  ***************************************************************************/
 public class Gui extends JFrame{
 	private static final long serialVersionUID = 1L;
@@ -89,7 +89,7 @@ public class Gui extends JFrame{
 	
 	/****************************************************************************
 	 * This puts the game as the front window no your computer, sets running 
-	 * to true, and calls run()
+	 * to true, and calls run().
 	 ***************************************************************************/
 	public void start() {
 		running = true;
@@ -139,7 +139,7 @@ public class Gui extends JFrame{
 	/****************************************************************************
 	 * pops up a menu to let the user attack or addUnits
 	 * if they already have selected attack, then it pops up a menu of neighbors
-	 * THIS IS FOR RELEASE 2
+	 * THIS IS FOR RELEASE 2.
 	 ***************************************************************************/
 	private int showMenu() {
 		// TODO Auto-generated method stub
@@ -148,7 +148,7 @@ public class Gui extends JFrame{
 	
 	/****************************************************************************
 	 * The logic get an array of neighbors to the Gui
-	 * @param Country c: the country that we want neighbors from
+	 * @param Country c: the country that we want neighbors from.
 	 ***************************************************************************/
 	private Country showNeighbors(Country c) {
 		int place = -1;
@@ -166,7 +166,7 @@ public class Gui extends JFrame{
 
 	/****************************************************************************
 	 * The logic to select a country and set it to Main.selected using 
-	 * man.setSelected
+	 * man.setSelected.
 	 ***************************************************************************/
 	public void selectCountry() {
 		if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 256) {
@@ -184,7 +184,7 @@ public class Gui extends JFrame{
 	}
 
 	/****************************************************************************
-	 * This renders all the countries to the board
+	 * This renders all the countries to the board.
 	 ***************************************************************************/
 	public void renderPixels(int[] pixels) {
 		main.getScreen().renderCountries(main.getWorld());
@@ -195,7 +195,7 @@ public class Gui extends JFrame{
 	
 	/****************************************************************************
 	 * The logic to select a country and set it to Main.selected using 
-	 * man.setSelected
+	 * man.setSelected.
 	 ***************************************************************************/
 	public void render() {
 		//If no BufferStrategy exists, make it a 3 length buffer
@@ -222,7 +222,10 @@ public class Gui extends JFrame{
 		bs.show();
 	}
 	
-	//Main Program Loop
+	/****************************************************************************
+	 * Calls the update() method and render() method constantly while running
+	 * is true.
+	 ***************************************************************************/
 	public void run() {
 		while(running) {
 			update();
@@ -230,14 +233,24 @@ public class Gui extends JFrame{
 		}
 	}
 	
+	/****************************************************************************
+	 * The main method and game loop.
+	 ***************************************************************************/
 	public static void main(String[] args) {
 		Gui gui = new Gui();
 		gui.start();
 	}
 	
+	/****************************************************************************
+	 * A class to listen to input from our 3 buttons and call methods based 
+	 * on the events it hears. 
+	 ***************************************************************************/
 	private class ButtonListener implements ActionListener {
 
 		@Override
+		/****************************************************************************
+		 * When the action listener 'hears' these actions it calls the if statements
+		 ***************************************************************************/
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == attack) {
 				if (main.getSelected() != null) {

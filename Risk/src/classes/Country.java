@@ -26,10 +26,10 @@ public class Country {
 	/****************************************************************************
 	 * the constructor for Country. This sets Owner to null, numUnits to 0, and 
 	 * name to what they are instantiated as. This is the constructor for 
-	 * countries with one neighbor
-	 * @param name: the name of the country
-	 * @param size: the size of the country
-	 * @param path: the path to the sprite
+	 * countries with one neighbor.
+	 * @param name: the name of the country.
+	 * @param size: the size of the country.
+	 * @param path: the path to the sprite.
 	 ***************************************************************************/
 	public Country(String name, int size, String path) {
 		Owner = null;
@@ -40,7 +40,7 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * Default constructor
+	 * Default constructor to be used for our tests.
 	 ***************************************************************************/
 	public Country(String name, int size) {
 		Owner = null;
@@ -50,33 +50,33 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * used by the board to check who owns a country
-	 * @return the owner
+	 * used by the board to check who owns a country.
+	 * @return the owner.
 	 ***************************************************************************/
 	public Player getOwner() {
 		return Owner;
 	}
 
 	/****************************************************************************
-	 * used by the board to set who owns a country
-	 * @param owner the owner to set
+	 * used by the board to set who owns a country.
+	 * @param owner the owner to set.
 	 ***************************************************************************/
 	public void setOwner(Player owner) {
 		Owner = owner;
 	}
 
 	/****************************************************************************
-	 * used by board to check the number of units in a country
-	 * @return the numUnits
+	 * used by board to check the number of units in a country.
+	 * @return the numUnits.
 	 ***************************************************************************/
 	public int getNumUnits() {
 		return numUnits;
 	}
 
 	/****************************************************************************
-	 * used by board to set numUnits in a country
-	 * @param String mod: "add" means add units, "sub" means subtract units
-	 * @param int change the number of units to add or subtract
+	 * used by board to set numUnits in a country.
+	 * @param String mod: "add" means add units, "sub" means subtract units.
+	 * @param int change the number of units to add or subtract.
 	 ***************************************************************************/
 	public void setNumUnits(String mod, int change) {
 		if (mod == "add")
@@ -89,8 +89,8 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * used by board to set numUnits in a country
-	 * @param numUnits: the number of units to set this.numUnits to
+	 * used by board to set numUnits in a country.
+	 * @param numUnits: the number of units to set this.numUnits to.
 	 ***************************************************************************/
 	public void setNumUnits(int numUnits) {
 		this.numUnits = numUnits;
@@ -98,17 +98,17 @@ public class Country {
 
 	/****************************************************************************
 	 * Used to iterate through neighbors to give options after 
-	 * selecting a country
-	 * @return the neighbors
+	 * selecting a country.
+	 * @return the neighbors.
 	 ***************************************************************************/
 	public Country[] getNeighbors() {
 		return neighbors;
 	}
 	
 	/****************************************************************************
-	 * Adds two neighbors to the selected country
-	 * @param Country n1: a neighbor
-	 * @param Country n2: a neighbor
+	 * Adds two neighbors to the selected country.
+	 * @param Country n1: a neighbor.
+	 * @param Country n2: a neighbor.
 	 ***************************************************************************/
 	public void addTwoNeighbors(Country n1, Country n2) {
 		neighbors[0] = n1;
@@ -117,10 +117,10 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * Adds two neighbors to the selected country
-	 * @param Country n1: a neighbor
-	 * @param Country n2: a neighbor
-	 * @param Country n3: a neighbor
+	 * Adds two neighbors to the selected country.
+	 * @param Country n1: a neighbor.
+	 * @param Country n2: a neighbor.
+	 * @param Country n3: a neighbor.
 	 ***************************************************************************/
 	public void addThreeNeighbors(Country n1, Country n2, Country n3) {
 		neighbors[0] = n1;
@@ -130,11 +130,11 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * Adds two neighbors to the selected country
-	 * @param Country n1: a neighbor
-	 * @param Country n2: a neighbor
-	 * @param Country n3: a neighbor
-	 * @param Country n4: a neighbor
+	 * Adds two neighbors to the selected country.
+	 * @param Country n1: a neighbor.
+	 * @param Country n2: a neighbor.
+	 * @param Country n3: a neighbor.
+	 * @param Country n4: a neighbor.
 	 ***************************************************************************/
 	public void addFourNeighbors(Country n1, Country n2, Country n3, Country n4) {
 		neighbors[0] = n1;
@@ -145,12 +145,12 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * Adds two neighbors to the selected country
-	 * @param Country n1: a neighbor
-	 * @param Country n2: a neighbor
-	 * @param Country n3: a neighbor
-	 * @param Country n4: a neighbor
-	 * @param Country n5: a neighbor
+	 * Adds two neighbors to the selected country.
+	 * @param Country n1: a neighbor.
+	 * @param Country n2: a neighbor.
+	 * @param Country n3: a neighbor.
+	 * @param Country n4: a neighbor.
+	 * @param Country n5: a neighbor.
 	 ***************************************************************************/
 	public void addFiveNeighbors(Country n1, Country n2, Country n3, Country n4, Country n5) {
 		neighbors[0] = n1;
@@ -162,13 +162,13 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * Adds two neighbors to the selected country
-	 * @param Country n1: a neighbor
-	 * @param Country n2: a neighbor
-	 * @param Country n3: a neighbor
-	 * @param Country n4: a neighbor
-	 * @param Country n5: a neighbor
-	 * @param Country n6: a neighbor
+	 * Adds two neighbors to the selected country.
+	 * @param Country n1: a neighbor.
+	 * @param Country n2: a neighbor.
+	 * @param Country n3: a neighbor.
+	 * @param Country n4: a neighbor.
+	 * @param Country n5: a neighbor.
+	 * @param Country n6: a neighbor.
 	 ***************************************************************************/
 	public void addSixNeighbors(Country n1, Country n2, Country n3, Country n4, Country n5, Country n6) {
 		neighbors[0] = n1;
@@ -181,14 +181,14 @@ public class Country {
 	}
 	
 	/****************************************************************************
-	 * @return name: the name of the country
+	 * @return name: the name of the country.
 	 ***************************************************************************/
 	public String getName() {
 		return name;
 	}
 	
 	/****************************************************************************
-	 * @return sprite: this country's sprite
+	 * @return sprite: this country's sprite.
 	 ***************************************************************************/
 	public Sprite getSprite() {
 		return sprite;
