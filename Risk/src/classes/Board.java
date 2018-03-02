@@ -49,14 +49,12 @@ public class Board {
 	
 	/****************************************************************************
 	 * The attack method
-	 * @param Player att: the attacker
-	 * @param Player def: the defender
 	 * @param Country attacker: the attacking country
 	 * @param Country defender: the defending country
 	 * @param attackerDice: number of dice the attacker is using
 	 * @param defenderDice: number of dice the defender is using
 	 ***************************************************************************/
-	public Player attack(Player att, Player def, Country attacker, 
+	public void attack(Country attacker, 
 			Country defender, Die[] attackerDice, Die[] defenderDice) {
 		
 		int[] attackerRoll = new int[3];
@@ -129,9 +127,7 @@ public class Board {
 			break;
 		}
 			
-		//Not sure if we need to return anything??
-		Player winner = att;
-		return winner;
+	
 	}
 	
 	/****************************************************************************
