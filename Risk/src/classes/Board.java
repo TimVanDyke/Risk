@@ -49,9 +49,12 @@ public class Board {
 	
 	/****************************************************************************
 	 * The attack method
-	 * @param FIXME
-	 * @param FIXME
-	 * @param FIXME
+	 * @param Player att: the attacker
+	 * @param Player def: the defender
+	 * @param Country attacker: the attacking country
+	 * @param Country defender: the defending country
+	 * @param attackerDice: number of dice the attacker is using
+	 * @param defenderDice: number of dice the defender is using
 	 ***************************************************************************/
 	public Player attack(Player att, Player def, Country attacker, 
 			Country defender, Die[] attackerDice, Die[] defenderDice) {
@@ -65,14 +68,68 @@ public class Board {
 		for(int i=0;i<defenderDice.length; i++){
 			defenderRoll[i]=defenderDice[i].Roll();
 		}
+		
 		//Sort dice rolls in descending order
 		Arrays.sort(attackerRoll);
 		Arrays.sort(defenderRoll);
 		reverse(attackerRoll);
 		reverse(defenderRoll);
 		
+		//Compare the dice rolls
+		int result = 0;
+		for(int i=0; i<defenderRoll.length; i++){
+			if(attackerRoll[i] > defenderRoll[i]){
+				result++;
+			}
+			else{
+				result--;
+			}
+		}
 		
-		
+		//Used to see if defender will lose control of a country.
+		int temp = defender.getNumUnits();
+		//Positive numbers mean attacker wins, negative means defender wins
+		switch(result){
+		case -2:
+			attacker.setNumUnits("sub", 2);
+			break;
+		case -1:
+			attacker.setNumUnits("sub", 1);
+			break;
+		case 0:
+			if (temp - 1 <= 0){
+				def.removeCountry(defender);
+				att.addCountry(defender);
+				//Also need to add some units to new country. Player's choice.
+			}
+			else{
+				defender.setNumUnits("sub", 1);
+				attacker.setNumUnits("sub", 1);
+			}
+			break;
+		case 1:
+			if (temp - 1 <= 0){
+				def.removeCountry(defender);
+				att.addCountry(defender);
+				//Also need to add some units to new country. Player's choice.
+			}
+			else{
+				defender.setNumUnits("sub", 1);
+			}
+			break;
+		case 2:
+			if (temp - 2 <= 0){
+				def.removeCountry(defender);
+				att.addCountry(defender);
+				//Also need to add some units to new country. Player's choice.
+			}
+			else{
+				defender.setNumUnits("sub", 2);
+			}
+			break;
+		}
+			
+		//Not sure if we need to return anything??
 		Player winner = att;
 		return winner;
 	}
