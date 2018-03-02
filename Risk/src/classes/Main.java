@@ -67,6 +67,8 @@ public class Main {
 		p1 = new Player("Matt");
 		p2 = new Player("Tim");
 		
+		turn = p1;
+		
 		p1.addCountry(green);
 		p1.addCountry(magenta);
 		p2.addCountry(purple);
@@ -226,7 +228,7 @@ public class Main {
 	public void switchTurn() {
 		if(turn == p1)
 			turn = p2;
-		else
+		else if (turn == p2)
 			turn = p1;
 	}
 

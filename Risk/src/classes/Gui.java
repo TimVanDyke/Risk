@@ -240,15 +240,54 @@ public class Gui extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == attack) {
+				if (main.getSelected() != null) {
+					System.out.println("my name is "+ main.getSelected().getName());
+					if (main.getSelected().getName() == "green"){
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.purple.getNumUnits()));
+						main.getBoard().attack(main.green, main.purple, main.getBoard().getAtt(), main.getBoard().getDef());
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.purple.getNumUnits()));
+					}
+					else if (main.getSelected().getName() == "magenta"){
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.yellow.getNumUnits()));
+						main.getBoard().attack(main.magenta, main.yellow, main.getBoard().getAtt(), main.getBoard().getDef());
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.yellow.getNumUnits()));
+					}
+					else if (main.getSelected().getName() == "purple"){
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.green.getNumUnits()));
+						main.getBoard().attack(main.purple, main.green, main.getBoard().getAtt(), main.getBoard().getDef());
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.green.getNumUnits()));
+					}
+					else if (main.getSelected().getName() == "yellow"){
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.magenta.getNumUnits()));
+						main.getBoard().attack(main.yellow, main.magenta, main.getBoard().getAtt(), main.getBoard().getDef());
+						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+						System.out.println(Integer.toString(main.magenta.getNumUnits()));
+					}
 				main.setSelected(null);
+				}
 			}
 			if (e.getSource() == addUnits) {
-				System.out.println(Integer.toString(main.getSelected().getNumUnits()));
-				main.addUnits();
-				System.out.println(Integer.toString(main.getSelected().getNumUnits()));
-				main.setSelected(null);
+				if (main.getSelected() != null) {
+					System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+					main.addUnits();
+					System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+					main.setSelected(null);
+				}
 			}
 			if (e.getSource() == endTurn) {
+				if (main.getSelected() != null) {
+					main.setSelected(null);
+				}
+				System.out.println(main.getTurn().getName());
+				main.switchTurn();
+				System.out.println(main.getTurn().getName());
 				main.setSelected(null);
 			}
 		}
