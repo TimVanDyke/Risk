@@ -318,4 +318,11 @@ public class Main {
 	public void addUnits() {
 		selected.setNumUnits("add", 5);
 	}
+	
+	/****************************************************************************
+	 * @return selected's numUnits
+	 ***************************************************************************/
+	public int getUnits() {
+		return selected.getNumUnits();
+	}
 }

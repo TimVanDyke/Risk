@@ -9,6 +9,7 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /****************************************************************************
  * A class to hold all the logic for rendering the game as well as player-
@@ -18,8 +19,8 @@ public class Gui extends JFrame{
 	private static final long serialVersionUID = 1L;
 
 	//Window Size
-	public static int width = 600;
-	public static int height = 600;
+	public static int width = 512;
+	public static int height = 512;
 	private String title = "Risk!";
 	private Canvas canvas;
 	private Mouse mouse;
@@ -33,6 +34,8 @@ public class Gui extends JFrame{
 	private JButton attack;
 	private JButton endTurn;
 	private JButton addUnits;
+	
+	private JPanel jpanel;
 	
 	/****************************************************************************
 	 * The constructor for Gui, it sets up the window and the space for 
@@ -50,16 +53,20 @@ public class Gui extends JFrame{
 		//instantiating buttons
 		attack = new JButton("Attack");
 		attack.addActionListener(new ButtonListener());
+		addUnits = new JButton("Add Units");
+		addUnits.addActionListener(new ButtonListener());
 		endTurn = new JButton("End Turn");
 		endTurn.addActionListener(new ButtonListener());
-		addUnits = new JButton("End Turn");
-		addUnits.addActionListener(new ButtonListener());
 		
 		//Put Stuff in the Window
+		jpanel = new JPanel();
 		canvas = new Canvas();
 		canvas.setPreferredSize(new Dimension(width, height));
-		add(canvas);
-		JButton quit = new JButton("Quit");
+		add(jpanel);
+		jpanel.add(canvas);
+		jpanel.add(attack);
+		jpanel.add(addUnits);
+		jpanel.add(endTurn);
 		pack();
 		setVisible(true);
 		
@@ -111,7 +118,6 @@ public class Gui extends JFrame{
 		}
 		else {
 			System.out.println(main.getSelected().getName());
-			main.setSelected(null);
 		}
 		//this is for release 2
 		/*
@@ -236,10 +242,13 @@ public class Gui extends JFrame{
 			if (e.getSource() == attack) {
 				main.setSelected(null);
 			}
-			if (e.getSource() == endTurn) {
+			if (e.getSource() == addUnits) {
+				System.out.println(Integer.toString(main.getSelected().getNumUnits()));
+				main.addUnits();
+				System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 				main.setSelected(null);
 			}
-			if (e.getSource() == addUnits) {
+			if (e.getSource() == endTurn) {
 				main.setSelected(null);
 			}
 		}
