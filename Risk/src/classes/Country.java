@@ -40,6 +40,16 @@ public class Country {
 	}
 	
 	/****************************************************************************
+	 * Default constructor
+	 ***************************************************************************/
+	public Country(String name, int size) {
+		Owner = null;
+		numUnits = 0;
+		this.name = name;
+		neighbors = new Country[size];
+	}
+	
+	/****************************************************************************
 	 * used by the board to check who owns a country
 	 * @return the owner
 	 ***************************************************************************/

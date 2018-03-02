@@ -60,10 +60,10 @@ public class Board {
 		int[] attackerRoll = new int[3];
 		int[] defenderRoll = new int[2];
 		
-		for(int i=0;i<attackerDice.length; i++){
+		for(int i=0;i<attackerDice.length-1; i++){
 			attackerRoll[i]=attackerDice[i].Roll();
 		}
-		for(int i=0;i<defenderDice.length; i++){
+		for(int i=0;i<defenderDice.length-1; i++){
 			defenderRoll[i]=defenderDice[i].Roll();
 		}
 		
