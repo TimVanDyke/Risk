@@ -25,6 +25,8 @@ public class Sprite {
 	
 	/** testBoard can be used anywhere as a sprite */
 	public static Sprite testBoard = new Sprite("res/testBoard.png");
+	public static Sprite highlight = new Sprite("res/highlight.png");
+	public static Sprite highlight_att = new Sprite("res/highlight_att.png");
 	
 	/****************************************************************************
 	 * the constructor for sprite this calls the load function
