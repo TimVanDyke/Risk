@@ -111,6 +111,7 @@ public class Gui extends JFrame{
 		}
 		else {
 			System.out.println(main.getSelected().getName());
+			main.setSelected(null);
 		}
 		//this is for release 2
 		/*
