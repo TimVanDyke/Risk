@@ -68,7 +68,8 @@ public class Main {
 		p2 = new Player("Tim");
 		
 		p1.addCountry(green);
-
+		p1.addCountry(magenta);
+		p2.addCountry(purple);
 		p2.addCountry(yellow);
 
 		//adding all the countries to the world
@@ -311,9 +312,10 @@ public class Main {
 
 	/****************************************************************************
 	 * A method to add units to a country
+	 * FIXME currently it adds 5 units, later it will depend on a number
+	 * specified by the user
 	 ***************************************************************************/
 	public void addUnits() {
-		// TODO Auto-generated method stub
-		
+		selected.setNumUnits("add", 5);
 	}
 }

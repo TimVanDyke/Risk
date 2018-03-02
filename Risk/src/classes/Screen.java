@@ -43,13 +43,25 @@ public class Screen {
 	}
 	
 	/****************************************************************************
-	 * This method renders the countries to the screen This method has hard-coded
-	 * values to put the 4 test countries on the screen right now
+	 * This method renders the board and all the countries to the screen. This 
+	 * method has hard-coded values to put the 4 test countries on the screen 
+	 * right now
 	 * @param Country[] country all the countries to draw
 	 ***************************************************************************/
 	public void renderCountries(Country[] country) {
 		//renders a string to the screen
-		Sprite sp = country[0].getSprite();
+		Sprite sp = Sprite.testBoard;
+		for (int y = 0; y < sp.getHeight(); y++) {
+			//Offset to find the correct location on screen
+			int yOffset = 0;
+			for (int x = 0; x < sp.getWidth(); x++) {
+				//Offset to find the correct location on screen
+				int xOffset = 0;
+				pixels[(xOffset + x) + ((yOffset + y) * width)] = sp.getPixels()[x + (y * sp.getWidth())];
+			}
+		}
+		
+		sp = country[0].getSprite();
 		for (int y = 0; y < sp.getHeight(); y++) {
 			//Offset to find the correct location on screen
 			int yOffset = 18;
@@ -102,7 +114,8 @@ public class Screen {
 	}
 	
 	/****************************************************************************
-	 * a method to clear the screen by rendering grey over the whole screen
+	 * returns every pixel on the screen
+	 * @return pixels: the array of pixels
 	 ***************************************************************************/
 	public int[] getPixels() {
 		return pixels;

@@ -1,6 +1,8 @@
 package classes;
 
  import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -16,8 +18,8 @@ public class Gui extends JFrame{
 	private static final long serialVersionUID = 1L;
 
 	//Window Size
-	public static int width = 512;
-	public static int height = 512;
+	public static int width = 600;
+	public static int height = 600;
 	private String title = "Risk!";
 	private Canvas canvas;
 	private Mouse mouse;
@@ -27,6 +29,10 @@ public class Gui extends JFrame{
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
 	private Main main;
+	
+	private JButton attack;
+	private JButton endTurn;
+	private JButton addUnits;
 	
 	/****************************************************************************
 	 * The constructor for Gui, it sets up the window and the space for 
@@ -40,6 +46,14 @@ public class Gui extends JFrame{
 		setTitle(title);
 		setSize(width, height);
 		setLocationRelativeTo(null);
+		
+		//instantiating buttons
+		attack = new JButton("Attack");
+		attack.addActionListener(new ButtonListener());
+		endTurn = new JButton("End Turn");
+		endTurn.addActionListener(new ButtonListener());
+		addUnits = new JButton("End Turn");
+		addUnits.addActionListener(new ButtonListener());
 		
 		//Put Stuff in the Window
 		canvas = new Canvas();
@@ -90,10 +104,16 @@ public class Gui extends JFrame{
 	 * this is where the decision from the user begins.
 	 ***************************************************************************/
 	public void update() {
-		if(Mouse.getB() == 4) System.exit(0);
+		if(Mouse.getB() == 4)
+			System.exit(0);
 		if (main.getSelected() == null) {
 			selectCountry();
 		}
+		else {
+			System.out.println(main.getSelected().getName());
+		}
+		//this is for release 2
+		/*
 		else if (!main.isShowMenu()) {
 			main.setChoice(showMenu());
 		}
@@ -106,12 +126,13 @@ public class Gui extends JFrame{
 			else if (main.getChoice() == 2) {
 				main.addUnits();
 			}
-		}
+		}*/
 	}
 	
 	/****************************************************************************
 	 * pops up a menu to let the user attack or addUnits
-	 * IF they already have selected attack, then it pops up a menu of neighbors
+	 * if they already have selected attack, then it pops up a menu of neighbors
+	 * THIS IS FOR RELEASE 2
 	 ***************************************************************************/
 	private int showMenu() {
 		// TODO Auto-generated method stub
@@ -150,7 +171,7 @@ public class Gui extends JFrame{
 		else if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 512) {
 			main.setSelected(main.purple);
 		}
-		else {
+		else if(Mouse.getB() == 1 && Mouse.getX() < 512 && Mouse.getY() < 512) {
 			main.setSelected(main.yellow);
 		}
 	}
@@ -165,7 +186,10 @@ public class Gui extends JFrame{
 		}
 	}
 	
-	//Render the Image to the Canvas
+	/****************************************************************************
+	 * The logic to select a country and set it to Main.selected using 
+	 * man.setSelected
+	 ***************************************************************************/
 	public void render() {
 		//If no BufferStrategy exists, make it a 3 length buffer
 		BufferStrategy bs = canvas.getBufferStrategy();
@@ -203,4 +227,21 @@ public class Gui extends JFrame{
 		Gui gui = new Gui();
 		gui.start();
 	}
+	
+	private class ButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == attack) {
+				main.setSelected(null);
+			}
+			if (e.getSource() == endTurn) {
+				main.setSelected(null);
+			}
+			if (e.getSource() == addUnits) {
+				main.setSelected(null);
+			}
+		}
+	}
+			
 }
