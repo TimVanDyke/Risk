@@ -18,7 +18,7 @@ public class Main {
 	private Screen screen;
 	
 	/** The world */
-	private Country[] World;
+	private Country[] world;
 	
 	/** player 1 */
 	private Player p1;
@@ -35,6 +35,18 @@ public class Main {
 	/** whether or not a country is selected */
 	private boolean select;
 	
+	/** creating green */
+	Country green;
+	
+	/** creating magenta */
+	Country magenta;
+	
+	/** creating purple */
+	Country purple;
+	
+	/** creating yellow */
+	Country yellow;
+	
 	/****************************************************************************
 	 * The constructor for main. This is called by gui.
 	 ***************************************************************************/
@@ -42,12 +54,22 @@ public class Main {
 		//makes a screen 
 		screen = new Screen(width, height);
 		board = new Board();
-		p1 = new Player("Tim");
-		p2 = new Player("Matt");
-		//p1.addCountry(board.c1);
+		
+		testNeighbors();
+		
+		p1 = new Player("Matt");
+		p2 = new Player("Tim");
+		
+		p1.addCountry(green);
+
+		p2.addCountry(yellow);
 
 		//adding all the countries to the world
-		World = new Country[42];
+		world = new Country[42];
+		world[0] = green;
+		world[1] = magenta;
+		world[2] = purple;
+		world[3] = yellow;
 
 	}
 	
@@ -56,58 +78,59 @@ public class Main {
 	 ***************************************************************************/
 	private void intializeCountries(){
 		//North America
-		Country Alaska = new Country("Alaska", 3);
-		Country NorthwestTerritory = new Country("Northwest Territory", 4);
-		Country Greenland = new Country("Greenland", 4);
-		Country Alberta = new Country("Alberta", 4);
-		Country Ontario = new Country("Ontario", 6);
-		Country Quebec = new Country("Quebec", 3);
-		Country EasternUS = new Country("Eastern United States", 4);
-		Country WesternUS = new Country("Western United States", 4);
-		Country CentralAmerica = new Country("Central America", 3);
+		String a = "hi";
+		Country Alaska = new Country("Alaska", 3, a);
+		Country NorthwestTerritory = new Country("Northwest Territory", 4, a);
+		Country Greenland = new Country("Greenland", 4, a);
+		Country Alberta = new Country("Alberta", 4, a);
+		Country Ontario = new Country("Ontario", 6, a);
+		Country Quebec = new Country("Quebec", 3, a);
+		Country EasternUS = new Country("Eastern United States", 4, a);
+		Country WesternUS = new Country("Western United States", 4, a);
+		Country CentralAmerica = new Country("Central America", 3, a);
 		
 		//South America
-		Country Venezuela = new Country("Venezuela", 3);
-		Country Peru = new Country("Peru", 3);
-		Country Argentina = new Country("Argentina", 2);
-		Country Brazil = new Country("Brazil", 4);
+		Country Venezuela = new Country("Venezuela", 3, a);
+		Country Peru = new Country("Peru", 3, a);
+		Country Argentina = new Country("Argentina", 2, a);
+		Country Brazil = new Country("Brazil", 4, a);
 		
 		//Europe
-		Country Iceland = new Country("Iceland", 3);
-		Country GreatBritain = new Country("Great Britain", 4);
-		Country NorthernEurope = new Country("Northern Europe", 5);
-		Country Scandinavia = new Country("Scandinavia", 4);
-		Country WesternEurope = new Country("Western Europe", 4);
-		Country SouthernEurope = new Country("Southern Europe", 6);
-		Country Ukraine = new Country("Ukraine", 6);
+		Country Iceland = new Country("Iceland", 3, a);
+		Country GreatBritain = new Country("Great Britain", 4, a);
+		Country NorthernEurope = new Country("Northern Europe", 5, a);
+		Country Scandinavia = new Country("Scandinavia", 4, a);
+		Country WesternEurope = new Country("Western Europe", 4, a);
+		Country SouthernEurope = new Country("Southern Europe", 6, a);
+		Country Ukraine = new Country("Ukraine", 6, a);
 		
 		//Africa
-		Country NorthAfrica = new Country("North Africa", 6);
-		Country Egypt = new Country("Egypt", 4);
-		Country EastAfrica = new Country("East Africa", 6);
-		Country Congo = new Country("Congo", 3);
-		Country SouthAfrica = new Country("South Africa", 3);
-		Country Madagascar = new Country("Madagascar", 2);
+		Country NorthAfrica = new Country("North Africa", 6, a);
+		Country Egypt = new Country("Egypt", 4, a);
+		Country EastAfrica = new Country("East Africa", 6, a);
+		Country Congo = new Country("Congo", 3, a);
+		Country SouthAfrica = new Country("South Africa", 3, a);
+		Country Madagascar = new Country("Madagascar", 2, a);
 		
 		//Asia
-		Country MiddleEast = new Country("Middle East", 6);
-		Country Afghanistan = new Country("Afghanistan", 5);
-		Country Ural = new Country("Ural", 4);
-		Country Siberia = new Country("Siberia", 5);
-		Country Yakutsk = new Country("Yakutsk", 3);
-		Country Irkutsk = new Country("Irkutsk", 4);
-		Country Japan = new Country("Japan", 2);
-		Country Mongolia = new Country("Mongolia", 5);
-		Country China = new Country("China", 6);
-		Country India = new Country("India", 4);
-		Country Kamchatka = new Country("Kamchatka", 5);
-		Country Siam = new Country("Siam", 3);
+		Country MiddleEast = new Country("Middle East", 6, a);
+		Country Afghanistan = new Country("Afghanistan", 5, a);
+		Country Ural = new Country("Ural", 4, a);
+		Country Siberia = new Country("Siberia", 5, a);
+		Country Yakutsk = new Country("Yakutsk", 3, a);
+		Country Irkutsk = new Country("Irkutsk", 4, a);
+		Country Japan = new Country("Japan", 2, a);
+		Country Mongolia = new Country("Mongolia", 5, a);
+		Country China = new Country("China", 6, a);
+		Country India = new Country("India", 4, a);
+		Country Kamchatka = new Country("Kamchatka", 5, a);
+		Country Siam = new Country("Siam", 3, a);
 		
 		//Australia
-		Country Indonesia = new Country("Indonesia", 3);
-		Country NewGuinea = new Country("New Guinea", 3);
-		Country WesternAustralia = new Country("Western Australia", 3);
-		Country EasternAustralia = new Country("Eastern Australia", 2);
+		Country Indonesia = new Country("Indonesia", 3, a);
+		Country NewGuinea = new Country("New Guinea", 3, a);
+		Country WesternAustralia = new Country("Western Australia", 3, a);
+		Country EasternAustralia = new Country("Eastern Australia", 2, a);
 		
 		//Add neighbors for North America
 		Alaska.addThreeNeighbors(NorthwestTerritory, Alberta, Kamchatka);
@@ -166,21 +189,20 @@ public class Main {
 		return;
 	}
 	
-	//Test method, probably delete later
-	private void testNeighbors(){
-		Country c1 = new Country("c1", 3);
-		Country c2 = new Country("c2", 3);
-		Country c3 = new Country("c3", 3);
-		Country c4 = new Country("c4", 3);
+	/****************************************************************************
+	 * Initializes test countries, and adds neighbors for each country
+	 * This method will be deleted later
+	 ***************************************************************************/
+	private void testNeighbors() {
+		green = new Country("green", 3, "res/testCountryGreen");
+		magenta = new Country("magenta", 3, "res/testCountryMagenta");
+		purple = new Country("Purple", 3, "res/testCountry");
+		yellow = new Country("yellow", 3, "res/testCountry");
 		
-		c1.addThreeNeighbors(c2, c3, c4);
-		c2.addThreeNeighbors(c1, c3, c4);
-		c3.addThreeNeighbors(c1, c2, c4);
-		c4.addThreeNeighbors(c1, c2, c3);
+		green.addThreeNeighbors(magenta, purple, yellow);
+		magenta.addThreeNeighbors(green, purple, yellow);
+		purple.addThreeNeighbors(green, magenta, yellow);
+		yellow.addThreeNeighbors(green, magenta, purple);
 	}
 	
-
-	public static void main(String[] args) {
-		
-	}
 }
