@@ -72,7 +72,62 @@ public class Gui extends JFrame{
 	
 	//Update All Objects
 	public void update() {
-		main.update();
+		if(Mouse.getB() == 4) System.exit(0);
+		if (main.getSelected() == null) {
+			selectCountry();
+		}
+		else if (!main.isShowMenu()) {
+			main.setChoice(showMenu());
+		} else {
+			if (main.getChoice() == 1) {
+				Country defender = showNeighbors(main.getSelected());
+				main.Attack(defender);
+			}
+			else if (main.getChoice() == 2) {
+				main.addUnits();
+			}
+		}
+	}
+	
+	private int showMenu() {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+	
+	private Country showNeighbors(Country c) {
+		int place = -1;
+		Country def;
+		for (int i = 0; i < main.getWorld().length; i++) {
+			if (main.getWorld()[i] == c) {
+				place = i;
+			}
+		}
+		Country[] neighbors = main.getWorld()[place].getNeighbors();
+		//FIXME somehow ask which neighbor they want here
+		def = new Country("hi", 5, "hi");
+		return def;
+	}
+
+	public void selectCountry() {
+		if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 256) {
+			main.setSelected(main.green);
+		}
+		else if(Mouse.getB() == 1 && Mouse.getX() < 512 && Mouse.getY() < 256) {
+			main.setSelected(main.magenta);
+		}
+		else if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 512) {
+			main.setSelected(main.purple);
+		}
+		else {
+			main.setSelected(main.yellow);
+		}
+	}
+
+	public void render(int[] pixels) {
+		main.getScreen().renderCountries(main.getWorld());
+		for(int i = 0; i < pixels.length; i++) {
+			pixels[i] = main.getScreen().getPixels()[i];
+		}
 	}
 	
 	//Render the Image to the Canvas
@@ -88,7 +143,7 @@ public class Gui extends JFrame{
 			pixels[i] = 0;
 		}
 		//Set pixels
-		main.render(pixels);
+		render(pixels);
 		
 		//Draw Graphics
 		Graphics g = bs.getDrawGraphics();

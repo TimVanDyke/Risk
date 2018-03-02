@@ -29,8 +29,8 @@ public class Board {
 		turnNum = 0;
 		
 		//instantiating attacker and defender dice
-		att = new Die[3];
-		def = new Die[2];
+		setAtt(new Die[3]);
+		setDef(new Die[2]);
 		
 		//sets sprite
 		sprite = Sprite.testBoard;
@@ -156,5 +156,33 @@ public class Board {
 			arr[i] = arr[j];
 			arr[j] = temp;
 		}
+	}
+
+	/**
+	 * @return the att
+	 */
+	public Die[] getAtt() {
+		return att;
+	}
+
+	/**
+	 * @param att the att to set
+	 */
+	public void setAtt(Die[] att) {
+		this.att = att;
+	}
+
+	/**
+	 * @return the def
+	 */
+	public Die[] getDef() {
+		return def;
+	}
+
+	/**
+	 * @param def the def to set
+	 */
+	public void setDef(Die[] def) {
+		this.def = def;
 	}
 }

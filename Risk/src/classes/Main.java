@@ -35,7 +35,10 @@ public class Main {
 	private Country selected;
 	
 	/** whether or not a country is selected */
-	private boolean select;
+	private boolean showMenu;
+	
+	/** the attackers choice */
+	int choice;
 	
 	/** creating green */
 	Country green;
@@ -54,8 +57,8 @@ public class Main {
 	 ***************************************************************************/
 	public Main(int width, int height) {
 		//makes a screen 
-		screen = new Screen(width, height);
-		board = new Board();
+		setScreen(new Screen(width, height));
+		setBoard(new Board());
 		
 		testNeighbors();
 		
@@ -67,11 +70,11 @@ public class Main {
 		p2.addCountry(yellow);
 
 		//adding all the countries to the world
-		world = new Country[42];
-		world[0] = green;
-		world[1] = magenta;
-		world[2] = purple;
-		world[3] = yellow;
+		setWorld(new Country[42]);
+		getWorld()[0] = green;
+		getWorld()[1] = magenta;
+		getWorld()[2] = purple;
+		getWorld()[3] = yellow;
 
 	}
 	
@@ -207,19 +210,110 @@ public class Main {
 		yellow.addThreeNeighbors(green, magenta, purple);
 	}
 
-	public void update() {
-		// TODO Auto-generated method stub
-		
+//	public void update() {
+//		if(Mouse.getB() == 4) System.exit(0);
+//		if (selected == null) {
+//			selectCountry();
+//		}
+//		else if (!this.showMenu) {
+//			showMenu();
+//		}
+//		
+//	}
+//	
+//	public void selectCountry() {
+//		if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 256) {
+//			selected = green;
+//		}
+//		else if(Mouse.getB() == 1 && Mouse.getX() < 512 && Mouse.getY() < 256) {
+//			selected = magenta;
+//		}
+//		else if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 512) {
+//			selected = purple;
+//		}
+//		else {
+//			selected = yellow;
+//		}
+//	}
+//
+//	public void render(int[] pixels) {
+//		screen.renderCountries(world);
+//		for(int i = 0; i < pixels.length; i++) {
+//			pixels[i] = screen.getPixels()[i];
+//		}
+//	}
+
+	public Player getTurn() {
+		return turn;
+	}
+	public void switchTurn() {
+		if(turn == p1)
+			turn = p2;
+		else
+			turn = p1;
 	}
 
-	public void render(int[] pixels) {
-		// TODO Auto-generated method stub
-		
+	public Country[] getWorld() {
+		return world;
 	}
 
-	public Component getTurn() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setWorld(Country[] world) {
+		this.world = world;
+	}
+
+	public Screen getScreen() {
+		return screen;
+	}
+
+	public void setScreen(Screen screen) {
+		this.screen = screen;
+	}
+
+	public Country getSelected() {
+		return selected;
+	}
+
+	public void setSelected(Country selected) {
+		this.selected = selected;
+	}
+
+	public boolean isShowMenu() {
+		return showMenu;
+	}
+
+	public void setShowMenu(boolean showMenu) {
+		this.showMenu = showMenu;
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
 	}
 	
+	/**
+	 * @return the choice
+	 */
+	public int getChoice() {
+		return choice;
+	}
+
+	/**
+	 * @param choice the choice to set
+	 */
+	public void setChoice(int choice) {
+		this.choice = choice;
+	}
+
+
+	public void Attack(Country c) {
+		board.attack(selected, c, board.getAtt(), board.getDef());
+	}
+
+	public void addUnits() {
+		// TODO Auto-generated method stub
+		
+	}
 }

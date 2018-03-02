@@ -57,30 +57,30 @@ public class Screen {
 		sp = country[1].getSprite();
 		for (int y = 0; y < sp.getHeight(); y++) {
 			//Offset to find the correct location on screen
-			int yOffset = 9;
+			int yOffset = 18;
 			for (int x = 0; x < sp.getWidth(); x++) {
 				//Offset to find the correct location on screen
-				int xOffset = 137;
+				int xOffset = 274;
 				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
 			}
 		}
 		sp = country[2].getSprite();
 		for (int y = 0; y < sp.getHeight(); y++) {
 			//Offset to find the correct location on screen
-			int yOffset = 137;
+			int yOffset = 274;
 			for (int x = 0; x < sp.getWidth(); x++) {
 				//Offset to find the correct location on screen
-				int xOffset = 9;
+				int xOffset = 18;
 				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
 			}
 		}
 		sp = country[3].getSprite();
 		for (int y = 0; y < sp.getHeight(); y++) {
 			//Offset to find the correct location on screen
-			int yOffset = 137;
+			int yOffset = 274;
 			for (int x = 0; x < sp.getWidth(); x++) {
 				//Offset to find the correct location on screen
-				int xOffset = 137;
+				int xOffset = 274;
 				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
 			}
 		}
