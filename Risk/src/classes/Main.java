@@ -3,7 +3,9 @@ package classes;
 import java.awt.Component;
 
 /****************************************************************************
- * A class to initialize everything, then had it all off to the GUI
+ * A class to initialize everything and be a bridge between Gui and the game
+ * logic. In later releases I hope to combine Main and Gui as the separation
+ * seems cumbersome. 
  ***************************************************************************/
 public class Main {
 	
@@ -57,8 +59,8 @@ public class Main {
 	 ***************************************************************************/
 	public Main(int width, int height) {
 		//makes a screen 
-		setScreen(new Screen(width, height));
-		setBoard(new Board());
+		screen = new Screen(width, height);
+		board = new Board();
 		
 		testNeighbors();
 		
@@ -70,7 +72,7 @@ public class Main {
 		p2.addCountry(yellow);
 
 		//adding all the countries to the world
-		setWorld(new Country[42]);
+		world = new Country[42];
 		getWorld()[0] = green;
 		getWorld()[1] = magenta;
 		getWorld()[2] = purple;
@@ -199,10 +201,10 @@ public class Main {
 	 * This method will be deleted later
 	 ***************************************************************************/
 	private void testNeighbors() {
-		green = new Country("green", 3, "res/testCountryGreen");
-		magenta = new Country("magenta", 3, "res/testCountryMagenta");
-		purple = new Country("Purple", 3, "res/testCountry");
-		yellow = new Country("yellow", 3, "res/testCountry");
+		green = new Country("green", 3, "res/testCountryGreen.png");
+		magenta = new Country("magenta", 3, "res/testCountryMagenta.png");
+		purple = new Country("Purple", 3, "res/testCountryPurple.png");
+		yellow = new Country("yellow", 3, "res/testCountryYellow.png");
 		
 		green.addThreeNeighbors(magenta, purple, yellow);
 		magenta.addThreeNeighbors(green, purple, yellow);
@@ -210,42 +212,16 @@ public class Main {
 		yellow.addThreeNeighbors(green, magenta, purple);
 	}
 
-//	public void update() {
-//		if(Mouse.getB() == 4) System.exit(0);
-//		if (selected == null) {
-//			selectCountry();
-//		}
-//		else if (!this.showMenu) {
-//			showMenu();
-//		}
-//		
-//	}
-//	
-//	public void selectCountry() {
-//		if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 256) {
-//			selected = green;
-//		}
-//		else if(Mouse.getB() == 1 && Mouse.getX() < 512 && Mouse.getY() < 256) {
-//			selected = magenta;
-//		}
-//		else if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 512) {
-//			selected = purple;
-//		}
-//		else {
-//			selected = yellow;
-//		}
-//	}
-//
-//	public void render(int[] pixels) {
-//		screen.renderCountries(world);
-//		for(int i = 0; i < pixels.length; i++) {
-//			pixels[i] = screen.getPixels()[i];
-//		}
-//	}
-
+	/****************************************************************************
+	 * @return the current turn as a player
+	 ***************************************************************************/
 	public Player getTurn() {
 		return turn;
 	}
+	
+	/****************************************************************************
+	 * Switches the turn from one player to the other
+	 ***************************************************************************/
 	public void switchTurn() {
 		if(turn == p1)
 			turn = p2;
@@ -253,65 +229,89 @@ public class Main {
 			turn = p1;
 	}
 
+	/****************************************************************************
+	 * @return the world Country[]
+	 ***************************************************************************/
 	public Country[] getWorld() {
 		return world;
 	}
 
-	public void setWorld(Country[] world) {
-		this.world = world;
-	}
-
+	/****************************************************************************
+	 * @return the screen object
+	 ***************************************************************************/
 	public Screen getScreen() {
 		return screen;
 	}
 
+	/****************************************************************************
+	 * @return the attackers die array
+	 ***************************************************************************/
 	public void setScreen(Screen screen) {
 		this.screen = screen;
 	}
 
+	/****************************************************************************
+	 * @return the current selected country
+	 ***************************************************************************/
 	public Country getSelected() {
 		return selected;
 	}
 
+	/****************************************************************************
+	 * @param what to set the currently selected country to
+	 ***************************************************************************/
 	public void setSelected(Country selected) {
 		this.selected = selected;
 	}
 
+	/****************************************************************************
+	 * @return lets main/Gui know whether a menu is open currently
+	 ***************************************************************************/
 	public boolean isShowMenu() {
 		return showMenu;
 	}
 
+	/****************************************************************************
+	 * how Gui tells main whether or not it has a menu open
+	 ***************************************************************************/
 	public void setShowMenu(boolean showMenu) {
 		this.showMenu = showMenu;
 	}
 
+	/****************************************************************************
+	 * @return the instance of board in main
+	 ***************************************************************************/
 	public Board getBoard() {
 		return board;
 	}
 
-	public void setBoard(Board board) {
-		this.board = board;
-	}
-	
-	/**
-	 * @return the choice
-	 */
+	/****************************************************************************
+	 * @return what the player chose (0 for attack, 1 for add units)
+	 ***************************************************************************/
 	public int getChoice() {
 		return choice;
 	}
 
-	/**
-	 * @param choice the choice to set
-	 */
+	/****************************************************************************
+	 * 0 for attack, 1 for add units
+	 * @param the current player's choice is set to choice 
+	 ***************************************************************************/
 	public void setChoice(int choice) {
 		this.choice = choice;
 	}
 
 
+	/****************************************************************************
+	 * The way that Gui has access to attack
+	 * @param Country c, this is the defending country that attacker chose
+	 ***************************************************************************/
 	public void Attack(Country c) {
 		board.attack(selected, c, board.getAtt(), board.getDef());
 	}
 
+	/****************************************************************************
+	 * A method to add units to a country
+	 ***************************************************************************/
 	public void addUnits() {
 		// TODO Auto-generated method stub
 		

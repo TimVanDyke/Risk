@@ -8,6 +8,10 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+/****************************************************************************
+ * A class to hold all the logic for rendering the game as well as player-
+ * Input. I hope to combine Main and Gui
+ ***************************************************************************/
 public class Gui extends JFrame{
 	private static final long serialVersionUID = 1L;
 
@@ -24,6 +28,11 @@ public class Gui extends JFrame{
 	
 	private Main main;
 	
+	/****************************************************************************
+	 * The constructor for Gui, it sets up the window and the space for 
+	 * everything that goes inside it, currently, that's 4 countries and a 
+	 * pop-up menu for the game once a country has been selected. 
+	 ***************************************************************************/
 	public Gui() {
 		//Create Window (JFrame)
 		setResizable(false);
@@ -57,6 +66,10 @@ public class Gui extends JFrame{
 		
 	}
 	
+	/****************************************************************************
+	 * This puts the game as the front window no your computer, sets running 
+	 * to true, and calls run()
+	 ***************************************************************************/
 	public void start() {
 		running = true;
 		//Sets Game as Primary Window
@@ -65,12 +78,17 @@ public class Gui extends JFrame{
 		run();
 	}
 	
+	/****************************************************************************
+	 * This is called when the window is closed.
+	 ***************************************************************************/
 	public void stop() {
 		running  = false;
 		System.exit(0);
 	}
 	
-	//Update All Objects
+	/****************************************************************************
+	 * this is where the decision from the user begins.
+	 ***************************************************************************/
 	public void update() {
 		if(Mouse.getB() == 4) System.exit(0);
 		if (main.getSelected() == null) {
@@ -78,7 +96,9 @@ public class Gui extends JFrame{
 		}
 		else if (!main.isShowMenu()) {
 			main.setChoice(showMenu());
-		} else {
+		}
+		else {
+			//FIXME need to have two possible menus
 			if (main.getChoice() == 1) {
 				Country defender = showNeighbors(main.getSelected());
 				main.Attack(defender);
@@ -89,11 +109,19 @@ public class Gui extends JFrame{
 		}
 	}
 	
+	/****************************************************************************
+	 * pops up a menu to let the user attack or addUnits
+	 * IF they already have selected attack, then it pops up a menu of neighbors
+	 ***************************************************************************/
 	private int showMenu() {
 		// TODO Auto-generated method stub
 		return 1;
 	}
 	
+	/****************************************************************************
+	 * The logic get an array of neighbors to the Gui
+	 * @param Country c: the country that we want neighbors from
+	 ***************************************************************************/
 	private Country showNeighbors(Country c) {
 		int place = -1;
 		Country def;
@@ -108,6 +136,10 @@ public class Gui extends JFrame{
 		return def;
 	}
 
+	/****************************************************************************
+	 * The logic to select a country and set it to Main.selected using 
+	 * man.setSelected
+	 ***************************************************************************/
 	public void selectCountry() {
 		if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 256) {
 			main.setSelected(main.green);
@@ -123,7 +155,10 @@ public class Gui extends JFrame{
 		}
 	}
 
-	public void render(int[] pixels) {
+	/****************************************************************************
+	 * This renders all the countries to the board
+	 ***************************************************************************/
+	public void renderPixels(int[] pixels) {
 		main.getScreen().renderCountries(main.getWorld());
 		for(int i = 0; i < pixels.length; i++) {
 			pixels[i] = main.getScreen().getPixels()[i];
@@ -142,13 +177,13 @@ public class Gui extends JFrame{
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = 0;
 		}
-		//Set pixels
-		render(pixels);
+		//Set pixelsFIXME
+		renderPixels(pixels);
 		
 		//Draw Graphics
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image,  0,  0,  canvas.getWidth(), canvas.getHeight(), null);
-		g.drawString(main.getTurn().getName(), 1, 1);
+		//g.drawString(main.getTurn().getName(), 1, 1);
 		
 		//Dispose Graphics
 		g.dispose();

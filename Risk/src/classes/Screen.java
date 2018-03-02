@@ -42,16 +42,21 @@ public class Screen {
 		}
 	}
 	
+	/****************************************************************************
+	 * This method renders the countries to the screen This method has hard-coded
+	 * values to put the 4 test countries on the screen right now
+	 * @param Country[] country all the countries to draw
+	 ***************************************************************************/
 	public void renderCountries(Country[] country) {
 		//renders a string to the screen
 		Sprite sp = country[0].getSprite();
 		for (int y = 0; y < sp.getHeight(); y++) {
 			//Offset to find the correct location on screen
-			int yOffset = 9;
+			int yOffset = 18;
 			for (int x = 0; x < sp.getWidth(); x++) {
 				//Offset to find the correct location on screen
-				int xOffset = 9;
-				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+				int xOffset = 18;
+				pixels[(xOffset + x) + ((yOffset + y) * width)] = sp.getPixels()[x + (y * sp.getWidth())];
 			}
 		}
 		sp = country[1].getSprite();
@@ -61,7 +66,7 @@ public class Screen {
 			for (int x = 0; x < sp.getWidth(); x++) {
 				//Offset to find the correct location on screen
 				int xOffset = 274;
-				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+				pixels[(xOffset + x) + ((yOffset + y) * width)] = sp.getPixels()[x + y * sp.getWidth()];
 			}
 		}
 		sp = country[2].getSprite();
@@ -71,7 +76,7 @@ public class Screen {
 			for (int x = 0; x < sp.getWidth(); x++) {
 				//Offset to find the correct location on screen
 				int xOffset = 18;
-				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+				pixels[(xOffset + x) + ((yOffset + y) * width)] = sp.getPixels()[x + y * sp.getWidth()];
 			}
 		}
 		sp = country[3].getSprite();
@@ -81,7 +86,7 @@ public class Screen {
 			for (int x = 0; x < sp.getWidth(); x++) {
 				//Offset to find the correct location on screen
 				int xOffset = 274;
-				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+				pixels[(xOffset + x) + ((yOffset + y) * width)] = sp.getPixels()[x + y * sp.getWidth()];
 			}
 		}
 	}
