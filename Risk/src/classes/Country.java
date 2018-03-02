@@ -28,7 +28,8 @@ public class Country {
 	 * name to what they are instantiated as. This is the constructor for 
 	 * countries with one neighbor
 	 * @param name: the name of the country
-	 * @param c1: the neighbor
+	 * @param size: the size of the country
+	 * @param path: the path to the sprite
 	 ***************************************************************************/
 	public Country(String name, int size, String path) {
 		Owner = null;
