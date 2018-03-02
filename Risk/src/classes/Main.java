@@ -1,5 +1,7 @@
 package classes;
 
+import java.awt.Component;
+
 /****************************************************************************
  * A class to initialize everything, then had it all off to the GUI
  ***************************************************************************/
@@ -203,6 +205,21 @@ public class Main {
 		magenta.addThreeNeighbors(green, purple, yellow);
 		purple.addThreeNeighbors(green, magenta, yellow);
 		yellow.addThreeNeighbors(green, magenta, purple);
+	}
+
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void render(int[] pixels) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Component getTurn() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

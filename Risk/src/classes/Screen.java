@@ -42,6 +42,50 @@ public class Screen {
 		}
 	}
 	
+	public void renderCountries(Country[] country) {
+		//renders a string to the screen
+		Sprite sp = country[0].getSprite();
+		for (int y = 0; y < sp.getHeight(); y++) {
+			//Offset to find the correct location on screen
+			int yOffset = 9;
+			for (int x = 0; x < sp.getWidth(); x++) {
+				//Offset to find the correct location on screen
+				int xOffset = 9;
+				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+			}
+		}
+		sp = country[1].getSprite();
+		for (int y = 0; y < sp.getHeight(); y++) {
+			//Offset to find the correct location on screen
+			int yOffset = 9;
+			for (int x = 0; x < sp.getWidth(); x++) {
+				//Offset to find the correct location on screen
+				int xOffset = 137;
+				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+			}
+		}
+		sp = country[2].getSprite();
+		for (int y = 0; y < sp.getHeight(); y++) {
+			//Offset to find the correct location on screen
+			int yOffset = 137;
+			for (int x = 0; x < sp.getWidth(); x++) {
+				//Offset to find the correct location on screen
+				int xOffset = 9;
+				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+			}
+		}
+		sp = country[3].getSprite();
+		for (int y = 0; y < sp.getHeight(); y++) {
+			//Offset to find the correct location on screen
+			int yOffset = 137;
+			for (int x = 0; x < sp.getWidth(); x++) {
+				//Offset to find the correct location on screen
+				int xOffset = 137;
+				pixels[xOffset + yOffset * width] = sp.getPixels()[x + y * sp.getWidth()];
+			}
+		}
+	}
+	
 	/****************************************************************************
 	 * a method to clear the screen by rendering grey over the whole screen
 	 ***************************************************************************/
