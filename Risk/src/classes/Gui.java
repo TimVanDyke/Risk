@@ -137,7 +137,7 @@ public class Gui extends JFrame{
 	}
 	
 	/****************************************************************************
-	 * pops up a menu to let the user attack or addUnits
+	 * pops up a menu to let the user attack or addUnits.
 	 * if they already have selected attack, then it pops up a menu of neighbors
 	 * THIS IS FOR RELEASE 2
 	 ***************************************************************************/
@@ -147,7 +147,7 @@ public class Gui extends JFrame{
 	}
 	
 	/****************************************************************************
-	 * The logic get an array of neighbors to the Gui
+	 * The logic get an array of neighbors to the Gui.
 	 * @param Country c: the country that we want neighbors from
 	 ***************************************************************************/
 	private Country showNeighbors(Country c) {
