@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.*;
+
 /****************************************************************************
  * A class to hold the countries and dice. This also has 
  * the logic to move and attack from one country to another
@@ -57,7 +59,26 @@ public class Board {
 	 * @param FIXME
 	 * @param FIXME
 	 ***************************************************************************/
-	public Player attack(Player att, Player def, Country co) {
+	public Player attack(Player att, Player def, Country attacker, 
+			Country defender, Die[] attackerDice, Die[] defenderDice) {
+		
+		int[] attackerRoll = new int[3];
+		int[] defenderRoll = new int[2];
+		
+		for(int i=0;i<attackerDice.length; i++){
+			attackerRoll[i]=attackerDice[i].Roll();
+		}
+		for(int i=0;i<defenderDice.length; i++){
+			defenderRoll[i]=defenderDice[i].Roll();
+		}
+		//Sort dice rolls in descending order
+		Arrays.sort(attackerRoll);
+		Arrays.sort(defenderRoll);
+		reverse(attackerRoll);
+		reverse(defenderRoll);
+		
+		
+		
 		Player winner = att;
 		return winner;
 	}
@@ -190,4 +211,20 @@ public class Board {
 		c3.addThreeNeighbors(c1, c2, c4);
 		c4.addThreeNeighbors(c1, c2, c3);
 	}
+	
+	
+	/****************************************************************************
+	 * Reverse array method
+	 * @param an array arr to be reversed
+	 ***************************************************************************/
+	private void reverse(int[] arr){
+		int i = 0;
+		int j = arr.length-1;
+		while(i < j){
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+		}
+	}
+	
 }
