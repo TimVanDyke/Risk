@@ -32,6 +32,12 @@ public class Board {
 		setAtt(new Die[3]);
 		setDef(new Die[2]);
 		
+		for (int i = 0; i < att.length; i++)
+			att[i] = new Die();
+		
+		for (int i = 0; i < def.length; i++)
+			def[i] = new Die();
+		
 		//sets sprite
 		sprite = Sprite.testBoard;
 		
