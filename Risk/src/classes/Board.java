@@ -270,10 +270,20 @@ public class Board {
 		this.def = def;
 	}
 	/***********************************************************************
+<<<<<<< HEAD
 	 * 
+=======
+	 * saves the game
+>>>>>>> branch 'master' of https://github.com/TimVanDyke/Risk.git
 	 **********************************************************************/
 	public void save() {
 		System.out.println("saved");
+	}
+	/***********************************************************************
+	 * loads the game
+	 **********************************************************************/
+	public void load() {
+		System.out.println("loaded");
 	}
 }
 
