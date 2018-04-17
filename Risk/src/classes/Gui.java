@@ -36,6 +36,7 @@ public class Gui extends JFrame {
 	private JButton attack;
 	private JButton endTurn;
 	private JButton addUnits;
+	private JButton save;
 	
 	private JPanel jpanel;
 	
@@ -59,6 +60,9 @@ public class Gui extends JFrame {
 		addUnits.addActionListener(new ButtonListener());
 		endTurn = new JButton("End Turn");
 		endTurn.addActionListener(new ButtonListener());
+		save = new JButton("Save");
+		save.addActionListener(new ButtonListener());
+		
 		
 		//Put Stuff in the Window
 		jpanel = new JPanel();
@@ -69,6 +73,7 @@ public class Gui extends JFrame {
 		jpanel.add(attack);
 		jpanel.add(addUnits);
 		jpanel.add(endTurn);
+		jpanel.add(save);
 		pack();
 		setVisible(true);
 		
@@ -309,6 +314,12 @@ public class Gui extends JFrame {
 				main.switchTurn();
 				System.out.println(main.getTurn().getName());
 				main.setSelected(null);
+			}
+			if (e.getSource() == save) {
+				if (main.getSelected() != null) {
+					main.setSelected(null);
+				}
+				main.getBoard().save();
 			}
 		}
 	}

@@ -269,5 +269,11 @@ public class Board {
 	public void setDef(final Die def) {
 		this.def = def;
 	}
+	/***********************************************************************
+	 * @param def the defenders die.
+	 **********************************************************************/
+	public void save() {
+		System.out.println("saved");
+	}
 }
 
