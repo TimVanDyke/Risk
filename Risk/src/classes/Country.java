@@ -23,7 +23,7 @@ public class Country {
 	/** this country's sprite. */
 	private Sprite sprite;
 	
-	//FIXME just adding this comment to test git
+	
 
 	/***********************************************************************
 	 * the constructor for Country. This sets owner to null, numUnits to 0, 
