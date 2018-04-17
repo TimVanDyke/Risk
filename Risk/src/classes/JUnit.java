@@ -133,5 +133,81 @@ public class JUnit {
 		assertEquals(c.getSprite(), null);
 	}
 	
-
+	/***********************************************************************
+	 * Tests the bot class.
+	 **********************************************************************/
+	@Test
+	public void testBot() {
+		Bot b = new Bot("Bot");
+		Bot a = new Bot();
+		Country c = new Country("c", 1);
+		Country d = new Country("d", 1);
+		c.addOneNeighbor(d);
+		d.addOneNeighbor(c);
+		int[] turns = new int[10];
+		for (int i = 0; i < turns.length; i++) {
+			turns[i] = b.playTurn();
+			assertTrue(turns[i] == 1 || turns[i] == -1);
+		}
+		c.setOwner(a);
+		a.addCountry(c);
+		d.setOwner(b);
+		b.addCountry(d);
+		Country e = a.selectAttack();
+		assertEquals(e, d);
+		Bot x = new Bot();
+		Country y = x.selectAttack();
+		assertNull(y);
+		Bot r = new Bot();
+		Country cn = new Country("cn", 1);
+		cn.setOwner(r);
+		r.addCountry(cn);
+		Country s = r.selectAttack();
+		assertNull(s);
+	}
+	
+	/***********************************************************************
+	 * Tests adding neighbors.
+	 **********************************************************************/
+	@Test
+	public void testNeighbors() {
+		Country a = new Country("a", 1);
+		Country b = new Country("a", 2);
+		Country c = new Country("a", 3);
+		Country d = new Country("a", 4);
+		Country e = new Country("a", 5);
+		Country f = new Country("a", 6);
+		Country g = new Country("a", 6);
+		a.addOneNeighbor(g);
+		assertEquals(a.getNeighbors().length, 1);
+		b.addTwoNeighbors(g, a);
+		assertEquals(b.getNeighbors().length, 2);
+		c.addThreeNeighbors(g, a, b);
+		assertEquals(c.getNeighbors().length, 3);
+		d.addFourNeighbors(g, a, b, c);
+		assertEquals(d.getNeighbors().length, 4);
+		e.addFiveNeighbors(g, a, b, c, d);
+		assertEquals(e.getNeighbors().length, 5);
+		f.addSixNeighbors(g, a, b, c, d, e);
+		assertEquals(f.getNeighbors().length, 6);
+	}
+	
+	/***********************************************************************
+	 * Tests board
+	 **********************************************************************/
+	@Test
+	public void testBoard() {
+		Board b = new Board();
+		Sprite s = b.getSprite();
+		assertNotNull(s);
+		b.setTurnNum(2);
+		assertEquals(b.getTurnNum(), 2);
+		Die att = b.getAtt();
+		Die def = b.getDef();
+		assertNotNull(att);
+		assertNotNull(def);
+	}
+	
 }
+
+

@@ -43,23 +43,26 @@ public class Bot extends Player {
 	}
 	
 	
-	//choose random country to attack Maybe put this in board or
+	//choose random country to attack
 	/***********************************************************************
 	 * Select a country to attack. Must be a neighbor of a
 	 * country in a kingdom.
 	 * @return a country
 	 **********************************************************************/
 	public Country selectAttack() {
-		Country cn = new Country();
+		//Country cn = new Country();
+		if (kingdom.size() < 1) {
+			return null;
+		}
 		int choose = rand.nextInt(kingdom.size());
 		for (Country c : kingdom) {
 			if (choose == kingdom.indexOf(c)) {
 				int n = rand.nextInt(c.getNeighbors().length);
 				Country[] neighbors = c.getNeighbors();
-				cn = neighbors[n];
+				return neighbors[n];
 			}
 		}
-		return cn;
+		return null;
 	}
 	
 }

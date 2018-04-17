@@ -119,6 +119,15 @@ public class Country {
 	/***********************************************************************
 	 * Adds two neighbors to the selected country.
 	 * @param n1 : a neighbor.
+	 **********************************************************************/
+	public void addOneNeighbor(final Country n1) {
+		neighbors[0] = n1;
+		return;
+	}
+	
+	/***********************************************************************
+	 * Adds two neighbors to the selected country.
+	 * @param n1 : a neighbor.
 	 * @param n2 : a neighbor.
 	 **********************************************************************/
 	public void addTwoNeighbors(final Country n1, final Country n2) {
