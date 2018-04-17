@@ -1,19 +1,11 @@
 package classes;
 
-import java.awt.Component;
-
 /****************************************************************************
  * A class to initialize everything and be a bridge between Gui and the game
  * logic. In later releases I hope to combine Main and Gui as the separation
  * seems cumbersome. 
  ***************************************************************************/
 public class Main {
-	
-	/** the width of the screen */
-	private int width;
-	
-	/** the height of the screen */
-	private int height;
 	
 	/** the board */
 	private Board board;
