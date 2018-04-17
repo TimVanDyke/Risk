@@ -311,7 +311,7 @@ public class Main {
 	 * FIXME This is for release 2
 	 ***************************************************************************/
 	public void Attack(Country c) {
-		board.attack(selected, c, board.getAtt(), board.getDef());
+		board.attack(selected, c, board.getAtt().roll(), board.getDef().roll());
 	}
 
 	/****************************************************************************

@@ -7,48 +7,50 @@ package classes;
  ***************************************************************************/
 public class Screen {
 	
-	/** the width of the screen */
+	/** the width of the screen. */
 	private int width;
 	
-	/** the height of the screen */
+	/** the height of the screen. */
 	private int height;
 	
-	/** every pixel on the screen */
+	/** every pixel on the screen. */
 	private int[] pixels;
 	
-	/****************************************************************************
+	/***********************************************************************
 	 * the constructor for Screen.
-	 * @param int width: the width of the screen.
-	 * @param int height: the height of the screen.
-	 ***************************************************************************/
-	public Screen(int width, int height) {
+	 * @param width : the width of the screen.
+	 * @param height : the height of the screen.
+	 **********************************************************************/
+	public Screen(final int width, final int height) {
 		this.width = width;
 		this.height = height;
 		pixels = new int[width * height];
 		clear();
 	}
 	
-	/****************************************************************************
+	/***********************************************************************
 	 * this renders the board on GUI.
-	 * @param Board board: the board, and this is used to get the board's sprite.
-	 ***************************************************************************/
-	public void renderBoard(Board board) {
+	 * @param board : the board, and this is used to get the 
+	 * board's sprite.
+	 **********************************************************************/
+	public void renderBoard(final Board board) {
 		Sprite sp = board.getSprite();
 		for (int y = 0; y < sp.getHeight(); y++) {
 			for (int x = 0; x < sp.getWidth(); x++) {
-				//this basically makes our one dimensional array into 
-				pixels[x + (y * width)] = sp.getPixels()[x + y * sp.getWidth()];
+				//this basically makes our 1 dimensional array 
+				pixels[x + (y * width)] = sp.getPixels()
+						[x + y * sp.getWidth()];
 			}
 		}
 	}
 	
-	/****************************************************************************
-	 * This method renders the board and all the countries to the screen. This 
-	 * method has hard-coded values to put the 4 test countries on the screen 
-	 * right now.
-	 * @param Country[] country all the countries to draw.
-	 ***************************************************************************/
-	public void renderCountries(Country[] country) {
+	/***********************************************************************
+	 * This method renders the board and all the countries to the screen.  
+	 * This method has hard-coded values to put the 4 test countries 
+	 * on the screen right now.
+	 * @param country [] all the countries to draw.
+	 **********************************************************************/
+	public void renderCountries(final Country[] country) {
 		//renders a string to the screen
 		Sprite sp = Sprite.testBoard;
 		for (int y = 0; y < sp.getHeight(); y++) {
@@ -103,20 +105,20 @@ public class Screen {
 		}
 	}
 	
-	/****************************************************************************
+	/***********************************************************************
 	 * a method to clear the screen by rendering grey over the whole screen.
-	 ***************************************************************************/
+	 **********************************************************************/
 	public void clear() {
 		//goes through every pixel setting them to Grey
-		for(int i = 0; i < pixels.length; i++) {
+		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = 0xAAAAAA;
 		}
 	}
 	
-	/****************************************************************************
+	/***********************************************************************
 	 * returns every pixel on the screen.
 	 * @return pixels: the array of pixels.
-	 ***************************************************************************/
+	 **********************************************************************/
 	public int[] getPixels() {
 		return pixels;
 	}

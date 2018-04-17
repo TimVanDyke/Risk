@@ -1,6 +1,7 @@
 package classes;
 
  import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
@@ -10,12 +11,13 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.io.*;
 
 /****************************************************************************
  * A class to hold all the logic for rendering the game as well as player-
  * Input. I hope to combine Main and Gui.
  ***************************************************************************/
-public class Gui extends JFrame{
+public class Gui extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	//Window Size
@@ -111,7 +113,7 @@ public class Gui extends JFrame{
 	 * this is where the decision from the user begins.
 	 ***************************************************************************/
 	public void update() {
-		if(Mouse.getB() == 4)
+		if(mouse.getB() == 4)
 			System.exit(0);
 		if (main.getSelected() == null) {
 			selectCountry();
@@ -174,16 +176,16 @@ public class Gui extends JFrame{
 	 * man.setSelected.
 	 ***************************************************************************/
 	public void selectCountry() {
-		if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 256) {
+		if(mouse.getB() == 1 && mouse.getX() < 256 && mouse.getY() < 256) {
 			main.setSelected(main.green);
 		}
-		else if(Mouse.getB() == 1 && Mouse.getX() < 512 && Mouse.getY() < 256) {
+		else if(mouse.getB() == 1 && mouse.getX() < 512 && mouse.getY() < 256) {
 			main.setSelected(main.magenta);
 		}
-		else if(Mouse.getB() == 1 && Mouse.getX() < 256 && Mouse.getY() < 512) {
+		else if(mouse.getB() == 1 && mouse.getX() < 256 && mouse.getY() < 512) {
 			main.setSelected(main.purple);
 		}
-		else if(Mouse.getB() == 1 && Mouse.getX() < 512 && Mouse.getY() < 512) {
+		else if(mouse.getB() == 1 && mouse.getX() < 512 && mouse.getY() < 512) {
 			main.setSelected(main.yellow);
 		}
 	}
@@ -263,28 +265,28 @@ public class Gui extends JFrame{
 					if (main.getSelected().getName() == "green"){
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.purple.getNumUnits()));
-						main.getBoard().attack(main.green, main.purple, main.getBoard().getAtt(), main.getBoard().getDef());
+						main.getBoard().attack(main.green, main.purple, main.getBoard().getAtt().roll(), main.getBoard().getDef().roll());
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.purple.getNumUnits()));
 					}
 					else if (main.getSelected().getName() == "magenta"){
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.yellow.getNumUnits()));
-						main.getBoard().attack(main.magenta, main.yellow, main.getBoard().getAtt(), main.getBoard().getDef());
+						main.getBoard().attack(main.magenta, main.yellow, main.getBoard().getAtt().roll(), main.getBoard().getDef().roll());
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.yellow.getNumUnits()));
 					}
 					else if (main.getSelected().getName() == "purple"){
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.green.getNumUnits()));
-						main.getBoard().attack(main.purple, main.green, main.getBoard().getAtt(), main.getBoard().getDef());
+						main.getBoard().attack(main.purple, main.green, main.getBoard().getAtt().roll(), main.getBoard().getDef().roll());
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.green.getNumUnits()));
 					}
 					else if (main.getSelected().getName() == "yellow"){
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.magenta.getNumUnits()));
-						main.getBoard().attack(main.yellow, main.magenta, main.getBoard().getAtt(), main.getBoard().getDef());
+						main.getBoard().attack(main.yellow, main.magenta, main.getBoard().getAtt().roll(), main.getBoard().getDef().roll());
 						System.out.println(Integer.toString(main.getSelected().getNumUnits()));
 						System.out.println(Integer.toString(main.magenta.getNumUnits()));
 					}
@@ -310,5 +312,19 @@ public class Gui extends JFrame{
 			}
 		}
 	}
+	
+//	/***********************************************************************
+//	 * Saves the game to a file. Need to make a button for this.
+//	 * FIXME i'm going to wait until the new front end is started
+//	 * to write this
+//	 **********************************************************************/
+//	private void saveGame() {
+//		try {
+//			
+//			
+//		} catch (IOException ex) {
+//			
+//		}
+//	}
 			
 }

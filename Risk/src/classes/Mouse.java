@@ -7,98 +7,103 @@ import java.awt.event.MouseMotionListener;
 /****************************************************************************
  * A class to control mouse movement and mouse button presses.
  ***************************************************************************/
-public class Mouse implements MouseListener, MouseMotionListener{
+public class Mouse implements MouseListener, MouseMotionListener {
 	
-	/** The x coordinate for the mouse */
-	private static int x = -1;
+	/** The x coordinate for the mouse. */
+	private int x = -1;
 	
-	/** The y coordinate for the mouse */
-	private static int y = -1;
+	/** The y coordinate for the mouse. */
+	private int y = -1;
 	
-	/** whether or not the mouse is pressed */
-	private static int b = -1;
+	/** whether or not the mouse is pressed. */
+	private int b = -1;
 	
-	/****************************************************************************
-	 * the constructor for Mouse, all it does is change the instance variables
-	 * to -1 when it begins.
-	 ***************************************************************************/
+	/***********************************************************************
+	 * the constructor for Mouse, all it does is change the instance
+	 *  variables to -1 when it begins.
+	 **********************************************************************/
 	public Mouse() {
 		x = -1;
 		y = -1;
 		b = -1;
 	}
 	
-	/****************************************************************************
+	/***********************************************************************
 	 * the getter for the x coordinate.
 	 * @return x.
-	 ***************************************************************************/
-	public static int getX() {
+	 **********************************************************************/
+	public int getX() {
 		return x;
 	}
 	
-	/****************************************************************************
+	/***********************************************************************
 	 * the getter for the y coordinate.
 	 * @return y.
-	 ***************************************************************************/
-	public static int getY() { 
+	 **********************************************************************/
+	public int getY() { 
 		return y;
 	}
 	
-	/****************************************************************************
+	/***********************************************************************
 	 * the getter for the b coordinate.
 	 * @return b.
-	 ***************************************************************************/
-	public static int getB() {
+	 **********************************************************************/
+	public int getB() {
 		return b;
 	}
 
-	/****************************************************************************
+	/***********************************************************************
 	 * This changes the x and y position of the mouse when the mouse moves.
-	 ***************************************************************************/
+	 **********************************************************************/
 	@Override
-	public void mouseMoved(MouseEvent e) {
+	public void mouseMoved(final MouseEvent e) {
 		x = e.getX();
 		y = e.getY();
 		
 	}
 
-	public void mouseClicked(MouseEvent e) {
+	/***********************************************************************
+	 * This changes the x and y position of the mouse when mouse clicked.
+	 * @param e mouse event
+	 **********************************************************************/
+	public void mouseClicked(final MouseEvent e) {
 		
 	}
 
-	/****************************************************************************
+	/***********************************************************************
 	 * updates all variables when the mouse is pressed.
-	 ***************************************************************************/
+	 * @param e mouse event
+	 **********************************************************************/
 	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mousePressed(final MouseEvent e) {
 		x = e.getX();
 		y = e.getY();
 		b = e.getButton();
 	}
 
-	/****************************************************************************
-	 * updates b when the mouse is released,
-	 ***************************************************************************/
+	/***********************************************************************
+	 * updates b when the mouse is released.
+	 **********************************************************************/
 	@Override
-	public void mouseReleased(MouseEvent e) {
+	public void mouseReleased(final MouseEvent e) {
 		b = -1;
 		
 	}
 	
 	@Override
-	public void mouseDragged(MouseEvent e) {
+	public void mouseDragged(final MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
+	public void mouseEntered(final MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mouseExited(MouseEvent e) {
+	public void mouseExited(final MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
