@@ -108,10 +108,12 @@ public class JUnit {
 		x.setName("P2");
 		Country b = new Country("b", 1);
 		x.addCountry(b);
+		assertTrue(x.isOwned(b));
 		assertEquals(x.getKingdomSize(), 1);
 		x.removeCountry(a);
 		x.removeCountry(b);
 		assertEquals(p.getKingdomSize(), 0);
+		assertFalse(x.isOwned(b));
 	}
 	
 	/***********************************************************************

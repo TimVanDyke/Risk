@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Player {
 	
 	/** a list of all the territories this player controls. */
-	private ArrayList<Country> kingdom;
+	protected ArrayList<Country> kingdom;
 	
 	/** The player's name that is displayed. */
 	private String name;
@@ -119,5 +119,13 @@ public class Player {
 		return kingdom.size();
 	}
 
+	/***********************************************************************
+	 * return if given country is owned.
+	 * @param c : country to check for
+	 * @return boolean : size of kingdom.
+	 **********************************************************************/
+	public boolean isOwned(final Country c) {
+		return kingdom.contains(c);
+	}
 	
 }

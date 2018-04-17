@@ -270,7 +270,7 @@ public class Board {
 		this.def = def;
 	}
 	/***********************************************************************
-	 * @param def the defenders die.
+	 * 
 	 **********************************************************************/
 	public void save() {
 		System.out.println("saved");
