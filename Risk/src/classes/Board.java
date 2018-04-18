@@ -1,4 +1,6 @@
 package classes;
+//FIXME move this and save/load to main
+import java.io.*;
 
 /****************************************************************************
  *A class to hold the countries and dice. This also has
@@ -277,13 +279,29 @@ public class Board {
 >>>>>>> branch 'master' of https://github.com/TimVanDyke/Risk.git
 	 **********************************************************************/
 	public void save() {
-		System.out.println("saved");
+//		System.out.println("saved");
+//		try {
+//			FileOutputStream fos = new FileOutputStream("risk.dat");
+//			ObjectOutputStream oos = new ObjectOutputStream(fos);
+//			oos.writeObject(game);
+//			oos.close();
+//		} catch (Exception ex) {
+//			ex.printStackTrace();
+//		}
 	}
 	/***********************************************************************
-	 * loads the game
+	 * loads the game.
 	 **********************************************************************/
 	public void load() {
-		System.out.println("loaded");
+//		System.out.println("loaded");
+//		try {
+//			FileInputStream fis = new FileInputStream("risk.dat");
+//			ObjectInputStream ois = new ObjectInputStream(fis);
+//			ois.writeObject(game);
+//			ois.close();
+//		} catch (Exception ex) {
+//			ex.printStackTrace();
+//		}
 	}
 }
 
