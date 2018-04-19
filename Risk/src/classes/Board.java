@@ -17,9 +17,6 @@ public class Board {
     /** the dice for the defender. */
     private Die def;
 
-    /** the sprite for the board. */
-    private Sprite sprite;
-
     /***********************************************************************
 	 * The constructor for the board class.
 	 **********************************************************************/
@@ -38,8 +35,6 @@ public class Board {
 //		for (int i = 0; i < def.length; i++)
 //			def[i] = new Die();
 		
-		//sets sprite
-		sprite = Sprite.testBoard;
 		
 		//after testing sets sprite
 		//sprite = Sprite.board;
@@ -59,12 +54,6 @@ public class Board {
 		this.turnNum = turnNum;
 	}
 
-	/***********************************************************************
-	 * @return the sprite for the board.
-	 **********************************************************************/
-	public Sprite getSprite() {
-		return sprite;
-	}
 	
 	/***********************************************************************
 	 * The method used to attack another country.
@@ -88,12 +77,19 @@ public class Board {
 		results[0] = attRoll;
 		results[1] = defRoll;
 		
+		if (attacker.getNumUnits() <= 1 || defender.getNumUnits() <= 0) {
+			System.out.println("Invalid attack!");
+			return null;
+		}
+		
 		//Compare roll results
 		//If attacker wins
 		if (results[0] > results[1]) {
 			if (defender.getNumUnits() == 1) {
 				defender.getOwner().removeCountry(defender);
+				defender.setOwner(attacker.getOwner());
 				attacker.getOwner().addCountry(defender);
+				
 				//Moves all units to new country except 1
 			    defender.setNumUnits(attacker.getNumUnits() - 1);
 				//Leaves 1 unit at old attacker

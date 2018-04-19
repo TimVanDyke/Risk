@@ -15,16 +15,28 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/****************************************************************************
+ * Class to create the view.
+ ***************************************************************************/
 public class View extends Application {
 
-	public static void main(String[] args) {
+	/****************************************************************************
+	 * Launches the view.
+	 * @param args : the args
+	 ***************************************************************************/
+	public static void main(final String[] args) {
 		launch(args);
 	}
 	
-	Stage window;
+	/** the stage.*/
+	private Stage window;
 	
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	/****************************************************************************
+	 * Creates the view.
+	 * @param primaryStage : the stage
+	 ***************************************************************************/
+	public void start(final Stage primaryStage) throws Exception {
 		window = primaryStage;
 		window.setTitle("coolthings");
 		

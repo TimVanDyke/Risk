@@ -96,7 +96,7 @@ public class JUnit {
 	public void testPlayer() {
 		Player p = new Player("P1");
 		String s = "";
-		Country a = new Country("a", 1, s);
+		Country a = new Country("a", 1);
 		p.addCountry(a);
 		assertEquals(p.getKingdomSize(), 1);
 		p.removeCountry(a);
@@ -131,7 +131,6 @@ public class JUnit {
 		c.setNumUnits("add", 2);
 		assertEquals(c.getNumUnits(), 5);
 		assertEquals(c.getName(), "c");
-		assertEquals(c.getSprite(), null);
 	}
 	
 	/***********************************************************************
@@ -199,8 +198,6 @@ public class JUnit {
 	@Test
 	public void testBoard() {
 		Board b = new Board();
-		Sprite s = b.getSprite();
-		assertNotNull(s);
 		b.setTurnNum(2);
 		assertEquals(b.getTurnNum(), 2);
 		Die att = b.getAtt();

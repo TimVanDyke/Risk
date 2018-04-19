@@ -120,17 +120,18 @@ public class Player {
 	}
 	
 	/***********************************************************************
-	 * used for changing turns
+	 * used for changing turns.
+	 * @return kingdom
 	 **********************************************************************/
 	public ArrayList<Country> getKingdom() {
 		return kingdom;
 	}
 	
 	/***********************************************************************
-	 * used for changing turns
-	 * @return 
+	 * used for changing turns.
+	 * @param c : the kingdom 
 	 **********************************************************************/
-	public void setKingdom(ArrayList<Country> c) {
+	public void setKingdom(final ArrayList<Country> c) {
 		kingdom = c;
 	}
 

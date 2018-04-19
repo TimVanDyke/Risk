@@ -6,8 +6,16 @@ import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.geometry.*;
 
+/****************************************************************************
+ * A class for an alert box.
+ ***************************************************************************/
 public class AlertBox {
-	public static void display(String title, String message) {
+	/****************************************************************************
+	 * Displays the alert box.
+	 * @param title : the title
+	 * @param message : the message
+	 ***************************************************************************/
+	public static void display(final String title, final String message) {
 		Stage window = new Stage();
 		
 		window.initModality(Modality.APPLICATION_MODAL);

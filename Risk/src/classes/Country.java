@@ -20,26 +20,7 @@ public class Country {
 	/** This country's neighbors. */
 	private Country[] neighbors;
 
-	/** this country's sprite. */
-	private Sprite sprite;
-	
-	
 
-	/***********************************************************************
-	 * the constructor for Country. This sets owner to null, numUnits to 0, 
-	 * and name to what they are instantiated as. This is the constructor
-	 * for countries with one neighbor.
-	 * @param name the name of the country.
-	 * @param size the size of the country.
-	 * @param path the path to the sprite.
-	 **********************************************************************/
-	public Country(final String name, final int size, final String path) {
-		owner = null;
-		numUnits = 0;
-		this.name = name;
-		neighbors = new Country[size];
-		sprite = new Sprite(path);
-	}
 	
 	/***********************************************************************
 	 * Default constructor to be used for our tests.
@@ -212,10 +193,4 @@ public class Country {
 		return name;
 	}
 	
-	/***********************************************************************
-	 * @return sprite: this country's sprite.
-	 **********************************************************************/
-	public Sprite getSprite() {
-		return sprite;
-	}
 }

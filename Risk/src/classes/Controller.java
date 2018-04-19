@@ -10,14 +10,18 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
+/****************************************************************************
+ * Controller class.
+ ***************************************************************************/
 public class Controller implements Initializable {	
 	
-	/** the board */
+	/** the board. */
 	private Board board;
 	
+	/** num units available. */
 	private int numUnitsAvailable;
 	
-	/** the text for the current player, country, numUnits*/
+	/** the text for the current player, country, numUnits.*/
 	public Text currentPlayerLabel;
 	public Text currentCountryLabel;
 	public Text numUnitsAvailableLabel;
@@ -73,7 +77,7 @@ public class Controller implements Initializable {
 //	/** the screen */
 //	private Screen screen;
 	
-	/** The world */
+	/** The world. */
 	private Country[] world;
 	
 	/** player 1. */
@@ -109,7 +113,7 @@ public class Controller implements Initializable {
 	Japan, Mongolia, China, India, Kamchatka, Siam, Indonesia, NewGuinea,
 	WesternAustralia, EasternAustralia;
 	
-	/** choicebox (dropdown) for attack and addunits) */
+	/** choicebox (dropdown) for attack and addunits). */
 	public ChoiceBox<String> decision;
 //	/****************************************************************************
 //	 * The constructor for controller. This is called by view.
@@ -171,7 +175,6 @@ public class Controller implements Initializable {
 	
 	/****************************************************************************
 	 * The constructor for controller. This is called by view.
-	 * @param s1 : a name for player 1
 	 ***************************************************************************/
 	public Controller() {
 		//makes a screen 
