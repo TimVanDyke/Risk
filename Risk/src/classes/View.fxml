@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -89,12 +90,12 @@
                   <Image url="@../../res/CutUpriskBoard/Venezuela.png" />
                </image>
             </ImageView>
-            <ImageView id="Peru" fitHeight="119.0" fitWidth="434.0" layoutY="392.0" onMouseClicked="#peruClicked" pickOnBounds="false" preserveRatio="true">
+            <ImageView id="Peru" fitHeight="119.0" fitWidth="434.0" layoutY="393.0" onMouseClicked="#peruClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Peru.png" />
                </image>
             </ImageView>
-            <ImageView id="Argentina" fitHeight="143.0" fitWidth="449.0" layoutY="481.0" onMouseClicked="#argentinaClicked" pickOnBounds="false" preserveRatio="true">
+            <ImageView id="Argentina" fitHeight="143.0" fitWidth="449.0" layoutY="482.0" onMouseClicked="#argentinaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Argentina.png" />
                </image>
@@ -249,6 +250,48 @@
                   <Image url="@../../res/CutUpriskBoard/EasternAustralia.png" />
                </image>
             </ImageView>
+            <Text layoutX="71.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AlaskaNumUnits" />
+            <Text layoutX="176.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NWTerritory" />
+            <Text layoutX="206.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alberta" />
+            <Text layoutX="176.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WUSA" />
+            <Text layoutX="280.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ontario" />
+            <Text layoutX="367.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EUSA" />
+            <Text layoutX="235.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CAMERICA" />
+            <Text layoutX="364.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quebec" />
+            <Text layoutX="452.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Greenland" />
+            <Text layoutX="362.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Venezuela" />
+            <Text layoutX="394.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peru" />
+            <Text layoutX="441.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brazil" />
+            <Text layoutX="350.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Argentina" />
+            <Text layoutX="614.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAFRICA" />
+            <Text layoutX="700.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text layoutX="668.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congo" />
+            <Text layoutX="671.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SAFRICA" />
+            <Text layoutX="757.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EAFRICA" />
+            <Text layoutX="793.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MADAGASCAR" />
+            <Text layoutX="580.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iceland" />
+            <Text layoutX="518.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GBritain" />
+            <Text layoutX="537.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WEUROPE" />
+            <Text layoutX="634.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scandinavia" />
+            <Text layoutX="745.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ukraine" />
+            <Text layoutX="694.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEUROPE" />
+            <Text layoutX="702.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEUROPE" />
+            <Text layoutX="782.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MEAST" />
+            <Text layoutX="802.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AFghan" />
+            <Text layoutX="858.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ural" />
+            <Text layoutX="921.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Siberia" />
+            <Text layoutX="1030.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yakutsk" />
+            <Text layoutX="1123.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kamchatka" />
+            <Text layoutX="970.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Irkutsk" />
+            <Text layoutX="964.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mongolia" />
+            <Text layoutX="925.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="China" />
+            <Text layoutX="932.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Siam" />
+            <Text layoutX="859.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="India" />
+            <Text layoutX="955.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Indonesia" />
+            <Text layoutX="1101.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NewGuinea" />
+            <Text layoutX="1036.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WesternAustralia" />
+            <Text layoutX="1161.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EasternAustralia" />
+            <Text layoutX="1124.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Japan" />
          </children>
       </AnchorPane>
    </center>

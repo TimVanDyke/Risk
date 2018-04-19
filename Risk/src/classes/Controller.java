@@ -1,6 +1,11 @@
 package classes;
 
-public class Controller {	
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.Initializable;
+
+public class Controller implements Initializable {	
 	
 	/** the board */
 	private Board board;
@@ -74,6 +79,25 @@ public class Controller {
 		board = new Board();
 		
 		p1 = new Player(s1);
+		p2 = new Player("Risk Bot");
+		
+		attDie = new Die();
+		defDie = new Die();
+		
+		turn = p1;
+		
+		initializeCountries();
+	}
+	
+	/****************************************************************************
+	 * The constructor for controller. This is called by view.
+	 * @param s1 : a name for player 1
+	 ***************************************************************************/
+	public Controller() {
+		//makes a screen 
+		board = new Board();
+		
+		p1 = new Player("I work now?");
 		p2 = new Player("Risk Bot");
 		
 		attDie = new Die();
@@ -506,59 +530,58 @@ public class Controller {
 	 * Initializes all countries, and adds neighbors for each country.
 	 ***************************************************************************/
 	private void initializeCountries() {
-		String a = "hi";
-		Alaska = new Country("Alaska", 3, a);
-		NorthwestTerritory = new Country("Northwest Territory", 4, a);
-		Greenland = new Country("Greenland", 4, a);
-		Alberta = new Country("Alberta", 4, a);
-		Ontario = new Country("Ontario", 6, a);
-		Quebec = new Country("Quebec", 3, a);
-		EasternUS = new Country("Eastern United States", 4, a);
-		WesternUS = new Country("Western United States", 4, a);
-		CentralAmerica = new Country("Central America", 3, a);
+		Alaska = new Country("Alaska", 3);
+		NorthwestTerritory = new Country("Northwest Territory", 4);
+		Greenland = new Country("Greenland", 4);
+		Alberta = new Country("Alberta", 4);
+		Ontario = new Country("Ontario", 6);
+		Quebec = new Country("Quebec", 3);
+		EasternUS = new Country("Eastern United States", 4);
+		WesternUS = new Country("Western United States", 4);
+		CentralAmerica = new Country("Central America", 3);
 		
 		//South America
-		Venezuela = new Country("Venezuela", 3, a);
-		Peru = new Country("Peru", 3, a);
-		Argentina = new Country("Argentina", 2, a);
-		Brazil = new Country("Brazil", 4, a);
+		Venezuela = new Country("Venezuela", 3);
+		Peru = new Country("Peru", 3);
+		Argentina = new Country("Argentina", 2);
+		Brazil = new Country("Brazil", 4);
 		
 		//Europe
-		Iceland = new Country("Iceland", 3, a);
-		GreatBritain = new Country("Great Britain", 4, a);
-		NorthernEurope = new Country("Northern Europe", 5, a);
-		Scandinavia = new Country("Scandinavia", 4, a);
-		WesternEurope = new Country("Western Europe", 4, a);
-	    SouthernEurope = new Country("Southern Europe", 6, a);
-		Ukraine = new Country("Ukraine", 6, a);
+		Iceland = new Country("Iceland", 3);
+		GreatBritain = new Country("Great Britain", 4);
+		NorthernEurope = new Country("Northern Europe", 5);
+		Scandinavia = new Country("Scandinavia", 4);
+		WesternEurope = new Country("Western Europe", 4);
+	    SouthernEurope = new Country("Southern Europe", 6);
+		Ukraine = new Country("Ukraine", 6);
 		
 		//Africa
-		NorthAfrica = new Country("North Africa", 6, a);
-		Egypt = new Country("Egypt", 4, a);
-		EastAfrica = new Country("East Africa", 6, a);
-		Congo = new Country("Congo", 3, a);
-		SouthAfrica = new Country("South Africa", 3, a);
-		Madagascar = new Country("Madagascar", 2, a);
+		NorthAfrica = new Country("North Africa", 6);
+		Egypt = new Country("Egypt", 4);
+		EastAfrica = new Country("East Africa", 6);
+		Congo = new Country("Congo", 3);
+		SouthAfrica = new Country("South Africa", 3);
+		Madagascar = new Country("Madagascar", 2);
 		
 		//Asia
-		MiddleEast = new Country("Middle East", 6, a);
-		Afghanistan = new Country("Afghanistan", 5, a);
-		Ural = new Country("Ural", 4, a);
-		Siberia = new Country("Siberia", 5, a);
-		Yakutsk = new Country("Yakutsk", 3, a);
-		Irkutsk = new Country("Irkutsk", 4, a);
-		Japan = new Country("Japan", 2, a);
-		Mongolia = new Country("Mongolia", 5, a);
-		China = new Country("China", 6, a);
-		India = new Country("India", 4, a);
-		Kamchatka = new Country("Kamchatka", 5, a);
-		Siam = new Country("Siam", 3, a);
+		MiddleEast = new Country("Middle East", 6);
+		Afghanistan = new Country("Afghanistan", 5);
+		Ural = new Country("Ural", 4);
+		Siberia = new Country("Siberia", 5);
+		Yakutsk = new Country("Yakutsk", 3);
+		Irkutsk = new Country("Irkutsk", 4);
+		Japan = new Country("Japan", 2);
+		Mongolia = new Country("Mongolia", 5);
+		China = new Country("China", 6);
+		India = new Country("India", 4);
+		Kamchatka = new Country("Kamchatka", 5);
+		Siam = new Country("Siam", 3);
 		
 		//Australia
-		Indonesia = new Country("Indonesia", 3, a);
-		NewGuinea = new Country("New Guinea", 3, a);
-		WesternAustralia = new Country("Western Australia", 3, a);
-		EasternAustralia = new Country("Eastern Australia", 2, a);
+		Indonesia = new Country("Indonesia", 3);
+		NewGuinea = new Country("New Guinea", 3);
+		WesternAustralia = new Country("Western Australia", 3);
+		EasternAustralia = new Country("Eastern Australia", 2);
 		
 		//Add neighbors for North America
 		Alaska.addThreeNeighbors(NorthwestTerritory, Alberta, Kamchatka);
@@ -615,5 +638,11 @@ public class Controller {
 		EasternAustralia.addTwoNeighbors(WesternAustralia, NewGuinea);
 		
 		return;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		System.out.println("I work now?");
+		
 	}
 }
