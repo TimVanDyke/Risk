@@ -240,7 +240,7 @@ public class Main {
 	}
 
 	/****************************************************************************
-	 * @return the attackers die array.
+	 * sets the screen
 	 ***************************************************************************/
 	public void setScreen(Screen screen) {
 		this.screen = screen;

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane prefHeight="801.0" prefWidth="1244.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.Controller">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <AnchorPane prefHeight="375.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="37.0" layoutY="72.0" mnemonicParsing="false" text="Attack" />
+            <Button layoutX="27.0" layoutY="113.0" mnemonicParsing="false" text="Add Units" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="625.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView id="NorthWestTerritory" fitHeight="153.0" fitWidth="295.0" layoutX="105.0" onMouseClicked="#northWestTerritoryClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/NorthWestTerritory.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Alaska" fitHeight="234.0" fitWidth="171.0" onMouseClicked="#alaskaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Alaska.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Alberta" fitHeight="101.0" fitWidth="262.0" layoutY="148.0" onMouseClicked="#albertaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Alberta.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Greenland" fitHeight="183.0" fitWidth="352.0" layoutX="279.0" onMouseClicked="#greenlandClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Greenland.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Ontario" fitHeight="138.0" fitWidth="165.0" layoutX="251.0" layoutY="103.0" onMouseClicked="#ontarioClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Ontario.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Quebec" fitHeight="116.0" fitWidth="120.0" layoutX="345.0" layoutY="125.0" onMouseClicked="#quebecClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Quebec.png" />
+               </image>
+            </ImageView>
+            <ImageView id="WesternUnitedStates" fitHeight="116.0" fitWidth="293.0" layoutY="213.0" onMouseClicked="#westernUnitedStatesClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/WesternUnitedStates.png" />
+               </image>
+            </ImageView>
+            <ImageView id="EasternUnitedStates" fitHeight="129.0" fitWidth="194.0" layoutX="277.0" layoutY="183.0" onMouseClicked="#easternUnitedStatesClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/EasternUnitedStates.png" />
+               </image>
+            </ImageView>
+            <ImageView id="CentralAmerica" fitHeight="198.0" fitWidth="397.0" layoutY="278.0" onMouseClicked="#centralAmericaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/CentralAmerica.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Venezuela" fitHeight="129.0" fitWidth="163.0" layoutX="294.0" layoutY="291.0" onMouseClicked="#venezuelaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Venezuela.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Peru" fitHeight="119.0" fitWidth="434.0" layoutY="392.0" onMouseClicked="#peruClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Peru.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Argentina" fitHeight="143.0" fitWidth="449.0" layoutY="481.0" onMouseClicked="#argentinaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Argentina.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Brazil" fitHeight="447.0" fitWidth="231.0" layoutX="379.0" layoutY="178.0" onMouseClicked="#brazilClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Brazil.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Iceland" fitHeight="152.0" fitWidth="131.0" layoutX="514.0" onMouseClicked="#icelandClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Iceland.png" />
+               </image>
+            </ImageView>
+            <ImageView id="GreatBritain" fitHeight="76.0" fitWidth="148.0" layoutX="477.0" layoutY="138.0" onMouseClicked="#greatBritainClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/GreatBritain.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Scandinavia" fitHeight="194.0" fitWidth="124.0" layoutX="606.0" onMouseClicked="#scandinaviaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Scandinavia.png" />
+               </image>
+            </ImageView>
+            <ImageView id="WesternEurope" fitHeight="68.0" fitWidth="152.0" layoutX="499.0" layoutY="201.0" onMouseClicked="#westernEuropeClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/WesternEurope.png" />
+               </image>
+            </ImageView>
+            <ImageView id="NorthernEurope" fitHeight="51.0" fitWidth="97.0" layoutX="620.0" layoutY="172.0" onMouseClicked="#northernEuropeClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/NorthernEurope.png" />
+               </image>
+            </ImageView>
+            <ImageView id="SouthernEurope" fitHeight="66.0" fitWidth="90.0" layoutX="636.0" layoutY="211.0" onMouseClicked="#southernEuropeClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/SouthernEurope.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Ukraine" fitHeight="257.0" fitWidth="164.0" layoutX="676.0" onMouseClicked="#ukraineClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Ukraine.png" />
+               </image>
+            </ImageView>
+            <ImageView id="NorthAfrica" fitHeight="162.0" fitWidth="200.0" layoutX="511.0" layoutY="255.0" onMouseClicked="#northAfricaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/NorthAfrica.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Egypt" fitHeight="65.0" fitWidth="90.0" layoutX="652.0" layoutY="270.0" onMouseClicked="#egyptClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Egypt.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Congo" fitHeight="82.0" fitWidth="185.0" layoutX="553.0" layoutY="358.0" onMouseClicked="#congoClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Congo.png" />
+               </image>
+            </ImageView>
+            <ImageView id="EastAfrica" fitHeight="156.0" fitWidth="139.0" layoutX="702.0" layoutY="317.0" onMouseClicked="#eastAfricaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/EastAfrica.png" />
+               </image>
+            </ImageView>
+            <ImageView id="SouthAfrica" fitHeight="215.0" fitWidth="191.0" layoutX="561.0" layoutY="410.0" onMouseClicked="#southAfricaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/SouthAfrica.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Madagascar" fitHeight="229.0" fitWidth="217.0" layoutX="723.0" layoutY="396.0" onMouseClicked="#madagascarClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Madagascar.png" />
+               </image>
+            </ImageView>
+            <ImageView id="MiddleEast" fitHeight="126.0" fitWidth="141.0" layoutX="698.0" layoutY="238.0" onMouseClicked="#middleEastClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/MiddleEast.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Afghanistan" fitHeight="84.0" fitWidth="123.0" layoutX="762.0" layoutY="200.0" onMouseClicked="#afghanistanClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Afghanistan.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Ural" fitHeight="237.0" fitWidth="113.0" layoutX="813.0" onMouseClicked="#uralClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Ural.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Siberia" fitHeight="229.0" fitWidth="176.0" layoutX="850.0" onMouseClicked="#siberiaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Siberia.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Yakutsk" fitHeight="170.0" fitWidth="128.0" layoutX="989.0" onMouseClicked="#yakutskClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Yakutsk.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Kamchatka" fitHeight="240.0" fitWidth="239.0" layoutX="1041.0" onMouseClicked="#kamchatkaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Kamchatka.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Irkutsk" fitHeight="83.0" fitWidth="128.0" layoutX="935.0" layoutY="139.0" onMouseClicked="#irkutskClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Irkutsk.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Mongolia" fitHeight="87.0" fitWidth="125.0" layoutX="935.0" layoutY="196.0" onMouseClicked="#mongoliaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Mongolia.png" />
+               </image>
+            </ImageView>
+            <ImageView id="China" fitHeight="124.0" fitWidth="189.0" layoutX="858.0" layoutY="201.0" onMouseClicked="#chinaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/China.png" />
+               </image>
+            </ImageView>
+            <ImageView id="India" fitHeight="168.0" fitWidth="124.0" layoutX="804.0" layoutY="258.0" onMouseClicked="#indiaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/India.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Siam" fitHeight="113.0" fitWidth="134.0" layoutX="891.0" layoutY="289.0" onMouseClicked="#siamClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Siam.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Japan" fitHeight="179.0" fitWidth="245.0" layoutX="1035.0" layoutY="203.0" onMouseClicked="#japanClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Japan.png" />
+               </image>
+            </ImageView>
+            <ImageView id="Indonesia" fitHeight="172.0" fitWidth="221.0" layoutX="838.0" layoutY="323.0" onMouseClicked="#indonesiaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/Indonesia.png" />
+               </image>
+            </ImageView>
+            <ImageView id="WesternAustralia" fitHeight="191.0" fitWidth="246.0" layoutX="866.0" layoutY="434.0" onMouseClicked="#westernAustraliaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/WesternAustralia.png" />
+               </image>
+            </ImageView>
+            <ImageView id="NewGuinea" fitHeight="131.0" fitWidth="236.0" layoutX="1044.0" layoutY="334.0" onMouseClicked="#newGuineaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/NewGuinea.png" />
+               </image>
+            </ImageView>
+            <ImageView id="EasternAustralia" fitHeight="185.0" fitWidth="215.0" layoutX="1065.0" layoutY="440.0" onMouseClicked="#easternAustraliaClicked" pickOnBounds="false" preserveRatio="true">
+               <image>
+                  <Image url="@../../res/CutUpriskBoard/EasternAustralia.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
