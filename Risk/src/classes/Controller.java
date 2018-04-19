@@ -4,11 +4,60 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
+import javafx.scene.text.Text;
 
 public class Controller implements Initializable {	
 	
 	/** the board */
 	private Board board;
+	
+	/** the text for the current player and country selected */
+	public Text currentPlayerLabel;
+	public Text currentCountryLabel;
+	
+	/** the text for the numUnits on each Country */
+	public Text alaskaLabel;
+	public Text northWestTerritoryLabel;
+	public Text albertaLabel;
+	public Text ontarioLabel;
+	public Text quebecLabel;
+	public Text greenlandLabel;
+	public Text easternUSLabel;
+	public Text westernUSLabel;
+	public Text centralAmericaLabel;
+	public Text venezuelaLabel;
+	public Text peruLabel;
+	public Text argentinaLabel;
+	public Text brazilLabel;
+	public Text icelandLabel;
+	public Text greatBritainLabel;
+	public Text scandinaviaLabel;
+	public Text westernEuropeLabel;
+	public Text northernEuropeLabel;
+	public Text southernEuropeLabel;
+	public Text ukraineLabel;
+	public Text egyptLabel;
+	public Text northAfricaLabel;
+	public Text congoLabel;
+	public Text eastAfricaLabel;
+	public Text southAfricaLabel;
+	public Text madagascarLabel;
+	public Text middleEastLabel;
+	public Text afghanistanLabel;
+	public Text uralLabel;
+	public Text siberiaLabel;
+	public Text yakutskLabel;
+	public Text kamchatkaLabel;
+	public Text irkutskLabel;
+	public Text mongoliaLabel;
+	public Text chinaLabel;
+	public Text indiaLabel;
+	public Text siamLabel;
+	public Text japanLabel;
+	public Text indonesiaLabel;
+	public Text newGuineaLabel;
+	public Text westernAustraliaLabel;
+	public Text easternAustraliaLabel;
 	
 //	/** the screen */
 //	private Screen screen;
@@ -106,6 +155,51 @@ public class Controller implements Initializable {
 		turn = p1;
 		
 		initializeCountries();
+
+		currentPlayerLabel = new Text("");
+		currentCountryLabel = new Text("");
+		alaskaLabel = new Text("");
+		northWestTerritoryLabel = new Text("");
+		albertaLabel = new Text("");
+		ontarioLabel = new Text("");
+		quebecLabel = new Text("");
+		greenlandLabel = new Text("");
+		easternUSLabel = new Text("");
+		westernUSLabel = new Text("");
+		centralAmericaLabel = new Text("");
+		venezuelaLabel = new Text("");
+		peruLabel = new Text("");
+		argentinaLabel = new Text("");
+		brazilLabel = new Text("");
+		icelandLabel = new Text("");
+		greatBritainLabel = new Text("");
+		scandinaviaLabel = new Text("");
+		westernEuropeLabel = new Text("");
+		northernEuropeLabel = new Text("");
+		southernEuropeLabel = new Text("");
+		ukraineLabel = new Text("");
+		egyptLabel = new Text("");
+		northAfricaLabel = new Text("");
+		congoLabel = new Text("");
+		eastAfricaLabel = new Text("");
+		southAfricaLabel = new Text("");
+		madagascarLabel = new Text("");
+		middleEastLabel = new Text("");
+		afghanistanLabel = new Text("");
+		uralLabel = new Text("");
+		siberiaLabel = new Text("");
+		yakutskLabel = new Text("");
+		kamchatkaLabel = new Text("");
+		irkutskLabel = new Text("");
+		mongoliaLabel = new Text("");
+		chinaLabel = new Text("");
+		indiaLabel = new Text("");
+		siamLabel = new Text("");
+		japanLabel = new Text("");
+		indonesiaLabel = new Text("");
+		newGuineaLabel = new Text("");
+		westernAustraliaLabel = new Text("");
+		easternAustraliaLabel = new Text("");
 	}
 	
 	/****************************************************************************
@@ -639,10 +733,62 @@ public class Controller implements Initializable {
 		
 		return;
 	}
+	
+	private void updateText() {
+		//updating currentPlayer
+		currentPlayerLabel.setText(turn.getName());
+		//updating currentCountry
+		if (selected != null) {
+			currentCountryLabel.setText(selected.getName());
+			
+		}
+		//updating country's numUnit display
+		alaskaLabel.setText(Integer.toString(Alaska.getNumUnits()));
+		northWestTerritoryLabel.setText(Integer.toString(NorthwestTerritory.getNumUnits()));
+		albertaLabel.setText(Integer.toString(Alberta.getNumUnits()));
+		ontarioLabel.setText(Integer.toString(Ontario.getNumUnits()));
+		quebecLabel.setText(Integer.toString(Quebec.getNumUnits()));
+		greenlandLabel.setText(Integer.toString(Greenland.getNumUnits()));
+		easternUSLabel.setText(Integer.toString(EasternUS.getNumUnits()));
+		westernUSLabel.setText(Integer.toString(WesternUS.getNumUnits()));
+		centralAmericaLabel.setText(Integer.toString(CentralAmerica.getNumUnits()));
+		venezuelaLabel.setText(Integer.toString(Venezuela.getNumUnits()));
+		peruLabel.setText(Integer.toString(Peru.getNumUnits()));
+		argentinaLabel.setText(Integer.toString(Argentina.getNumUnits()));
+		brazilLabel.setText(Integer.toString(Brazil.getNumUnits()));
+		icelandLabel.setText(Integer.toString(Iceland.getNumUnits()));
+		greatBritainLabel.setText(Integer.toString(GreatBritain.getNumUnits()));
+		scandinaviaLabel.setText(Integer.toString(Scandinavia.getNumUnits()));
+		westernEuropeLabel.setText(Integer.toString(WesternEurope.getNumUnits()));
+		northernEuropeLabel.setText(Integer.toString(NorthernEurope.getNumUnits()));
+		southernEuropeLabel.setText(Integer.toString(SouthernEurope.getNumUnits()));
+		ukraineLabel.setText(Integer.toString(Ukraine.getNumUnits()));
+		egyptLabel.setText(Integer.toString(Egypt.getNumUnits()));
+		northAfricaLabel.setText(Integer.toString(NorthAfrica.getNumUnits()));
+		congoLabel.setText(Integer.toString(Congo.getNumUnits()));
+		eastAfricaLabel.setText(Integer.toString(EastAfrica.getNumUnits()));
+		southAfricaLabel.setText(Integer.toString(SouthAfrica.getNumUnits()));
+		madagascarLabel.setText(Integer.toString(Madagascar.getNumUnits()));
+		middleEastLabel.setText(Integer.toString(MiddleEast.getNumUnits()));
+		afghanistanLabel.setText(Integer.toString(Afghanistan.getNumUnits()));
+		uralLabel.setText(Integer.toString(Ural.getNumUnits()));
+		siberiaLabel.setText(Integer.toString(Siberia.getNumUnits()));
+		yakutskLabel.setText(Integer.toString(Yakutsk.getNumUnits()));
+		kamchatkaLabel.setText(Integer.toString(Kamchatka.getNumUnits()));
+		irkutskLabel.setText(Integer.toString(Irkutsk.getNumUnits()));
+		mongoliaLabel.setText(Integer.toString(Mongolia.getNumUnits()));
+		chinaLabel.setText(Integer.toString(China.getNumUnits()));
+		indiaLabel.setText(Integer.toString(India.getNumUnits()));
+		siamLabel.setText(Integer.toString(Siam.getNumUnits()));
+		japanLabel.setText(Integer.toString(Japan.getNumUnits()));
+		indonesiaLabel.setText(Integer.toString(Indonesia.getNumUnits()));
+		newGuineaLabel.setText(Integer.toString(NewGuinea.getNumUnits()));
+		westernAustraliaLabel.setText(Integer.toString(WesternAustralia.getNumUnits()));
+		easternAustraliaLabel.setText(Integer.toString(EasternAustralia.getNumUnits()));
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		System.out.println("I work now?");
-		
+		updateText();
 	}
 }
