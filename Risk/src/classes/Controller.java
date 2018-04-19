@@ -7,6 +7,7 @@ import org.hamcrest.SelfDescribing;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class Controller implements Initializable {	
@@ -186,13 +187,7 @@ public class Controller implements Initializable {
 		numUnitsAvailableLabel = new Text(Integer.toString(numUnitsAvailable));
 		turn = p1;
 		turn.setKingdom(p1.getKingdom());
-		//FIXME remove this
-//		turn.addCountry(Alaska);
-//		if (turn.isOwned(Alaska))
-//			System.out.println("Turn does own Alaska");
-//		
-//		if (turn.getName().equals(p1.getName()))
-//			System.out.println("It is P1's Turn");
+		
 		p1.setKingdom(turn.getKingdom());
 		
 		decision = new ChoiceBox<>();
@@ -369,7 +364,11 @@ public class Controller implements Initializable {
 		Ural.setNumUnits(5);
 		Ural.setOwner(p2);
 		
-		p1.addCountry(Siberia);
+		p2.addCountry(Siberia);
+		Siberia.setNumUnits(5);
+		Siberia.setOwner(p2);
+		
+		p1.addCountry(Yakutsk);
 		Yakutsk.setNumUnits(5);
 		Yakutsk.setOwner(p1);
 		
@@ -467,11 +466,6 @@ public class Controller implements Initializable {
 	public void alaskaClicked() {
 		if (turn.isOwned(Alaska)) {
 		this.selected = Alaska;
-//		if (p1.isOwned(Alaska))
-//			System.out.println("He does own Alaska");
-		
-//		if (turn.getName().equals(p1.getName()))
-//			System.out.println("It is P1's Turn");
 		updateDecision();
 		}
 	}
@@ -479,7 +473,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void northWestTerritoryClicked() {
-		System.out.println("North West Territy clicked");
 		if (turn.kingdom.contains(NorthwestTerritory)) {
 			this.selected = NorthwestTerritory;
 			updateDecision();
@@ -489,7 +482,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void albertaClicked() {
-		System.out.println("Alberta clicked");
 		if (turn.kingdom.contains(Alberta)) {
 			this.selected = Alberta;
 			updateDecision();
@@ -499,7 +491,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void greenlandClicked() {
-		System.out.println("Greenland clicked");
 		if (turn.kingdom.contains(Greenland)) {
 			this.selected = Greenland;
 			updateDecision();
@@ -509,7 +500,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void ontarioClicked() {
-		System.out.println("Ontario clicked");
 		if (turn.kingdom.contains(Ontario)) {
 			this.selected = Ontario;
 			updateDecision();
@@ -519,7 +509,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void quebecClicked() {
-		System.out.println("Quebec clicked");
 		if (turn.kingdom.contains(Quebec)) {
 			this.selected = Quebec;
 			updateDecision();
@@ -529,7 +518,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void westernUnitedStatesClicked() {
-		System.out.println("Western United States clicked");
 		if (turn.kingdom.contains(WesternUS)) {
 			this.selected = WesternUS;
 			updateDecision();
@@ -539,7 +527,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void easternUnitedStatesClicked() {
-		System.out.println("Eastern United States clicked");
 		if (turn.kingdom.contains(EasternUS)) {
 			this.selected = EasternUS;
 			updateDecision();
@@ -549,7 +536,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void centralAmericaClicked() {
-		System.out.println("Central America clicked");
 		if (turn.kingdom.contains(CentralAmerica)) {
 			this.selected = CentralAmerica;
 			updateDecision();
@@ -559,7 +545,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void venezuelaClicked() {
-		System.out.println("Venezuela clicked");
 		if (turn.kingdom.contains(Venezuela)) {
 			this.selected = Venezuela;
 			updateDecision();
@@ -569,7 +554,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void peruClicked() {
-		System.out.println("Peru clicked");
 		if (turn.kingdom.contains(Peru)) {
 			this.selected = Peru;
 			updateDecision();
@@ -577,7 +561,6 @@ public class Controller implements Initializable {
 	}
 	
 	public void argentinaClicked() {
-		System.out.println("Argentina clicked");
 		if (turn.kingdom.contains(Argentina)) {
 			this.selected = Argentina;
 			updateDecision();
@@ -587,7 +570,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void brazilClicked() {
-		System.out.println("Brazil clicked");
 		if (turn.kingdom.contains(Brazil)) {
 			this.selected = Brazil;
 			updateDecision();
@@ -597,7 +579,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void icelandClicked() {
-		System.out.println("Iceland clicked");
 		if (turn.kingdom.contains(Iceland)) {
 			this.selected = Iceland;
 			updateDecision();
@@ -607,7 +588,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void greatBritainClicked() {
-		System.out.println("Great Britain clicked");
 		if (turn.kingdom.contains(GreatBritain)) {
 			this.selected = GreatBritain;
 			updateDecision();
@@ -617,7 +597,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void scandinaviaClicked() {
-		System.out.println("Scandinavia clicked");
 		if (turn.kingdom.contains(Scandinavia)) {
 			this.selected = Scandinavia;
 			updateDecision();
@@ -627,7 +606,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void westernEuropeClicked() {
-		System.out.println("Western Europe clicked");
 		if (turn.kingdom.contains(WesternEurope)) {
 			this.selected = WesternEurope;
 			updateDecision();
@@ -637,7 +615,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void northernEuropeClicked() {
-		System.out.println("Northern Europeclicked");
 		if (turn.kingdom.contains(NorthernEurope)) {
 			this.selected = NorthernEurope;
 			updateDecision();
@@ -645,7 +622,6 @@ public class Controller implements Initializable {
 	}
 	
 	public void southernEuropeClicked() {
-		System.out.println("Southern Europeclicked");
 		if (turn.kingdom.contains(SouthernEurope)) {
 			this.selected = SouthernEurope;
 			updateDecision();
@@ -655,7 +631,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void ukraineClicked() {
-		System.out.println("Ukraine clicked");
 		if (turn.kingdom.contains(Ukraine)) {
 			this.selected = Ukraine;
 			updateDecision();
@@ -665,7 +640,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void northAfricaClicked() {
-		System.out.println("North Africa clicked");
 		if (turn.kingdom.contains(NorthAfrica)) {
 			this.selected = NorthAfrica;
 			updateDecision();
@@ -675,7 +649,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void egyptClicked() {
-		System.out.println("Egypt clicked");
 		if (turn.kingdom.contains(Egypt)) {
 			this.selected = Egypt;
 			updateDecision();
@@ -685,7 +658,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void congoClicked() {
-		System.out.println("Congo clicked");
 		if (turn.kingdom.contains(Congo)) {
 			this.selected = Congo;
 			updateDecision();
@@ -695,7 +667,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void eastAfricaClicked() {
-		System.out.println("East Africa clicked");
 		if (turn.kingdom.contains(EastAfrica)) {
 			this.selected = EastAfrica;
 			updateDecision();
@@ -705,7 +676,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void southAfricaClicked() {
-		System.out.println("South Africa clicked");
 		if (turn.kingdom.contains(SouthAfrica)) {
 			this.selected = SouthAfrica;
 			updateDecision();
@@ -715,7 +685,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void madagascarClicked() {
-		System.out.println("Madagascar clicked");
 		if (turn.kingdom.contains(Madagascar)) {
 			this.selected = Madagascar;
 			updateDecision();
@@ -725,7 +694,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void middleEastClicked() {
-		System.out.println("Middle East clicked");
 		if (turn.kingdom.contains(MiddleEast)) {
 			this.selected = MiddleEast;
 			updateDecision();
@@ -735,7 +703,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void afghanistanClicked() {
-		System.out.println("Afghanistan clicked");
 		if (turn.kingdom.contains(Afghanistan)) {
 			this.selected = Afghanistan;
 			updateDecision();
@@ -745,7 +712,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void uralClicked() {
-		System.out.println("Ural clicked");
 		if (turn.kingdom.contains(Ural)) {
 			this.selected = Ural;
 			updateDecision();
@@ -755,7 +721,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void siberiaClicked() {
-		System.out.println("Siberia clicked");
 		if (turn.kingdom.contains(Siberia)) {
 			this.selected = Siberia;
 			updateDecision();
@@ -765,7 +730,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void yakutskClicked() {
-		System.out.println("Yakutsk clicked");
 		if (turn.kingdom.contains(Yakutsk)) {
 			this.selected = Yakutsk;
 			updateDecision();
@@ -775,7 +739,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void kamchatkaClicked() {
-		System.out.println("Kamchatka clicked");
 		if (turn.kingdom.contains(Kamchatka)) {
 			this.selected = Kamchatka;
 			updateDecision();
@@ -785,7 +748,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void irkutskClicked() {
-		System.out.println("Irkutsk clicked");
 		if (turn.kingdom.contains(Irkutsk)) {
 			this.selected = Irkutsk;
 			updateDecision();
@@ -795,7 +757,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void mongoliaClicked() {
-		System.out.println("Mongolia clicked");
 		if (turn.kingdom.contains(Mongolia)) {
 			this.selected = Mongolia;
 			updateDecision();
@@ -805,7 +766,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void chinaClicked() {
-		System.out.println("China clicked");
 		if (turn.kingdom.contains(China)) {
 			this.selected = China;
 			updateDecision();
@@ -815,7 +775,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void indiaClicked() {
-		System.out.println("India clicked");
 		if (turn.kingdom.contains(India)) {
 			this.selected = India;
 			updateDecision();
@@ -825,7 +784,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void siamClicked() {
-		System.out.println("Siam clicked");
 		if (turn.kingdom.contains(Siam)) {
 			this.selected = Siam;
 			updateDecision();
@@ -835,7 +793,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void japanClicked() {
-		System.out.println("Japan clicked");
 		if (turn.kingdom.contains(Japan)) {
 			this.selected = Japan;
 			updateDecision();
@@ -845,7 +802,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void indonesiaClicked() {
-		System.out.println("Indonesia clicked");
 		if (turn.kingdom.contains(Indonesia)) {
 			this.selected = Indonesia;
 			updateDecision();
@@ -855,7 +811,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void westernAustraliaClicked() {
-		System.out.println("Western Australia clicked");
 		if (turn.kingdom.contains(WesternAustralia)) {
 			this.selected = WesternAustralia;
 			updateDecision();
@@ -865,7 +820,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void newGuineaClicked() {
-		System.out.println("New Guinea clicked");
 		if (turn.kingdom.contains(NewGuinea)) {
 			this.selected = NewGuinea;
 			updateDecision();
@@ -875,7 +829,6 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void easternAustraliaClicked() {
-		System.out.println("Eastern Australia clicked");
 		if (turn.kingdom.contains(EasternAustralia)) {
 			this.selected = EasternAustralia;
 			updateDecision();
@@ -1054,15 +1007,10 @@ public class Controller implements Initializable {
 	 * When attacked is clicked.
 	 ***************************************************************************/
 	public void attackButton() {
-		System.out.println("you clicked attack");
-		//if (turn.isOwned(decision.getValue())) {
-		///}
 		int attRoll = attDie.roll();
 		int defRoll = defDie.roll();
 		attRollLabel.setText(Integer.toString(attRoll));
 		defRollLabel.setText(Integer.toString(defRoll));
-		System.out.println("attRoll: " + attRoll);
-		System.out.println("defRoll: " + defRoll);
 		Country defender;
 		for (int i = 0; i < world.length; i++){
 			if (decision.getSelectionModel().getSelectedItem().equals((world[i]).getName())) {
@@ -1070,7 +1018,6 @@ public class Controller implements Initializable {
 				board.attack(selected, defender, attRoll, defRoll);
 			}
 		}
-		//decision.getSelectionModel().getSelectedItem().
 		
 		updateText();
 	}
@@ -1079,7 +1026,6 @@ public class Controller implements Initializable {
 	 * When the end turn button is clicked.
 	 ***************************************************************************/
 	public void endTurnButton() {
-		System.out.println("You clicked end turn");
 		if (turn == p1) {
 			turn = p2;
 			numUnitsAvailable = p2.selectNumUnits();
@@ -1119,48 +1065,425 @@ public class Controller implements Initializable {
 		numUnitsAvailableLabel.setText(Integer.toString(numUnitsAvailable));
 		//updating country's numUnit display
 		alaskaLabel.setText(Integer.toString(Alaska.getNumUnits()));
+		if(Alaska.getOwner().getName().equals(p1.getName())) {
+			alaskaLabel.setFill(Color.BLUE);
+		}
+		else if (Alaska.getOwner().getName().equals(p2.getName())){
+			alaskaLabel.setFill(Color.RED);
+		}
+		else {
+			alaskaLabel.setFill(Color.BLACK);
+		}
 		northWestTerritoryLabel.setText(Integer.toString(NorthwestTerritory.getNumUnits()));
+		if(NorthwestTerritory.getOwner().getName().equals(p1.getName())) {
+			northWestTerritoryLabel.setFill(Color.BLUE);
+		}
+		else if (NorthwestTerritory.getOwner().getName().equals(p2.getName())){
+			northWestTerritoryLabel.setFill(Color.RED);
+		}
+		else {
+			northWestTerritoryLabel.setFill(Color.BLACK);
+		}
 		albertaLabel.setText(Integer.toString(Alberta.getNumUnits()));
+		if(Alberta.getOwner().getName().equals(p1.getName())) {
+			albertaLabel.setFill(Color.BLUE);
+		}
+		else if (Alberta.getOwner().getName().equals(p2.getName())){
+			albertaLabel.setFill(Color.RED);
+		}
+		else {
+			albertaLabel.setFill(Color.BLACK);
+		}
 		ontarioLabel.setText(Integer.toString(Ontario.getNumUnits()));
+		if(Ontario.getOwner().getName().equals(p1.getName())) {
+			ontarioLabel.setFill(Color.BLUE);
+		}
+		else if (Ontario.getOwner().getName().equals(p2.getName())){
+			ontarioLabel.setFill(Color.RED);
+		}
+		else {
+			ontarioLabel.setFill(Color.BLACK);
+		}
 		quebecLabel.setText(Integer.toString(Quebec.getNumUnits()));
+		if(Quebec.getOwner().getName().equals(p1.getName())) {
+			quebecLabel.setFill(Color.BLUE);
+		}
+		else if (Quebec.getOwner().getName().equals(p2.getName())){
+			quebecLabel.setFill(Color.RED);
+		}
+		else {
+			quebecLabel.setFill(Color.BLACK);
+		}
 		greenlandLabel.setText(Integer.toString(Greenland.getNumUnits()));
+		if(Greenland.getOwner().getName().equals(p1.getName())) {
+			greenlandLabel.setFill(Color.BLUE);
+		}
+		else if (Greenland.getOwner().getName().equals(p2.getName())){
+			greenlandLabel.setFill(Color.RED);
+		}
+		else {
+			greenlandLabel.setFill(Color.BLACK);
+		}
 		easternUSLabel.setText(Integer.toString(EasternUS.getNumUnits()));
+		if(EasternUS.getOwner().getName().equals(p1.getName())) {
+			easternUSLabel.setFill(Color.BLUE);
+		}
+		else if (EasternUS.getOwner().getName().equals(p2.getName())){
+			easternUSLabel.setFill(Color.RED);
+		}
+		else {
+			easternUSLabel.setFill(Color.BLACK);
+		}
 		westernUSLabel.setText(Integer.toString(WesternUS.getNumUnits()));
+		if(WesternUS.getOwner().getName().equals(p1.getName())) {
+			westernUSLabel.setFill(Color.BLUE);
+		}
+		else if (WesternUS.getOwner().getName().equals(p2.getName())){
+			westernUSLabel.setFill(Color.RED);
+		}
+		else {
+			westernUSLabel.setFill(Color.BLACK);
+		}
 		centralAmericaLabel.setText(Integer.toString(CentralAmerica.getNumUnits()));
+		if(CentralAmerica.getOwner().getName().equals(p1.getName())) {
+			centralAmericaLabel.setFill(Color.BLUE);
+		}
+		else if (CentralAmerica.getOwner().getName().equals(p2.getName())){
+			centralAmericaLabel.setFill(Color.RED);
+		}
+		else {
+			centralAmericaLabel.setFill(Color.BLACK);
+		}
 		venezuelaLabel.setText(Integer.toString(Venezuela.getNumUnits()));
+		if(Venezuela.getOwner().getName().equals(p1.getName())) {
+			venezuelaLabel.setFill(Color.BLUE);
+		}
+		else if (Venezuela.getOwner().getName().equals(p2.getName())){
+			venezuelaLabel.setFill(Color.RED);
+		}
+		else {
+			venezuelaLabel.setFill(Color.BLACK);
+		}
 		peruLabel.setText(Integer.toString(Peru.getNumUnits()));
+		if(Peru.getOwner().getName().equals(p1.getName())) {
+			peruLabel.setFill(Color.BLUE);
+		}
+		else if (Peru.getOwner().getName().equals(p2.getName())){
+			peruLabel.setFill(Color.RED);
+		}
+		else {
+			peruLabel.setFill(Color.BLACK);
+		}
 		argentinaLabel.setText(Integer.toString(Argentina.getNumUnits()));
+		if(Argentina.getOwner().getName().equals(p1.getName())) {
+			argentinaLabel.setFill(Color.BLUE);
+		}
+		else if (Argentina.getOwner().getName().equals(p2.getName())){
+			argentinaLabel.setFill(Color.RED);
+		}
+		else {
+			argentinaLabel.setFill(Color.BLACK);
+		}
 		brazilLabel.setText(Integer.toString(Brazil.getNumUnits()));
+		if(Brazil.getOwner().getName().equals(p1.getName())) {
+			brazilLabel.setFill(Color.BLUE);
+		}
+		else if (Brazil.getOwner().getName().equals(p2.getName())){
+			brazilLabel.setFill(Color.RED);
+		}
+		else {
+			brazilLabel.setFill(Color.BLACK);
+		}
 		icelandLabel.setText(Integer.toString(Iceland.getNumUnits()));
+		if(Iceland.getOwner().getName().equals(p1.getName())) {
+			icelandLabel.setFill(Color.BLUE);
+		}
+		else if (Iceland.getOwner().getName().equals(p2.getName())){
+			icelandLabel.setFill(Color.RED);
+		}
+		else {
+			icelandLabel.setFill(Color.BLACK);
+		}
 		greatBritainLabel.setText(Integer.toString(GreatBritain.getNumUnits()));
+		if(GreatBritain.getOwner().getName().equals(p1.getName())) {
+			greatBritainLabel.setFill(Color.BLUE);
+		}
+		else if (GreatBritain.getOwner().getName().equals(p2.getName())){
+			greatBritainLabel.setFill(Color.RED);
+		}
+		else {
+			greatBritainLabel.setFill(Color.BLACK);
+		}
 		scandinaviaLabel.setText(Integer.toString(Scandinavia.getNumUnits()));
+		if(Scandinavia.getOwner().getName().equals(p1.getName())) {
+			scandinaviaLabel.setFill(Color.BLUE);
+		}
+		else if (Scandinavia.getOwner().getName().equals(p2.getName())){
+			scandinaviaLabel.setFill(Color.RED);
+		}
+		else {
+			scandinaviaLabel.setFill(Color.BLACK);
+		}
 		westernEuropeLabel.setText(Integer.toString(WesternEurope.getNumUnits()));
+		if(WesternEurope.getOwner().getName().equals(p1.getName())) {
+			westernEuropeLabel.setFill(Color.BLUE);
+		}
+		else if (WesternEurope.getOwner().getName().equals(p2.getName())){
+			westernEuropeLabel.setFill(Color.RED);
+		}
+		else {
+			westernEuropeLabel.setFill(Color.BLACK);
+		}
 		northernEuropeLabel.setText(Integer.toString(NorthernEurope.getNumUnits()));
+		if(NorthernEurope.getOwner().getName().equals(p1.getName())) {
+			northernEuropeLabel.setFill(Color.BLUE);
+		}
+		else if (NorthernEurope.getOwner().getName().equals(p2.getName())){
+			northernEuropeLabel.setFill(Color.RED);
+		}
+		else {
+			northernEuropeLabel.setFill(Color.BLACK);
+		}
 		southernEuropeLabel.setText(Integer.toString(SouthernEurope.getNumUnits()));
+		if(SouthernEurope.getOwner().getName().equals(p1.getName())) {
+			southernEuropeLabel.setFill(Color.BLUE);
+		}
+		else if (SouthernEurope.getOwner().getName().equals(p2.getName())){
+			southernEuropeLabel.setFill(Color.RED);
+		}
+		else {
+			southernEuropeLabel.setFill(Color.BLACK);
+		}
 		ukraineLabel.setText(Integer.toString(Ukraine.getNumUnits()));
+		if(Ukraine.getOwner().getName().equals(p1.getName())) {
+			ukraineLabel.setFill(Color.BLUE);
+		}
+		else if (Ukraine.getOwner().getName().equals(p2.getName())){
+			ukraineLabel.setFill(Color.RED);
+		}
+		else {
+			ukraineLabel.setFill(Color.BLACK);
+		}
 		egyptLabel.setText(Integer.toString(Egypt.getNumUnits()));
+		if(Egypt.getOwner().getName().equals(p1.getName())) {
+			egyptLabel.setFill(Color.BLUE);
+		}
+		else if (Egypt.getOwner().getName().equals(p2.getName())){
+			egyptLabel.setFill(Color.RED);
+		}
+		else {
+			egyptLabel.setFill(Color.BLACK);
+		}
 		northAfricaLabel.setText(Integer.toString(NorthAfrica.getNumUnits()));
+		if(NorthAfrica.getOwner().getName().equals(p1.getName())) {
+			northAfricaLabel.setFill(Color.BLUE);
+		}
+		else if (NorthAfrica.getOwner().getName().equals(p2.getName())){
+			northAfricaLabel.setFill(Color.RED);
+		}
+		else {
+			northAfricaLabel.setFill(Color.BLACK);
+		}
 		congoLabel.setText(Integer.toString(Congo.getNumUnits()));
+		if(Congo.getOwner().getName().equals(p1.getName())) {
+			congoLabel.setFill(Color.BLUE);
+		}
+		else if (Congo.getOwner().getName().equals(p2.getName())){
+			congoLabel.setFill(Color.RED);
+		}
+		else {
+			congoLabel.setFill(Color.BLACK);
+		}
 		eastAfricaLabel.setText(Integer.toString(EastAfrica.getNumUnits()));
+		if(EastAfrica.getOwner().getName().equals(p1.getName())) {
+			eastAfricaLabel.setFill(Color.BLUE);
+		}
+		else if (EastAfrica.getOwner().getName().equals(p2.getName())){
+			eastAfricaLabel.setFill(Color.RED);
+		}
+		else {
+			eastAfricaLabel.setFill(Color.BLACK);
+		}
 		southAfricaLabel.setText(Integer.toString(SouthAfrica.getNumUnits()));
+		if(SouthAfrica.getOwner().getName().equals(p1.getName())) {
+			southAfricaLabel.setFill(Color.BLUE);
+		}
+		else if (SouthAfrica.getOwner().getName().equals(p2.getName())){
+			southAfricaLabel.setFill(Color.RED);
+		}
+		else {
+			southAfricaLabel.setFill(Color.BLACK);
+		}
 		madagascarLabel.setText(Integer.toString(Madagascar.getNumUnits()));
+		if(Madagascar.getOwner().getName().equals(p1.getName())) {
+			madagascarLabel.setFill(Color.BLUE);
+		}
+		else if (Madagascar.getOwner().getName().equals(p2.getName())){
+			madagascarLabel.setFill(Color.RED);
+		}
+		else {
+			madagascarLabel.setFill(Color.BLACK);
+		}
 		middleEastLabel.setText(Integer.toString(MiddleEast.getNumUnits()));
+		if(MiddleEast.getOwner().getName().equals(p1.getName())) {
+			middleEastLabel.setFill(Color.BLUE);
+		}
+		else if (MiddleEast.getOwner().getName().equals(p2.getName())){
+			middleEastLabel.setFill(Color.RED);
+		}
+		else {
+			middleEastLabel.setFill(Color.BLACK);
+		}
 		afghanistanLabel.setText(Integer.toString(Afghanistan.getNumUnits()));
+		if(Afghanistan.getOwner().getName().equals(p1.getName())) {
+			afghanistanLabel.setFill(Color.BLUE);
+		}
+		else if (Afghanistan.getOwner().getName().equals(p2.getName())){
+			afghanistanLabel.setFill(Color.RED);
+		}
+		else {
+			afghanistanLabel.setFill(Color.BLACK);
+		}
 		uralLabel.setText(Integer.toString(Ural.getNumUnits()));
+		if(Ural.getOwner().getName().equals(p1.getName())) {
+			uralLabel.setFill(Color.BLUE);
+		}
+		else if (Ural.getOwner().getName().equals(p2.getName())){
+			uralLabel.setFill(Color.RED);
+		}
+		else {
+			uralLabel.setFill(Color.BLACK);
+		}
 		siberiaLabel.setText(Integer.toString(Siberia.getNumUnits()));
+		if(Siberia.getOwner().getName().equals(p1.getName())) {
+			siberiaLabel.setFill(Color.BLUE);
+		}
+		else if (Siberia.getOwner().getName().equals(p2.getName())){
+			siberiaLabel.setFill(Color.RED);
+		}
+		else {
+			siberiaLabel.setFill(Color.BLACK);
+		}
 		yakutskLabel.setText(Integer.toString(Yakutsk.getNumUnits()));
+		if(Yakutsk.getOwner().getName().equals(p1.getName())) {
+			yakutskLabel.setFill(Color.BLUE);
+		}
+		else if (Yakutsk.getOwner().getName().equals(p2.getName())){
+			yakutskLabel.setFill(Color.RED);
+		}
+		else {
+			yakutskLabel.setFill(Color.BLACK);
+		}
 		kamchatkaLabel.setText(Integer.toString(Kamchatka.getNumUnits()));
+		if(Kamchatka.getOwner().getName().equals(p1.getName())) {
+			kamchatkaLabel.setFill(Color.BLUE);
+		}
+		else if (Kamchatka.getOwner().getName().equals(p2.getName())){
+			kamchatkaLabel.setFill(Color.RED);
+		}
+		else {
+			kamchatkaLabel.setFill(Color.BLACK);
+		}
 		irkutskLabel.setText(Integer.toString(Irkutsk.getNumUnits()));
+		if(Irkutsk.getOwner().getName().equals(p1.getName())) {
+			irkutskLabel.setFill(Color.BLUE);
+		}
+		else if (Irkutsk.getOwner().getName().equals(p2.getName())){
+			irkutskLabel.setFill(Color.RED);
+		}
+		else {
+			irkutskLabel.setFill(Color.BLACK);
+		}
 		mongoliaLabel.setText(Integer.toString(Mongolia.getNumUnits()));
+		if(Mongolia.getOwner().getName().equals(p1.getName())) {
+			mongoliaLabel.setFill(Color.BLUE);
+		}
+		else if (Mongolia.getOwner().getName().equals(p2.getName())){
+			mongoliaLabel.setFill(Color.RED);
+		}
+		else {
+			mongoliaLabel.setFill(Color.BLACK);
+		}
 		chinaLabel.setText(Integer.toString(China.getNumUnits()));
+		if(China.getOwner().getName().equals(p1.getName())) {
+			chinaLabel.setFill(Color.BLUE);
+		}
+		else if (China.getOwner().getName().equals(p2.getName())){
+			chinaLabel.setFill(Color.RED);
+		}
+		else {
+			chinaLabel.setFill(Color.BLACK);
+		}
 		indiaLabel.setText(Integer.toString(India.getNumUnits()));
+		if(India.getOwner().getName().equals(p1.getName())) {
+			indiaLabel.setFill(Color.BLUE);
+		}
+		else if (India.getOwner().getName().equals(p2.getName())){
+			indiaLabel.setFill(Color.RED);
+		}
+		else {
+			indiaLabel.setFill(Color.BLACK);
+		}
 		siamLabel.setText(Integer.toString(Siam.getNumUnits()));
+		if(Siam.getOwner().getName().equals(p1.getName())) {
+			siamLabel.setFill(Color.BLUE);
+		}
+		else if (Siam.getOwner().getName().equals(p2.getName())){
+			siamLabel.setFill(Color.RED);
+		}
+		else {
+			siamLabel.setFill(Color.BLACK);
+		}
 		japanLabel.setText(Integer.toString(Japan.getNumUnits()));
+		if(Japan.getOwner().getName().equals(p1.getName())) {
+			japanLabel.setFill(Color.BLUE);
+		}
+		else if (Japan.getOwner().getName().equals(p2.getName())){
+			japanLabel.setFill(Color.RED);
+		}
+		else {
+			japanLabel.setFill(Color.BLACK);
+		}
 		indonesiaLabel.setText(Integer.toString(Indonesia.getNumUnits()));
+		if(Indonesia.getOwner().getName().equals(p1.getName())) {
+			indonesiaLabel.setFill(Color.BLUE);
+		}
+		else if (Indonesia.getOwner().getName().equals(p2.getName())){
+			indonesiaLabel.setFill(Color.RED);
+		}
+		else {
+			indonesiaLabel.setFill(Color.BLACK);
+		}
 		newGuineaLabel.setText(Integer.toString(NewGuinea.getNumUnits()));
+		if(NewGuinea.getOwner().getName().equals(p1.getName())) {
+			newGuineaLabel.setFill(Color.BLUE);
+		}
+		else if (NewGuinea.getOwner().getName().equals(p2.getName())){
+			newGuineaLabel.setFill(Color.RED);
+		}
+		else {
+			newGuineaLabel.setFill(Color.BLACK);
+		}
 		westernAustraliaLabel.setText(Integer.toString(WesternAustralia.getNumUnits()));
+		if(WesternAustralia.getOwner().getName().equals(p1.getName())) {
+			westernAustraliaLabel.setFill(Color.BLUE);
+		}
+		else if (WesternAustralia.getOwner().getName().equals(p2.getName())){
+			westernAustraliaLabel.setFill(Color.RED);
+		}
+		else {
+			westernAustraliaLabel.setFill(Color.BLACK);
+		}
 		easternAustraliaLabel.setText(Integer.toString(EasternAustralia.getNumUnits()));
-		
+		if(EasternAustralia.getOwner().getName().equals(p1.getName())) {
+			easternAustraliaLabel.setFill(Color.BLUE);
+		}
+		else if (EasternAustralia.getOwner().getName().equals(p2.getName())){
+			easternAustraliaLabel.setFill(Color.RED);
+		}
+		else {
+			easternAustraliaLabel.setFill(Color.BLACK);
+		}
 	}
 
 	@Override
