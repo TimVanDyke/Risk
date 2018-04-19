@@ -7,43 +7,43 @@ package classes;
  ***************************************************************************/
 public class Main {
 	
-	/** the board */
+	/** the board. */
 	private Board board;
 	
-	/** the screen */
+	/** the screen. */
 	private Screen screen;
 	
-	/** The world */
+	/** The world. */
 	private Country[] world;
 	
-	/** player 1 */
+	/** player 1. */
 	private Player p1;
 	
-	/** player 2 */
+	/** player 2. */
 	private Player p2;
 	
-	/** the player whose turn it is */
+	/**the player whose turn it is.*/
 	private Player turn;
 	
-	/** which country is highlighted */
+	/** which country is highlighted. */
 	private Country selected;
 	
-	/** whether or not a country is selected */
+	/** whether or not a country is selected. */
 	private boolean showMenu;
 	
-	/** the attackers choice */
+	/** the attackers choice. */
 	int choice;
 	
-	/** creating green */
+	/** creating green. */
 	Country green;
 	
-	/** creating magenta */
+	/** creating magenta. */
 	Country magenta;
 	
-	/** creating purple */
+	/** creating purple. */
 	Country purple;
 	
-	/** creating yellow */
+	/** creating yellow. */
 	Country yellow;
 	
 	/****************************************************************************
@@ -219,10 +219,11 @@ public class Main {
 	 * Switches the turn from one player to the other.
 	 ***************************************************************************/
 	public void switchTurn() {
-		if(turn == p1)
+		if(turn == p1) {
 			turn = p2;
-		else if (turn == p2)
+		} else if (turn == p2) {
 			turn = p1;
+		}
 	}
 
 	/****************************************************************************
