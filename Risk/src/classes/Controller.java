@@ -1094,8 +1094,8 @@ public class Controller implements Initializable {
 	 * Updates the selection box.
 	 ***************************************************************************/
 	private void updateDecision() {
-		for (int i = 0; i < decision.getItems().size(); i++) {
-			decision.getItems().remove(i);
+		while (decision.getItems().size() > 0) {
+			decision.getItems().remove(0);
 		}
 		decision.getItems().add(selected.getName());
 		for (int i = 0; i < selected.getNeighbors().length; i++) {
