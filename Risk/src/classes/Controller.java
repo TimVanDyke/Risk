@@ -75,7 +75,25 @@ public class Controller {
 		
 		p1 = new Player(s1);
 		p2 = new Player("Risk Bot");
+	
+		attDie = new Die();
+		defDie = new Die();
 		
+		turn = p1;
+		
+		initializeCountries();
+	}
+	
+	/****************************************************************************
+	 * The constructor for controller. This is called by view.
+	 ***************************************************************************/
+	public Controller() {
+		//makes a screen 
+		board = new Board();
+		
+		p1 = new Player("Hi");
+		p2 = new Player("Risk Bot");
+	
 		attDie = new Die();
 		defDie = new Die();
 		
