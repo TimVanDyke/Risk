@@ -53,6 +53,7 @@
                </font>
             </Text>
             <Text fx:id="numUnitsAvailableLabel" layoutX="45.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NumUnitsAvailable" />
+            <Button layoutX="45.0" layoutY="409.0" mnemonicParsing="false" onAction="#endTurnButton" prefHeight="25.0" prefWidth="90.0" text="End Turn" />
          </children>
       </AnchorPane>
    </left>

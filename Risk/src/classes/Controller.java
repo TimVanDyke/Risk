@@ -776,6 +776,10 @@ public class Controller implements Initializable {
 		updateText();
 	}
 	
+	public void endTurnButton() {
+		System.out.println("You clicked end turn");
+	}
+	
 	private void updateDecision() {
 		for (int i = 0; i < decision.getItems().size(); i++) {
 			decision.getItems().remove(i);
