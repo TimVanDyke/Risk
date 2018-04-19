@@ -114,6 +114,7 @@ public class JUnit {
 		x.removeCountry(b);
 		assertEquals(p.getKingdomSize(), 0);
 		assertFalse(x.isOwned(b));
+		
 	}
 	
 	/***********************************************************************
@@ -206,6 +207,44 @@ public class JUnit {
 		Die def = b.getDef();
 		assertNotNull(att);
 		assertNotNull(def);
+	}
+	
+	/**********************************************************************
+	 * Tests board.
+	 **********************************************************************/
+	@Test
+	public void testSelectNumUnits() {
+		Player p = new Player();
+		Country a = new Country("a", 1);
+		Country b = new Country("b", 1);
+		Country c = new Country("c", 1);
+		Country d = new Country("d", 1);
+		Country e = new Country("e", 1);
+		Country f = new Country("f", 1);
+		Country g = new Country("g", 1);
+		Country h = new Country("h", 1);
+		Country i = new Country("i", 1);
+		Country j = new Country("j", 1);
+		Country k = new Country("k", 1);
+		Country l = new Country("l", 1);
+		Country m = new Country("m", 1);
+		Country n = new Country("n", 1);
+		p.addCountry(a);
+		assertEquals(p.selectNumUnits(), 3);
+		p.addCountry(b);
+		p.addCountry(c);
+		p.addCountry(d);
+		p.addCountry(e);
+		p.addCountry(f);
+		p.addCountry(g);
+		p.addCountry(h);
+		p.addCountry(i);
+		p.addCountry(j);
+		p.addCountry(k);
+		p.addCountry(l);
+		p.addCountry(m);
+		p.addCountry(n);
+		assertEquals(p.selectNumUnits(), 4);
 	}
 	
 }

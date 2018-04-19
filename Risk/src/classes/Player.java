@@ -128,4 +128,16 @@ public class Player {
 		return kingdom.contains(c);
 	}
 	
+	/***********************************************************************
+	 * return an int based on kingdom size.
+	 * @return int based on kingdom size
+	 **********************************************************************/
+	public int selectNumUnits() {
+		if (kingdom.size() < 12) {
+			return 3;
+		} else {
+			return kingdom.size() / 3;
+		}
+	}
+	
 }
