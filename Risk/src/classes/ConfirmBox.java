@@ -16,8 +16,11 @@ public class ConfirmBox {
 	
 	/****************************************************************************
 	 * Displays the confirm box
+	 * @param title : a title
+	 * @param message : a message
+	 * @return boolean
 	 ***************************************************************************/
-	public static boolean display(String title, String message) {
+	public static boolean display(final String title, final String message) {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);

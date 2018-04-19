@@ -14,8 +14,9 @@ public class Run extends Application {
 	@Override
 	/****************************************************************************
 	 * Loads the stage.
+	 * @param : primary stage
 	 ***************************************************************************/
-	public void start(Stage primaryStage) throws Exception {
+	public void start(final Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
 		primaryStage.setTitle("Risk!");
 		primaryStage.setScene(new Scene(root, 1466, 650));
@@ -24,8 +25,9 @@ public class Run extends Application {
 	
 	/****************************************************************************
 	 * Launches the program.
+	 * @param args 
 	 ***************************************************************************/
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		launch(args);
 	}
 }
