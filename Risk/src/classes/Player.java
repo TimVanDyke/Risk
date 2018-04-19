@@ -118,6 +118,21 @@ public class Player {
 	public int getKingdomSize() {
 		return kingdom.size();
 	}
+	
+	/***********************************************************************
+	 * used for changing turns
+	 **********************************************************************/
+	public ArrayList<Country> getKingdom() {
+		return kingdom;
+	}
+	
+	/***********************************************************************
+	 * used for changing turns
+	 * @return 
+	 **********************************************************************/
+	public void setKingdom(ArrayList<Country> c) {
+		kingdom = c;
+	}
 
 	/***********************************************************************
 	 * return if given country is owned.
@@ -126,6 +141,22 @@ public class Player {
 	 **********************************************************************/
 	public boolean isOwned(final Country c) {
 		return kingdom.contains(c);
+	}
+	
+	/***********************************************************************
+	 * return if given country is owned.
+	 * @param c : String to check for
+	 * @return boolean : size of kingdom.
+	 **********************************************************************/
+	public boolean isOwned(final String s) {
+		boolean owns = false;
+		for (int i = 0; i < kingdom.size(); i++) {
+			if (kingdom.get(i).equals(s)) {
+				return true;
+			}
+		}
+		
+		return owns;
 	}
 	
 	/***********************************************************************

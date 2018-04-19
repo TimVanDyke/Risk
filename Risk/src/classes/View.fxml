@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane prefHeight="801.0" prefWidth="1244.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.Controller">
+<BorderPane prefHeight="650.0" prefWidth="1466.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.Controller">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -29,10 +30,29 @@
       </MenuBar>
    </top>
    <left>
-      <AnchorPane prefHeight="375.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="625.0" prefWidth="186.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="37.0" layoutY="72.0" mnemonicParsing="false" text="Attack" />
-            <Button layoutX="27.0" layoutY="113.0" mnemonicParsing="false" text="Add Units" />
+            <Button layoutX="45.0" layoutY="227.0" mnemonicParsing="false" onAction="#attackButton" prefHeight="25.0" prefWidth="90.0" text="Attack" />
+            <Button layoutX="45.0" layoutY="320.0" mnemonicParsing="false" onAction="#addUnitsButton" prefHeight="25.0" prefWidth="90.0" text="Add Units" />
+            <Text layoutX="33.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Player:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="currentPlayerLabel" layoutX="33.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentPlayerValue" />
+            <Text layoutX="33.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Countries" />
+            <Text layoutX="33.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Country:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <Text fx:id="currentCountryLabel" layoutX="33.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <ChoiceBox fx:id="decision" layoutX="31.0" layoutY="169.0" prefHeight="25.0" prefWidth="124.0" />
+            <Text layoutX="18.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Units Available:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="numUnitsAvailableLabel" layoutX="45.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NumUnitsAvailable" />
          </children>
       </AnchorPane>
    </left>
@@ -44,211 +64,253 @@
                   <Image url="@../../res/CutUpriskBoard/NorthWestTerritory.png" />
                </image>
             </ImageView>
+            <Text fx:id="northWestTerritoryLabel" layoutX="176.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Alaska" fitHeight="234.0" fitWidth="171.0" onMouseClicked="#alaskaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Alaska.png" />
                </image>
             </ImageView>
+            <Text fx:id="alaskaLabel" layoutX="71.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Alberta" fitHeight="101.0" fitWidth="262.0" layoutY="148.0" onMouseClicked="#albertaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Alberta.png" />
                </image>
             </ImageView>
+            <Text fx:id="albertaLabel" layoutX="206.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Greenland" fitHeight="183.0" fitWidth="352.0" layoutX="279.0" onMouseClicked="#greenlandClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Greenland.png" />
                </image>
             </ImageView>
+            <Text fx:id="greenlandLabel" layoutX="452.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Ontario" fitHeight="138.0" fitWidth="165.0" layoutX="251.0" layoutY="103.0" onMouseClicked="#ontarioClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Ontario.png" />
                </image>
             </ImageView>
+            <Text fx:id="ontarioLabel" layoutX="280.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Quebec" fitHeight="116.0" fitWidth="120.0" layoutX="345.0" layoutY="125.0" onMouseClicked="#quebecClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Quebec.png" />
                </image>
             </ImageView>
+            <Text fx:id="quebecLabel" layoutX="364.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="WesternUnitedStates" fitHeight="116.0" fitWidth="293.0" layoutY="213.0" onMouseClicked="#westernUnitedStatesClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/WesternUnitedStates.png" />
                </image>
             </ImageView>
+            <Text fx:id="westernUSLabel" layoutX="176.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="EasternUnitedStates" fitHeight="129.0" fitWidth="194.0" layoutX="277.0" layoutY="183.0" onMouseClicked="#easternUnitedStatesClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/EasternUnitedStates.png" />
                </image>
             </ImageView>
+            <Text fx:id="easternUSLabel" layoutX="367.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="CentralAmerica" fitHeight="198.0" fitWidth="397.0" layoutY="278.0" onMouseClicked="#centralAmericaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/CentralAmerica.png" />
                </image>
             </ImageView>
+            <Text fx:id="centralAmericaLabel" layoutX="235.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Venezuela" fitHeight="129.0" fitWidth="163.0" layoutX="294.0" layoutY="291.0" onMouseClicked="#venezuelaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Venezuela.png" />
                </image>
             </ImageView>
-            <ImageView id="Peru" fitHeight="119.0" fitWidth="434.0" layoutY="392.0" onMouseClicked="#peruClicked" pickOnBounds="false" preserveRatio="true">
+            <Text fx:id="venezuelaLabel" layoutX="362.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <ImageView id="Peru" fitHeight="119.0" fitWidth="434.0" layoutY="393.0" onMouseClicked="#peruClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Peru.png" />
                </image>
             </ImageView>
-            <ImageView id="Argentina" fitHeight="143.0" fitWidth="449.0" layoutY="481.0" onMouseClicked="#argentinaClicked" pickOnBounds="false" preserveRatio="true">
+            <Text fx:id="peruLabel" layoutX="394.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <ImageView id="Argentina" fitHeight="143.0" fitWidth="449.0" layoutY="482.0" onMouseClicked="#argentinaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Argentina.png" />
                </image>
             </ImageView>
+            <Text fx:id="argentinaLabel" layoutX="350.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Brazil" fitHeight="447.0" fitWidth="231.0" layoutX="379.0" layoutY="178.0" onMouseClicked="#brazilClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Brazil.png" />
                </image>
             </ImageView>
+            <Text fx:id="brazilLabel" layoutX="441.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Iceland" fitHeight="152.0" fitWidth="131.0" layoutX="514.0" onMouseClicked="#icelandClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Iceland.png" />
                </image>
             </ImageView>
+            <Text fx:id="icelandLabel" layoutX="580.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="GreatBritain" fitHeight="76.0" fitWidth="148.0" layoutX="477.0" layoutY="138.0" onMouseClicked="#greatBritainClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/GreatBritain.png" />
                </image>
             </ImageView>
+            <Text fx:id="greatBritainLabel" layoutX="518.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Scandinavia" fitHeight="194.0" fitWidth="124.0" layoutX="606.0" onMouseClicked="#scandinaviaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Scandinavia.png" />
                </image>
             </ImageView>
+            <Text fx:id="scandinaviaLabel" layoutX="634.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="WesternEurope" fitHeight="68.0" fitWidth="152.0" layoutX="499.0" layoutY="201.0" onMouseClicked="#westernEuropeClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/WesternEurope.png" />
                </image>
             </ImageView>
+            <Text fx:id="westernEuropeLabel" layoutX="537.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="NorthernEurope" fitHeight="51.0" fitWidth="97.0" layoutX="620.0" layoutY="172.0" onMouseClicked="#northernEuropeClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/NorthernEurope.png" />
                </image>
             </ImageView>
+            <Text fx:id="northernEuropeLabel" layoutX="694.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="SouthernEurope" fitHeight="66.0" fitWidth="90.0" layoutX="636.0" layoutY="211.0" onMouseClicked="#southernEuropeClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/SouthernEurope.png" />
                </image>
             </ImageView>
+            <Text fx:id="southernEuropeLabel" layoutX="702.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Ukraine" fitHeight="257.0" fitWidth="164.0" layoutX="676.0" onMouseClicked="#ukraineClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Ukraine.png" />
                </image>
             </ImageView>
+            <Text fx:id="ukraineLabel" layoutX="745.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="NorthAfrica" fitHeight="162.0" fitWidth="200.0" layoutX="511.0" layoutY="255.0" onMouseClicked="#northAfricaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/NorthAfrica.png" />
                </image>
             </ImageView>
+            <Text fx:id="northAfricaLabel" layoutX="614.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Egypt" fitHeight="65.0" fitWidth="90.0" layoutX="652.0" layoutY="270.0" onMouseClicked="#egyptClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Egypt.png" />
                </image>
             </ImageView>
+            <Text fx:id="egyptLabel" layoutX="700.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Congo" fitHeight="82.0" fitWidth="185.0" layoutX="553.0" layoutY="358.0" onMouseClicked="#congoClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Congo.png" />
                </image>
             </ImageView>
+            <Text fx:id="congoLabel" layoutX="668.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="EastAfrica" fitHeight="156.0" fitWidth="139.0" layoutX="702.0" layoutY="317.0" onMouseClicked="#eastAfricaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/EastAfrica.png" />
                </image>
             </ImageView>
+            <Text fx:id="eastAfricaLabel" layoutX="757.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="SouthAfrica" fitHeight="215.0" fitWidth="191.0" layoutX="561.0" layoutY="410.0" onMouseClicked="#southAfricaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/SouthAfrica.png" />
                </image>
             </ImageView>
+            <Text fx:id="southAfricaLabel" layoutX="671.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Madagascar" fitHeight="229.0" fitWidth="217.0" layoutX="723.0" layoutY="396.0" onMouseClicked="#madagascarClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Madagascar.png" />
                </image>
             </ImageView>
+            <Text fx:id="madagascarLabel" layoutX="793.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="MiddleEast" fitHeight="126.0" fitWidth="141.0" layoutX="698.0" layoutY="238.0" onMouseClicked="#middleEastClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/MiddleEast.png" />
                </image>
             </ImageView>
+            <Text fx:id="middleEastLabel" layoutX="782.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Afghanistan" fitHeight="84.0" fitWidth="123.0" layoutX="762.0" layoutY="200.0" onMouseClicked="#afghanistanClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Afghanistan.png" />
                </image>
             </ImageView>
+            <Text fx:id="afghanistanLabel" layoutX="802.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Ural" fitHeight="237.0" fitWidth="113.0" layoutX="813.0" onMouseClicked="#uralClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Ural.png" />
                </image>
             </ImageView>
+            <Text fx:id="uralLabel" layoutX="858.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Siberia" fitHeight="229.0" fitWidth="176.0" layoutX="850.0" onMouseClicked="#siberiaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Siberia.png" />
                </image>
             </ImageView>
+            <Text fx:id="siberiaLabel" layoutX="921.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Yakutsk" fitHeight="170.0" fitWidth="128.0" layoutX="989.0" onMouseClicked="#yakutskClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Yakutsk.png" />
                </image>
             </ImageView>
+            <Text fx:id="yakutskLabel" layoutX="1030.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Kamchatka" fitHeight="240.0" fitWidth="239.0" layoutX="1041.0" onMouseClicked="#kamchatkaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Kamchatka.png" />
                </image>
             </ImageView>
+            <Text fx:id="kamchatkaLabel" layoutX="1123.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Irkutsk" fitHeight="83.0" fitWidth="128.0" layoutX="935.0" layoutY="139.0" onMouseClicked="#irkutskClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Irkutsk.png" />
                </image>
             </ImageView>
+            <Text fx:id="irkutskLabel" layoutX="970.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Mongolia" fitHeight="87.0" fitWidth="125.0" layoutX="935.0" layoutY="196.0" onMouseClicked="#mongoliaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Mongolia.png" />
                </image>
             </ImageView>
+            <Text fx:id="mongoliaLabel" layoutX="964.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="China" fitHeight="124.0" fitWidth="189.0" layoutX="858.0" layoutY="201.0" onMouseClicked="#chinaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/China.png" />
                </image>
             </ImageView>
+            <Text fx:id="chinaLabel" layoutX="925.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="India" fitHeight="168.0" fitWidth="124.0" layoutX="804.0" layoutY="258.0" onMouseClicked="#indiaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/India.png" />
                </image>
             </ImageView>
+            <Text fx:id="indiaLabel" layoutX="859.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Siam" fitHeight="113.0" fitWidth="134.0" layoutX="891.0" layoutY="289.0" onMouseClicked="#siamClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Siam.png" />
                </image>
             </ImageView>
+            <Text fx:id="siamLabel" layoutX="932.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Japan" fitHeight="179.0" fitWidth="245.0" layoutX="1035.0" layoutY="203.0" onMouseClicked="#japanClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Japan.png" />
                </image>
             </ImageView>
+            <Text fx:id="japanLabel" layoutX="1124.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="Indonesia" fitHeight="172.0" fitWidth="221.0" layoutX="838.0" layoutY="323.0" onMouseClicked="#indonesiaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/Indonesia.png" />
                </image>
             </ImageView>
+            <Text fx:id="indonesiaLabel" layoutX="955.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="WesternAustralia" fitHeight="191.0" fitWidth="246.0" layoutX="866.0" layoutY="434.0" onMouseClicked="#westernAustraliaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/WesternAustralia.png" />
                </image>
             </ImageView>
+            <Text fx:id="westernAustraliaLabel" layoutX="1036.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="NewGuinea" fitHeight="131.0" fitWidth="236.0" layoutX="1044.0" layoutY="334.0" onMouseClicked="#newGuineaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/NewGuinea.png" />
                </image>
             </ImageView>
+            <Text fx:id="newGuineaLabel" layoutX="1101.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" />
             <ImageView id="EasternAustralia" fitHeight="185.0" fitWidth="215.0" layoutX="1065.0" layoutY="440.0" onMouseClicked="#easternAustraliaClicked" pickOnBounds="false" preserveRatio="true">
                <image>
                   <Image url="@../../res/CutUpriskBoard/EasternAustralia.png" />
                </image>
             </ImageView>
+            <Text fx:id="easternAustraliaLabel" layoutX="1161.0" layoutY="487.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
    </center>

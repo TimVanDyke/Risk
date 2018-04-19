@@ -1,9 +1,71 @@
 package classes;
 
-public class Controller {	
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import org.hamcrest.SelfDescribing;
+
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Text;
+
+public class Controller implements Initializable {	
 	
 	/** the board */
 	private Board board;
+	
+	private int numUnitsAvailable;
+	
+	/** the text for the current player, country, numUnits*/
+	public Text currentPlayerLabel;
+	public Text currentCountryLabel;
+	public Text numUnitsAvailableLabel;
+	
+	/** the text for the numUnits on each Country 
+	 These have to stay public in order for 
+	 View to be able to use them*/
+	public Text alaskaLabel;
+	public Text northWestTerritoryLabel;
+	public Text albertaLabel;
+	public Text ontarioLabel;
+	public Text quebecLabel;
+	public Text greenlandLabel;
+	public Text easternUSLabel;
+	public Text westernUSLabel;
+	public Text centralAmericaLabel;
+	public Text venezuelaLabel;
+	public Text peruLabel;
+	public Text argentinaLabel;
+	public Text brazilLabel;
+	public Text icelandLabel;
+	public Text greatBritainLabel;
+	public Text scandinaviaLabel;
+	public Text westernEuropeLabel;
+	public Text northernEuropeLabel;
+	public Text southernEuropeLabel;
+	public Text ukraineLabel;
+	public Text egyptLabel;
+	public Text northAfricaLabel;
+	public Text congoLabel;
+	public Text eastAfricaLabel;
+	public Text southAfricaLabel;
+	public Text madagascarLabel;
+	public Text middleEastLabel;
+	public Text afghanistanLabel;
+	public Text uralLabel;
+	public Text siberiaLabel;
+	public Text yakutskLabel;
+	public Text kamchatkaLabel;
+	public Text irkutskLabel;
+	public Text mongoliaLabel;
+	public Text chinaLabel;
+	public Text indiaLabel;
+	public Text siamLabel;
+	public Text japanLabel;
+	public Text indonesiaLabel;
+	public Text newGuineaLabel;
+	public Text westernAustraliaLabel;
+	public Text easternAustraliaLabel;
 	
 //	/** the screen */
 //	private Screen screen;
@@ -44,6 +106,8 @@ public class Controller {
 	Japan, Mongolia, China, India, Kamchatka, Siam, Indonesia, NewGuinea,
 	WesternAustralia, EasternAustralia;
 	
+	/** choicebox (dropdown) for attack and addunits) */
+	public ChoiceBox<String> decision;
 	/****************************************************************************
 	 * The constructor for controller. This is called by view.
 	 * @param s1 : A name for player 1
@@ -103,6 +167,83 @@ public class Controller {
 	}
 	
 	/****************************************************************************
+	 * The constructor for controller. This is called by view.
+	 * @param s1 : a name for player 1
+	 ***************************************************************************/
+	public Controller() {
+		//makes a screen 
+		board = new Board();
+		
+		p1 = new Player("I work now?");
+		p2 = new Player("Risk Bot");
+		
+		attDie = new Die();
+		defDie = new Die();
+		
+		numUnitsAvailable = 3;
+		numUnitsAvailableLabel = new Text(Integer.toString(numUnitsAvailable));
+		turn = p1;
+		turn.setKingdom(p1.getKingdom());
+		//FIXME remove this
+//		turn.addCountry(Alaska);
+//		if (turn.isOwned(Alaska))
+//			System.out.println("Turn does own Alaska");
+//		
+//		if (turn.getName().equals(p1.getName()))
+//			System.out.println("It is P1's Turn");
+		p1.setKingdom(turn.getKingdom());
+		
+		decision = new ChoiceBox<>();
+		
+		initializeCountries();
+
+		currentPlayerLabel = new Text("");
+		currentCountryLabel = new Text("");
+		alaskaLabel = new Text("");
+		northWestTerritoryLabel = new Text("");
+		albertaLabel = new Text("");
+		ontarioLabel = new Text("");
+		quebecLabel = new Text("");
+		greenlandLabel = new Text("");
+		easternUSLabel = new Text("");
+		westernUSLabel = new Text("");
+		centralAmericaLabel = new Text("");
+		venezuelaLabel = new Text("");
+		peruLabel = new Text("");
+		argentinaLabel = new Text("");
+		brazilLabel = new Text("");
+		icelandLabel = new Text("");
+		greatBritainLabel = new Text("");
+		scandinaviaLabel = new Text("");
+		westernEuropeLabel = new Text("");
+		northernEuropeLabel = new Text("");
+		southernEuropeLabel = new Text("");
+		ukraineLabel = new Text("");
+		egyptLabel = new Text("");
+		northAfricaLabel = new Text("");
+		congoLabel = new Text("");
+		eastAfricaLabel = new Text("");
+		southAfricaLabel = new Text("");
+		madagascarLabel = new Text("");
+		middleEastLabel = new Text("");
+		afghanistanLabel = new Text("");
+		uralLabel = new Text("");
+		siberiaLabel = new Text("");
+		yakutskLabel = new Text("");
+		kamchatkaLabel = new Text("");
+		irkutskLabel = new Text("");
+		mongoliaLabel = new Text("");
+		chinaLabel = new Text("");
+		indiaLabel = new Text("");
+		siamLabel = new Text("");
+		japanLabel = new Text("");
+		indonesiaLabel = new Text("");
+		newGuineaLabel = new Text("");
+		westernAustraliaLabel = new Text("");
+		easternAustraliaLabel = new Text("");
+	}
+	
+	/****************************************************************************
 	 * @return the current turn as a player.
 	 ***************************************************************************/
 	public Player getTurn() {
@@ -147,10 +288,15 @@ public class Controller {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void alaskaClicked() {
-		System.out.println("Alaska clicked");
-		if (turn.kingdom.contains(Alaska)) {
-			this.selected = Alaska;
-		}
+		//if (turn.isOwned(Alaska)) {
+		this.selected = Alaska;
+//		if (p1.isOwned(Alaska))
+//			System.out.println("He does own Alaska");
+		
+//		if (turn.getName().equals(p1.getName()))
+//			System.out.println("It is P1's Turn");
+		updateDecision();
+		//}
 	}
 	/****************************************************************************
 	 * Selects this country when clicked.
@@ -518,65 +664,62 @@ public class Controller {
 		}
 	}
 	
-
-	
 	/****************************************************************************
 	 * Initializes all countries, and adds neighbors for each country.
 	 ***************************************************************************/
 	private void initializeCountries() {
-		String a = "hi";
-		Alaska = new Country("Alaska", 3, a);
-		NorthwestTerritory = new Country("Northwest Territory", 4, a);
-		Greenland = new Country("Greenland", 4, a);
-		Alberta = new Country("Alberta", 4, a);
-		Ontario = new Country("Ontario", 6, a);
-		Quebec = new Country("Quebec", 3, a);
-		EasternUS = new Country("Eastern United States", 4, a);
-		WesternUS = new Country("Western United States", 4, a);
-		CentralAmerica = new Country("Central America", 3, a);
+		Alaska = new Country("Alaska", 3);
+		NorthwestTerritory = new Country("Northwest Territory", 4);
+		Greenland = new Country("Greenland", 4);
+		Alberta = new Country("Alberta", 4);
+		Ontario = new Country("Ontario", 6);
+		Quebec = new Country("Quebec", 3);
+		EasternUS = new Country("Eastern United States", 4);
+		WesternUS = new Country("Western United States", 4);
+		CentralAmerica = new Country("Central America", 3);
 		
 		//South America
-		Venezuela = new Country("Venezuela", 3, a);
-		Peru = new Country("Peru", 3, a);
-		Argentina = new Country("Argentina", 2, a);
-		Brazil = new Country("Brazil", 4, a);
+		Venezuela = new Country("Venezuela", 3);
+		Peru = new Country("Peru", 3);
+		Argentina = new Country("Argentina", 2);
+		Brazil = new Country("Brazil", 4);
 		
 		//Europe
-		Iceland = new Country("Iceland", 3, a);
-		GreatBritain = new Country("Great Britain", 4, a);
-		NorthernEurope = new Country("Northern Europe", 5, a);
-		Scandinavia = new Country("Scandinavia", 4, a);
-		WesternEurope = new Country("Western Europe", 4, a);
-	    SouthernEurope = new Country("Southern Europe", 6, a);
-		Ukraine = new Country("Ukraine", 6, a);
+		Iceland = new Country("Iceland", 3);
+		GreatBritain = new Country("Great Britain", 4);
+		NorthernEurope = new Country("Northern Europe", 5);
+		Scandinavia = new Country("Scandinavia", 4);
+		WesternEurope = new Country("Western Europe", 4);
+	    SouthernEurope = new Country("Southern Europe", 6);
+		Ukraine = new Country("Ukraine", 6);
 		
 		//Africa
-		NorthAfrica = new Country("North Africa", 6, a);
-		Egypt = new Country("Egypt", 4, a);
-		EastAfrica = new Country("East Africa", 6, a);
-		Congo = new Country("Congo", 3, a);
-		SouthAfrica = new Country("South Africa", 3, a);
-		Madagascar = new Country("Madagascar", 2, a);
+		NorthAfrica = new Country("North Africa", 6);
+		Egypt = new Country("Egypt", 4);
+		EastAfrica = new Country("East Africa", 6);
+		Congo = new Country("Congo", 3);
+		SouthAfrica = new Country("South Africa", 3);
+		Madagascar = new Country("Madagascar", 2);
 		
 		//Asia
-		MiddleEast = new Country("Middle East", 6, a);
-		Afghanistan = new Country("Afghanistan", 5, a);
-		Ural = new Country("Ural", 4, a);
-		Siberia = new Country("Siberia", 5, a);
-		Yakutsk = new Country("Yakutsk", 3, a);
-		Irkutsk = new Country("Irkutsk", 4, a);
-		Japan = new Country("Japan", 2, a);
-		Mongolia = new Country("Mongolia", 5, a);
-		China = new Country("China", 6, a);
-		India = new Country("India", 4, a);
-		Kamchatka = new Country("Kamchatka", 5, a);
-		Siam = new Country("Siam", 3, a);
+		MiddleEast = new Country("Middle East", 6);
+		Afghanistan = new Country("Afghanistan", 5);
+		Ural = new Country("Ural", 4);
+		Siberia = new Country("Siberia", 5);
+		Yakutsk = new Country("Yakutsk", 3);
+		Irkutsk = new Country("Irkutsk", 4);
+		Japan = new Country("Japan", 2);
+		Mongolia = new Country("Mongolia", 5);
+		China = new Country("China", 6);
+		India = new Country("India", 4);
+		Kamchatka = new Country("Kamchatka", 5);
+		Siam = new Country("Siam", 3);
 		
 		//Australia
-		Indonesia = new Country("Indonesia", 3, a);
-		NewGuinea = new Country("New Guinea", 3, a);
-		WesternAustralia = new Country("Western Australia", 3, a);
-		EasternAustralia = new Country("Eastern Australia", 2, a);
+		Indonesia = new Country("Indonesia", 3);
+		NewGuinea = new Country("New Guinea", 3);
+		WesternAustralia = new Country("Western Australia", 3);
+		EasternAustralia = new Country("Eastern Australia", 2);
 		
 		//Add neighbors for North America
 		Alaska.addThreeNeighbors(NorthwestTerritory, Alberta, Kamchatka);
@@ -633,5 +776,92 @@ public class Controller {
 		EasternAustralia.addTwoNeighbors(WesternAustralia, NewGuinea);
 		
 		return;
+	}
+	
+	public void addUnitsButton() {
+		//if (turn.isOwned(decision.getValue())) {
+			selected.setNumUnits("add", numUnitsAvailable);
+			numUnitsAvailable = 0;
+		//}
+		updateText();
+	}
+	
+	public void attackButton() {
+		System.out.println("you clicked attack");
+		//if (turn.isOwned(decision.getValue())) {
+			
+		///}
+		updateText();
+	}
+	
+	private void updateDecision() {
+		for (int i = 0; i < decision.getItems().size(); i++) {
+			decision.getItems().remove(i);
+		}
+		decision.getItems().add(selected.getName());
+		for (int i = 0; i < selected.getNeighbors().length; i++) {
+			decision.getItems().add(selected.getNeighbors()[i].getName());
+		}
+		decision.setValue(selected.getName());
+		updateText();
+	}
+	
+	private void updateText() {
+		//updating currentPlayer
+		currentPlayerLabel.setText(turn.getName());
+		//updating currentCountry
+		if (selected != null) {
+			currentCountryLabel.setText(selected.getName());
+		}
+		//updating numUnitsLeft
+		numUnitsAvailableLabel.setText(Integer.toString(numUnitsAvailable));
+		//updating country's numUnit display
+		alaskaLabel.setText(Integer.toString(Alaska.getNumUnits()));
+		northWestTerritoryLabel.setText(Integer.toString(NorthwestTerritory.getNumUnits()));
+		albertaLabel.setText(Integer.toString(Alberta.getNumUnits()));
+		ontarioLabel.setText(Integer.toString(Ontario.getNumUnits()));
+		quebecLabel.setText(Integer.toString(Quebec.getNumUnits()));
+		greenlandLabel.setText(Integer.toString(Greenland.getNumUnits()));
+		easternUSLabel.setText(Integer.toString(EasternUS.getNumUnits()));
+		westernUSLabel.setText(Integer.toString(WesternUS.getNumUnits()));
+		centralAmericaLabel.setText(Integer.toString(CentralAmerica.getNumUnits()));
+		venezuelaLabel.setText(Integer.toString(Venezuela.getNumUnits()));
+		peruLabel.setText(Integer.toString(Peru.getNumUnits()));
+		argentinaLabel.setText(Integer.toString(Argentina.getNumUnits()));
+		brazilLabel.setText(Integer.toString(Brazil.getNumUnits()));
+		icelandLabel.setText(Integer.toString(Iceland.getNumUnits()));
+		greatBritainLabel.setText(Integer.toString(GreatBritain.getNumUnits()));
+		scandinaviaLabel.setText(Integer.toString(Scandinavia.getNumUnits()));
+		westernEuropeLabel.setText(Integer.toString(WesternEurope.getNumUnits()));
+		northernEuropeLabel.setText(Integer.toString(NorthernEurope.getNumUnits()));
+		southernEuropeLabel.setText(Integer.toString(SouthernEurope.getNumUnits()));
+		ukraineLabel.setText(Integer.toString(Ukraine.getNumUnits()));
+		egyptLabel.setText(Integer.toString(Egypt.getNumUnits()));
+		northAfricaLabel.setText(Integer.toString(NorthAfrica.getNumUnits()));
+		congoLabel.setText(Integer.toString(Congo.getNumUnits()));
+		eastAfricaLabel.setText(Integer.toString(EastAfrica.getNumUnits()));
+		southAfricaLabel.setText(Integer.toString(SouthAfrica.getNumUnits()));
+		madagascarLabel.setText(Integer.toString(Madagascar.getNumUnits()));
+		middleEastLabel.setText(Integer.toString(MiddleEast.getNumUnits()));
+		afghanistanLabel.setText(Integer.toString(Afghanistan.getNumUnits()));
+		uralLabel.setText(Integer.toString(Ural.getNumUnits()));
+		siberiaLabel.setText(Integer.toString(Siberia.getNumUnits()));
+		yakutskLabel.setText(Integer.toString(Yakutsk.getNumUnits()));
+		kamchatkaLabel.setText(Integer.toString(Kamchatka.getNumUnits()));
+		irkutskLabel.setText(Integer.toString(Irkutsk.getNumUnits()));
+		mongoliaLabel.setText(Integer.toString(Mongolia.getNumUnits()));
+		chinaLabel.setText(Integer.toString(China.getNumUnits()));
+		indiaLabel.setText(Integer.toString(India.getNumUnits()));
+		siamLabel.setText(Integer.toString(Siam.getNumUnits()));
+		japanLabel.setText(Integer.toString(Japan.getNumUnits()));
+		indonesiaLabel.setText(Integer.toString(Indonesia.getNumUnits()));
+		newGuineaLabel.setText(Integer.toString(NewGuinea.getNumUnits()));
+		westernAustraliaLabel.setText(Integer.toString(WesternAustralia.getNumUnits()));
+		easternAustraliaLabel.setText(Integer.toString(EasternAustralia.getNumUnits()));
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		updateText();
 	}
 }
