@@ -271,12 +271,8 @@ public class Board {
 	public void setDef(final Die def) {
 		this.def = def;
 	}
-	/***********************************************************************
-<<<<<<< HEAD
-	 * 
-=======
-	 * saves the game
->>>>>>> branch 'master' of https://github.com/TimVanDyke/Risk.git
+	/**********************************************************************
+	 * saves the game.
 	 **********************************************************************/
 	public void save() {
 //		System.out.println("saved");
