@@ -3,7 +3,10 @@ package classes;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.hamcrest.SelfDescribing;
+
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
 
 public class Controller implements Initializable {	
@@ -11,11 +14,16 @@ public class Controller implements Initializable {
 	/** the board */
 	private Board board;
 	
-	/** the text for the current player and country selected */
+	private int numUnitsAvailable;
+	
+	/** the text for the current player, country, numUnits*/
 	public Text currentPlayerLabel;
 	public Text currentCountryLabel;
+	public Text numUnitsAvailableLabel;
 	
-	/** the text for the numUnits on each Country */
+	/** the text for the numUnits on each Country 
+	 These have to stay public in order for 
+	 View to be able to use them*/
 	public Text alaskaLabel;
 	public Text northWestTerritoryLabel;
 	public Text albertaLabel;
@@ -98,6 +106,8 @@ public class Controller implements Initializable {
 	Japan, Mongolia, China, India, Kamchatka, Siam, Indonesia, NewGuinea,
 	WesternAustralia, EasternAustralia;
 	
+	/** choicebox (dropdown) for attack and addunits) */
+	public ChoiceBox<String> decision;
 	/****************************************************************************
 	 * The constructor for controller. This is called by view.
 	 * @param s1 : A name for player 1
@@ -152,7 +162,20 @@ public class Controller implements Initializable {
 		attDie = new Die();
 		defDie = new Die();
 		
+		numUnitsAvailable = 3;
+		numUnitsAvailableLabel = new Text(Integer.toString(numUnitsAvailable));
 		turn = p1;
+		turn.setKingdom(p1.getKingdom());
+		//FIXME remove this
+//		turn.addCountry(Alaska);
+//		if (turn.isOwned(Alaska))
+//			System.out.println("Turn does own Alaska");
+//		
+//		if (turn.getName().equals(p1.getName()))
+//			System.out.println("It is P1's Turn");
+		p1.setKingdom(turn.getKingdom());
+		
+		decision = new ChoiceBox<>();
 		
 		initializeCountries();
 
@@ -247,10 +270,15 @@ public class Controller implements Initializable {
 	 * Selects this country when clicked.
 	 ***************************************************************************/
 	public void alaskaClicked() {
-		System.out.println("Alaska clicked");
-		if (turn.kingdom.contains(Alaska)) {
-			this.selected = Alaska;
-		}
+		//if (turn.isOwned(Alaska)) {
+		this.selected = Alaska;
+//		if (p1.isOwned(Alaska))
+//			System.out.println("He does own Alaska");
+		
+//		if (turn.getName().equals(p1.getName()))
+//			System.out.println("It is P1's Turn");
+		updateDecision();
+		//}
 	}
 	/****************************************************************************
 	 * Selects this country when clicked.
@@ -618,8 +646,6 @@ public class Controller implements Initializable {
 		}
 	}
 	
-
-	
 	/****************************************************************************
 	 * Initializes all countries, and adds neighbors for each country.
 	 ***************************************************************************/
@@ -734,14 +760,43 @@ public class Controller implements Initializable {
 		return;
 	}
 	
+	public void addUnitsButton() {
+		//if (turn.isOwned(decision.getValue())) {
+			selected.setNumUnits("add", numUnitsAvailable);
+			numUnitsAvailable = 0;
+		//}
+		updateText();
+	}
+	
+	public void attackButton() {
+		System.out.println("you clicked attack");
+		//if (turn.isOwned(decision.getValue())) {
+			
+		///}
+		updateText();
+	}
+	
+	private void updateDecision() {
+		for (int i = 0; i < decision.getItems().size(); i++) {
+			decision.getItems().remove(i);
+		}
+		decision.getItems().add(selected.getName());
+		for (int i = 0; i < selected.getNeighbors().length; i++) {
+			decision.getItems().add(selected.getNeighbors()[i].getName());
+		}
+		decision.setValue(selected.getName());
+		updateText();
+	}
+	
 	private void updateText() {
 		//updating currentPlayer
 		currentPlayerLabel.setText(turn.getName());
 		//updating currentCountry
 		if (selected != null) {
 			currentCountryLabel.setText(selected.getName());
-			
 		}
+		//updating numUnitsLeft
+		numUnitsAvailableLabel.setText(Integer.toString(numUnitsAvailable));
 		//updating country's numUnit display
 		alaskaLabel.setText(Integer.toString(Alaska.getNumUnits()));
 		northWestTerritoryLabel.setText(Integer.toString(NorthwestTerritory.getNumUnits()));

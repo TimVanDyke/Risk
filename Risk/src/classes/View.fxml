@@ -32,21 +32,27 @@
    <left>
       <AnchorPane prefHeight="625.0" prefWidth="186.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="45.0" layoutY="227.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Attack" />
-            <Button layoutX="46.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Add Units" />
+            <Button layoutX="45.0" layoutY="227.0" mnemonicParsing="false" onAction="#attackButton" prefHeight="25.0" prefWidth="90.0" text="Attack" />
+            <Button layoutX="45.0" layoutY="320.0" mnemonicParsing="false" onAction="#addUnitsButton" prefHeight="25.0" prefWidth="90.0" text="Add Units" />
             <Text layoutX="33.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Player:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="33.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentPlayerValue" />
+            <Text fx:id="currentPlayerLabel" layoutX="33.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CurrentPlayerValue" />
             <Text layoutX="33.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Countries" />
             <Text layoutX="33.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Country:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Text>
-            <Text layoutX="33.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SelectedCountryValue" />
-            <ChoiceBox layoutX="31.0" layoutY="169.0" prefHeight="25.0" prefWidth="124.0" />
+            <Text fx:id="currentCountryLabel" layoutX="33.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <ChoiceBox fx:id="decision" layoutX="31.0" layoutY="169.0" prefHeight="25.0" prefWidth="124.0" />
+            <Text layoutX="18.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of Units Available:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="numUnitsAvailableLabel" layoutX="45.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NumUnitsAvailable" />
          </children>
       </AnchorPane>
    </left>
